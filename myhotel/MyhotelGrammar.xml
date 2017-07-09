@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xml:lang="en-US" version="1.0" 
+	xmlns="http://www.w3.org/2001/06/grammar" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.w3.org/2001/06/grammar http://www.iristk.net/xml/srgs.xsd" tag-format="semantics/1.0">
+
+  <rule id="attraction" scope="public">
+  	<one-of>
+		<item>attraction_</item>
+		<item>tourist attraction_</item>
+		<item>place_</item>
+		<item>view_</item>  	
+  	</one-of>
+  	<tag>out.attractions=1</tag>
+  </rule>
+  
+  <rule id="natural" scope="public">
+  	<one-of>
+  		<item>natural</item>
+  	</one-of>
+  	<tag>out.natural=1</tag>
+  </rule>
+  
+  <rule id="historical" scope="public">
+  	<one-of>
+  		<item>historical</item>
+  	</one-of>
+  	<tag>out.historical=1</tag>
+  </rule>
+  
+  <rule id="popular" scope="public">
+  	<one-of>
+  		<item>popular</item>
+  	</one-of>
+  		<tag>out.popular=1</tag>
+  </rule>
+  
+  <rule id="attrname" scope="public">
+  	<one-of>
+  		<item>Glasgow Botanic Gardens<tag>out.attra="Glasgow Botanic Gardens"</tag></item>
+  		<item>Pollok Country Park<tag>out.attra="Pollok Country Park"</tag></item>
+  		<item>Kelvingrove Park<tag>out.attra="Kelvingrove Park"</tag></item>
+  		<item>Kelvingrove Art Gallery and Museum<tag>out.attra="Kelvingrove Art Gallery and Museum"</tag></item>
+  		<item>Riverside<tag>out.attra="Riverside Museum"</tag></item>
+  		<item>Riverside Museum<tag>out.attra="Riverside Museum"</tag></item>
+  		<item>Glasgow Cathedral<tag>out.attra="Glasgow Cathedral"</tag></item>
+  	</one-of>
+  </rule>
+  
+  <rule id="transportation" scope="public">
+  	<one-of>
+  		<item>transportation</item>
+  		<item>bus</item>
+  		<item>subway</item>
+  	</one-of>
+  	<tag>out.transportation=1</tag>
+  </rule>
+  
+  
+  
+  <rule id="room" scope="public">
+  	<one-of>
+  		<item>room_</item>
+  		<item>live</item>
+  	</one-of>
+  	<tag>out.rooms=1</tag>
+  </rule>
+  
+  <rule id="num" scope="public">
+	  <one-of>
+	  	<item>O<tag>out.number=0</tag></item>
+	  	<item>zero<tag>out.number=0</tag></item>
+        <item>one * *<tag>out.number=1</tag></item>
+        <item>two * *<tag>out.number=2</tag></item>
+        <item>three_<tag>out.number=3</tag></item>
+        <item>four_<tag>out.number=4</tag></item>
+        <item>five_<tag>out.number=5</tag></item>
+        <item>six__<tag>out.number=6</tag></item>
+        <item>seven_<tag>out.number=7</tag></item>
+        <item>eight_<tag>out.number=8</tag></item>
+        <item>nine _ _<tag>out.number=9</tag></item>
+      </one-of>
+  </rule>
+  
+  <rule id="otherroom" scope="public">
+  	<one-of>
+  		<item>restaurant_</item>
+  		<item>kitchen</item>
+  		<item>dining hall</item>
+  		<item>eat</item> 
+  		<item>gym</item> 
+  		<item>sport_</item>		
+  	</one-of>
+  		<tag>out.otherroom=1</tag> 
+  </rule>
+  
+  <rule id="yes" scope="public">
+  	<one-of>
+  		<item>yeah</item>
+  		<item>yes</item>
+  		<item>okay</item>
+  		<item>OK</item>
+  		<item>of course</item>
+  	</one-of>
+  	<tag>out.yes=1</tag>
+  </rule>
+  
+  <rule id="no" scope="public">
+  	<one-of>
+  		<item>no</item>
+  		<item>nope</item>
+  		<item>not</item>
+  		<item>nothing</item>
+  	</one-of>
+  	<tag>out.no=1</tag>
+  </rule>
+  
+</grammar>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flow name="MyhotelFlow" package="iristk.app.myhotel" 
+	initial="Idle" xmlns:this="iristk.app.myhotel.MyhotelFlow" xmlns="iristk.flow" 
+	xmlns:p="iristk.flow.param" xmlns:agent="iristk.situated.SystemAgentFlow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="iristk.flow flow.xsd iristk.situated.SystemAgentFlow SystemAgentFlow.xsd">
+	
+	<param name="agent" type="iristk.situated.SystemAgentFlow"/>
+	
+	<param name="info" type="Information"/>
+	
+	<var name="system" type="iristk.situated.SystemAgent" value="agent.getSystemAgent()"/> 
+	 
+	<var name="number" type="Integer"/>
+	
+	
+	
+	<state id="Idle" extends="Dialog">
+		<onentry>
+			<if cond="system.hasUsers()">
+				<agent:attendRandom/>
+				<goto state="Greeting"/>
+			<else/>
+				<agent:attendNobody/>
+			</if>
+		</onentry>
+		<onevent name="sense.user.enter">
+			<agent:attend target="event:user"/>
+			<goto state="Greeting"/>
+		</onevent>
+	</state>
+	
+	<state id="Greeting" extends="Dialog">
+		<onentry>
+			<agent:say>Hi there</agent:say>
+			<goto state="Start"/>
+		</onentry>
+	</state>
+	
+	<state id="Start" extends="Dialog">
+		<onentry>
+			<agent:say>What can I do for you?</agent:say>
+			<!--  <agent:say>At present, I can help you with:
+						tourist attractions recommendation,
+						transportation to tourist attractions, and
+						room location query
+			</agent:say>  -->
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak**" cond="event?:sem:attractions">
+			<!-- <exec>questions.adjoin(asRecord(event:sem:questions))</exec> -->
+			<if cond="event?:sem:natural">
+				<goto state = "Nature"/>
+			<elseif cond="event?:sem:historical"/>
+				<goto state = "History"/>
+			<elseif cond="event?:sem:popular"/>
+				<goto state = "Popular"/>
+			<else/>
+				<goto state = "QueryAttr"/>
+			</if>
+		</onevent>
+		
+		<onevent name="sense.user.speak**" cond="event?:sem:transportation">
+			<if cond="event?:sem:attra">
+				<agent:say>The trans detail part</agent:say>
+				<agent:say text="info.transdetail(info.readtrans(),event:sem:attra)"/>
+				<goto state = "CheckAgain"/>
+			<else/>
+				<agent:say>The trans second part</agent:say>
+				<goto state = "QueryTrans"/>
+			</if>			
+		</onevent>
+		
+		<onevent name="sense.user.speak**" cond="event?:sem:rooms">
+			<!-- <exec>questions.adjoin(asRecord(event:sem:questions))</exec> -->
+			<goto state = "QueryRoom"/>
+		</onevent>
+			
+		<onevent name="sense.user.speak**" cond="event?:sem:no">
+			<agent:say>Okay</agent:say>
+			<goto state="Goodbye"/>
+		</onevent>
+
+	</state>
+	
+	<state id="Goodbye">
+		<onentry>
+			<agent:say>Goodbye.</agent:say>
+			<agent:say>Please leave the detection area</agent:say>
+			<wait msec="2000"/>
+			<goto state="Idle"/>
+		</onentry>
+	</state>
+	
+
+     
+     <state id="QueryAttr" extends="Dialog">
+     	<onentry>
+     		<agent:prompt>
+     			What kind of tourist attractions do you want to visit? Natural, historical or popular?
+     		</agent:prompt>
+     		<agent:listen/>
+     	</onentry>
+     	<onevent name="sense.user.speak**" cond="event?:sem:natural">
+     		<goto state = "Nature"/>
+     	</onevent>
+     	<onevent name="sense.user.speak**" cond="event?:sem:historical">
+     		<goto state = "History"/>
+     	</onevent>
+     	<onevent name="sense.user.speak" cond="event?:sem:popular">
+     		<goto state = "Popular"/>
+     	</onevent>
+     	<onevent name="sense.user.speak" cond="event?:sem:no">
+     		<goto state = "CheckAgain"/>
+     	</onevent>
+     </state>
+     
+     <state id="Nature">
+     	<onentry>
+     		<agent:say text="info.recommend(info.readattr(),'Natural')"/>
+     		<goto state="Attrdetial"/>
+     	</onentry>
+     </state>
+     
+     <state id="History">
+     	<onentry>
+     		<agent:say text="info.recommend(info.readattr(),'Historical')"/>
+     		<goto state="Attrdetial"/>
+     	</onentry>
+     </state>
+     
+     <state id="Popular">
+     	<onentry>
+     		<agent:say text="info.popular(info.readattr())"/>
+     		<goto state="Attrdetial"/>
+     	</onentry>
+     </state>
+     
+     <state id="Attrdetial" extends="Dialog">
+     	<onentry>
+     		<agent:say>If you want more details for attractions,please say the name.</agent:say>
+     		<agent:listen/>
+     	</onentry>
+     	<onevent name="sense.user.speak**" cond="event?:sem:attra">
+     		<agent:say text="info.detail(info.readattr(),event:sem:attra)"/>
+     		<goto state="CheckAgain"/>
+     	</onevent>
+     	<onevent name="sense.user.speak" cond="event?:sem:no">
+     		<goto state = "CheckAgain"/>
+     	</onevent>
+     </state>
+     
+    <state id="QueryTrans" extends="Dialog">
+		<onentry>
+			<agent:say>Where do you want to go?</agent:say>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:attra">
+			<agent:say text="info.transdetail(info.readtrans(),event:sem:attra)"/>
+			<goto state="CheckAgain"/>
+		</onevent>
+	</state>
+     
+     <state id="QueryRoom" extends="Dialog">
+     	<onentry>
+     		<agent:say>Which room do you want to find?</agent:say>
+     		<agent:listen/>
+     	</onentry>
+     	<onevent name="sense.user.speak**" cond="event?:sem:otherroom">
+     		<agent:say>It is on the first floor</agent:say>
+     		<goto state="CheckAgain"/>
+     	</onevent>
+     	<onevent name="sense.user.speak**">
+     		<exec>String ss = event.get("text").toString()</exec>
+     		<agent:say text="info.findroom(ss)"/>
+     		<goto state="CheckAgain"/>
+     	</onevent>
+     </state>
+	
+
+
+
+	
+	<state id="CheckAgain" extends="Dialog">
+		<onentry>
+			<agent:say>Do you need other help?</agent:say>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:yes">
+			<agent:say>Okay</agent:say>
+			<goto state="Start"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<agent:say>Okay</agent:say>
+			<goto state="Goodbye"/>
+		</onevent>		
+	</state>
+	
+	<state id="Dialog">
+		<onevent name="sense.user.speech.start" cond="system.isAttending(event) and eq(event:speakers, 1)">
+			<agent:gesture name="'smile'"/>
+		</onevent>
+		<onevent name="sense.user.speak">
+			<agent:say>Sorry, I didn't get that.</agent:say>
+			<reentry/>
+		</onevent>
+		<onevent name="sense.user.speak.side">
+			<agent:attendOther mode="'eyes'" />
+			<agent:say>I didn't ask you.</agent:say>
+			<agent:attendOther mode="'eyes'" />
+			<reentry/>
+		</onevent>
+		<onevent name="sense.user.speak.multi">
+			<agent:say>Don't speak at the same time.</agent:say>
+			<reentry/>
+		</onevent>
+		<onevent name="sense.user.silence">
+			<agent:say>Sorry, I didn't hear anything.</agent:say>
+			<reentry/>
+		</onevent>
+		<onevent name="sense.user.leave" cond="system.isAttending(event)">
+			<agent:say>Goodbye</agent:say>
+			<if cond="system.hasUsers()">
+				<agent:attendRandom/>
+				<goto state="Start" />
+			<else />
+				<goto state="Idle"/>
+			</if>
+		</onevent>
+		<onevent name="repeat">
+			<reentry/>
+		</onevent>
+	</state>
+	
+</flow>
