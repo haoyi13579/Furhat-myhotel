@@ -7,6 +7,7 @@
 	<param name="agent" type="iristk.situated.SystemAgentFlow"/>
 	
 	<param name="info" type="Information"/>
+	<param name="weather" type="Weather"/>
 	
 	<var name="system" type="iristk.situated.SystemAgent" value="agent.getSystemAgent()"/> 
 	 
@@ -74,6 +75,14 @@
 			<!-- <exec>questions.adjoin(asRecord(event:sem:questions))</exec> -->
 			<goto state = "QueryRoom"/>
 		</onevent>
+		
+		<onevent name="sense.user.speak" cond="event?:sem:weather">
+			<goto state = "QueryWeather"/>		
+		</onevent>
+		
+		<onevent name="sense.user.speak" cond="event?:sem:call">
+			<goto state = "MorningCall"/>
+		</onevent>
 			
 		<onevent name="sense.user.speak**" cond="event?:sem:no">
 			<agent:say>Okay</agent:say>
@@ -81,6 +90,7 @@
 		</onevent>
 
 	</state>
+
 	
 	<state id="Goodbye">
 		<onentry>
@@ -140,14 +150,16 @@
      		<agent:say>If you want more details for attractions,please say the name.</agent:say>
      		<agent:listen/>
      	</onentry>
-     	<onevent name="sense.user.speak**" cond="event?:sem:attra">
-     		<agent:say text="info.detail(info.readattr(),event:sem:attra)"/>
+     	<onevent name="sense.user.speak**" cond="event?:sem:attrname">
+     		<exec>String s = event.get("text").toString()</exec>
+       		<agent:say text="info.detail(info.readattr(),event:sem:attrname)"/>
      		<goto state="CheckAgain"/>
      	</onevent>
      	<onevent name="sense.user.speak" cond="event?:sem:no">
      		<goto state = "CheckAgain"/>
      	</onevent>
      </state>
+     
      
     <state id="QueryTrans" extends="Dialog">
 		<onentry>
@@ -159,6 +171,7 @@
 			<goto state="CheckAgain"/>
 		</onevent>
 	</state>
+     
      
      <state id="QueryRoom" extends="Dialog">
      	<onentry>
@@ -176,6 +189,19 @@
      	</onevent>
      </state>
 	
+	
+	<state id="QueryWeather">
+		<onentry>
+			<agent:say text="weather.getweather()"/>
+			<goto state="CheckAgain"/>
+		</onentry>		
+	</state>
+	
+	<state id="MorningCall">
+		<onentry>
+			<agent:say>s</agent:say>
+		</onentry>
+	</state>
 
 
 

@@ -11,7 +11,7 @@ public class Information {
 	
 	public ArrayList<String> readattr() {
 		
-		File file = new File("E:/IrisTK/app/myhotel/attractions.txt");
+		File file = new File("E:/furhatsdk/app/Myhotel/attractions.txt");
 		ArrayList<String> info = new ArrayList<String>();
 		int i=0;
 		
@@ -97,7 +97,7 @@ public class Information {
 	
 	public ArrayList<String> readtrans() {
 		
-		File file = new File("E:/IrisTK/app/myhotel/transportation.txt");
+		File file = new File("transportation.txt");
 		ArrayList<String> info = new ArrayList<String>();
 		
 		try{
