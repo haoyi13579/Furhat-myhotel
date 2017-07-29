@@ -231,7 +231,7 @@
 	
 	<state id="MorningCall" extends="Dialog">
 		<onentry>
-			<exec>call.remove("date");call.remove("hour");call.remove("minute");call.remove("apm")</exec>
+			<exec>call.remove("date");call.remove("hour");call.remove("minute");call.remove("apm");call.remove("room")</exec>
 			<agent:say>When do you want to awake?</agent:say>
 			<agent:listen/>
 		</onentry>
@@ -415,6 +415,7 @@
 				<reentry/>
 			<else/>
 				<agent:say text="info.callroom(sss)"/>
+				<exec>call:room = info.getcallroomnum(sss)</exec>
 				<goto state="roomconfirm"/>
 			</if>					
 		</onevent>		
@@ -425,11 +426,14 @@
 			<agent:listen/>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<exec>call.remove("room");</exec>
 			<goto state="callroom"/>
 		</onevent>
 		<onevent name="sense.user.speak" cond="event?:sem:yes">
 			<exec>String datestring=(call:date).toString(); String hourstring=(call:hour).toString();
-				String minutestring=(call:minute).toString(); String apmstring=(call:apm).toString()</exec>
+				String minutestring=(call:minute).toString(); String apmstring=(call:apm).toString();
+				String roomstring=(call:room).toString()</exec>
+			<exec>info.addcsv(datestring, hourstring, minutestring, apmstring, roomstring)</exec>
 			<goto state="CheckAgain"/>
 		</onevent>
 	</state>

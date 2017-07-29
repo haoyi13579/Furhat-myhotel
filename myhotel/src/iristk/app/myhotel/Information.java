@@ -1,7 +1,10 @@
 package iristk.app.myhotel;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDate;
@@ -334,11 +337,26 @@ public class Information {
 		
 	}
 	
+	public String getcallroomnum(String text) {
+		ArrayList<String> list = new ArrayList<String>();
+		String num = "";
+		
+		for(int i=0;i<text.length();i++) {
+			if(text.charAt(i)>=48 && text.charAt(i)<=57) {
+
+				num=num+text.charAt(i);
+			}			
+		}
+		
+		return num;
+	}
 	
-	public void addcsv(String date, String hour, String minute, String apm) {
+	
+	public void addcsv(String date, String hour, String minute, String apm, String room) throws IOException {
 		
 		int hourint = Integer.valueOf(hour);
 		int minint = Integer.valueOf(minute);
+		String time="";
 		String datestring;
 		String minstring;
 		if(apm.equals("p.m.")) {
@@ -356,10 +374,23 @@ public class Information {
 			calldate = localdate.plusDays(1);
 		}
 		
-		if(minint==0) {
-			
+		if(minint<10) {
+			minstring = "0"+minint;
+		}else {
+			minstring = ""+minint;
 		}
 		
+		datestring = calldate.toString();
+		time = hour+":"+minstring;
+		
+		
+		String file = "E:/furhat_skills/morningcall.csv";
+
+		BufferedWriter output=new BufferedWriter(new FileWriter(file,true));
+		output.write(datestring+","+time+","+ room);
+		output.newLine();
+		output.flush(); // if do not use flush, the output file can not be written completely
+		output.close();
 	}
 
 	
