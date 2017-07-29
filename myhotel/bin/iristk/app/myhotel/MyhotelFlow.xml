@@ -210,8 +210,13 @@
      	</onevent>
      	<onevent name="sense.user.speak**">
      		<exec>String ss = event.get("text").toString()</exec>
-     		<agent:say text="info.findroom(ss)"/>
-     		<goto state="CheckAgain"/>
+     		<if cond="eq('Sorry',info.findroom(ss))">
+     			<agent:say>Sorry, I didn't get that.</agent:say>
+     			<reentry/>
+     		<else/>
+     		    <agent:say text="info.findroom(ss)"/>
+     			<goto state="CheckAgain"/>
+     		</if>
      	</onevent>
      </state>
 	
@@ -390,8 +395,7 @@
 		<agent:listen/>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:yes">
-			<exec>call.remove("date");call.remove("hour");call.remove("minute");call.remove("apm")</exec>
-			<goto state="CheckAgain"/>
+			<goto state="callroom"/>
 		</onevent>
 		<onevent name="sense.user.speak" cond="event?:sem:no">
 			<exec>call.remove("date");call.remove("hour");call.remove("minute");call.remove("apm")</exec>
@@ -399,6 +403,36 @@
 		</onevent>
 	</state>
 	
+	<state id="callroom" extends="Dialog">
+		<onentry>
+			<agent:say>Which room do you live in?</agent:say>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak">
+			<exec>String sss = event.get("text").toString()</exec>
+			<if cond="eq('Sorry',info.callroom(sss))">
+				<agent:say>Sorry, I didn't get that.</agent:say>
+				<reentry/>
+			<else/>
+				<agent:say text="info.callroom(sss)"/>
+				<goto state="roomconfirm"/>
+			</if>					
+		</onevent>		
+	</state>
+	
+	<state id="roomconfirm" extends="Dialog">
+		<onentry>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<goto state="callroom"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:yes">
+			<exec>String datestring=(call:date).toString(); String hourstring=(call:hour).toString();
+				String minutestring=(call:minute).toString(); String apmstring=(call:apm).toString()</exec>
+			<goto state="CheckAgain"/>
+		</onevent>
+	</state>
 	
 	
 	

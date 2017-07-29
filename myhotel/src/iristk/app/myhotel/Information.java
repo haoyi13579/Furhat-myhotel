@@ -226,7 +226,7 @@ public class Information {
 		}
 		
 		if(num == ""){
-			s="Sorry, I didn't get that";
+			s="Sorry";
 		}else{
 			room = Integer.parseInt(num);
 			if(room>=199 && room<300) {
@@ -261,7 +261,7 @@ public class Information {
 		}
 		
 		if(num == ""){
-			s="抱歉，我没有理解您说的话。";
+			s="Sorry";
 		}else{
 			room = Integer.parseInt(num);
 			if(room>=199 && room<300) {
@@ -282,6 +282,7 @@ public class Information {
 	}
 	
 	public String timeconfirm(String date, String hour, String minute, String apm) {
+		
 		int hourint = Integer.valueOf(hour);
 		int minint = Integer.valueOf(minute);
 		String s;
@@ -300,11 +301,66 @@ public class Information {
 			}			
 
 		}
-		
-				
+						
 		return s;
 	}
 	
+	public String callroom(String text) {
+		
+		ArrayList<String> list = new ArrayList<String>();
+		String num = "";
+		String s;
+		int room;
+		String roomstring="";
+		
+		for(int i=0;i<text.length();i++) {
+			if(text.charAt(i)>=48 && text.charAt(i)<=57) {
+
+				num=num+text.charAt(i);
+			}			
+		}
+		
+		for(int j=0;j<num.length();j++) {
+			roomstring += num.charAt(j)+" ";
+		}
+		
+		if(num == ""){
+			s="Sorry";
+		}else{
+			s = "Your room is "+roomstring+", is it correct?";
+		}
+		
+		return s;
+		
+	}
+	
+	
+	public void addcsv(String date, String hour, String minute, String apm) {
+		
+		int hourint = Integer.valueOf(hour);
+		int minint = Integer.valueOf(minute);
+		String datestring;
+		String minstring;
+		if(apm.equals("p.m.")) {
+			hourint = hourint+12;
+		}
+		LocalDate localdate = LocalDate.now();
+		LocalDate calldate;
+		if(date.equals("today")) {
+			if(apm.equals("p.m.") && hourint==12) {
+				calldate = localdate.plusDays(1);
+			}else {
+				calldate = localdate;
+			}
+		}else {
+			calldate = localdate.plusDays(1);
+		}
+		
+		if(minint==0) {
+			
+		}
+		
+	}
 
 	
 
