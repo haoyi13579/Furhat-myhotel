@@ -2,6 +2,8 @@ package iristk.app.myhotel;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import org.slf4j.Logger;
 
@@ -37,6 +39,7 @@ public class MyhotelSkill extends Skill  {
 	private String name = "MyhotelSkill";
 	private Language language = Language.ENGLISH_US;
 	private String recognizer = "grammar";
+	private List<String> phrases = Arrays.asList("中文","普通话"); 
 	
 	public MyhotelSkill() {
 		
@@ -82,11 +85,12 @@ public class MyhotelSkill extends Skill  {
 			handler.setDefaultContext("default");
 		} else if (recognizer.equals(RECOGNIZER_OPEN)) {
 			
-			SRGSGrammar myhotel = new SRGSGrammar(getPackageFile("MyhotelGrammar.xml"));
-//			myhotel.addRules(new ListGrammar(getPackageFile("attr_name.txt"), language, "ATTR"));
 			handler.loadContext("default", new OpenVocabularyContext(language));
-//			handler.loadContext("default", new SemanticGrammarContext(myhotel));		
 			handler.loadContext("default", new SemanticGrammarContext(new SRGSGrammar(getPackageFile("MyhotelGrammar.xml"))));
+// Add the Chinese Contexxt			
+			handler.loadContext("Chinese", new OpenVocabularyContext(language, phrases));
+			handler.loadContext("Chinese", new SemanticGrammarContext(new SRGSGrammar(getPackageFile("MyhotelGrammar_CN.xml"))));
+			
 			handler.setDefaultContext("default");
 		} 
 		Information information = new Information();
