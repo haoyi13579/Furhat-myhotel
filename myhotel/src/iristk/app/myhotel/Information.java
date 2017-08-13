@@ -17,7 +17,6 @@ public class Information {
 		
 		File file = new File("E:/furhatsdk/app/Myhotel/attractions.txt");
 		ArrayList<String> info = new ArrayList<String>();
-		int i=0;
 		
 		try{
 			scan = new Scanner(file);
@@ -131,7 +130,7 @@ public class Information {
 			}
 		}
 		else {
-			s="The top 5 tourist attractions are"+" "+info.get(1)+", "+info.get(4)+", "+info.get(7)+", "+info.get(10)+" and "+info.get(13);
+			s="The top 5 tourist attractions are"+" "+info.get(1)+", "+info.get(6)+", "+info.get(11)+", "+info.get(16)+" and "+info.get(21);
 		}
 		
 		return s;
@@ -158,7 +157,7 @@ public class Information {
 			}
 		}
 		else {
-			s="最热门的5个景点是"+" "+info.get(1)+", "+info.get(4)+", "+info.get(7)+", "+info.get(10)+" 和 "+info.get(13);
+			s="最热门的5个景点是"+" "+info.get(2)+", "+info.get(7)+", "+info.get(12)+", "+info.get(17)+" 和 "+info.get(22);
 		}
 		
 		return s;
@@ -166,7 +165,7 @@ public class Information {
 	
 	public ArrayList<String> readtrans() {
 		
-		File file = new File("transportation.txt");
+		File file = new File("E:/furhatsdk/app/Myhotel/trans.txt");
 		ArrayList<String> info = new ArrayList<String>();
 		
 		try{
@@ -183,6 +182,8 @@ public class Information {
 		return info;
 	
 	}
+	
+	
 	
 	public String transdetail(ArrayList<String> info, Object name) {
 		
@@ -308,6 +309,38 @@ public class Information {
 		return s;
 	}
 	
+	public String timeconfirm_CN(String date, String hour, String minute, String apm) {
+		
+		int hourint = Integer.valueOf(hour);
+		int minint = Integer.valueOf(minute);
+		String s;
+		String datestring;
+		
+		if(date.equals("tomorrow")) {
+			datestring="明天";
+		}else {
+			datestring="今天";
+		}
+		
+		if(apm.equals("p.m.")) {
+			hourint = hourint+12;
+			if(minint ==0) {
+				s="您希望的叫醒时间是 "+datestring+ " "+hourint+"点整对吗？";
+			}else {
+				s= "您希望的叫醒时间是 "+datestring+" "+hourint+"点"+minint+"分对吗？";
+			}
+		}else {
+			if(minint == 0) {
+				s="您希望的叫醒时间是"+datestring+ "上午 "+hourint+"点整对吗？";
+			}else{
+				s= "您希望的叫醒时间是"+datestring+"上午 "+hourint+"点"+minint+"分对吗？";
+			}			
+
+		}
+						
+		return s;
+	}
+	
 	public String callroom(String text) {
 		
 		ArrayList<String> list = new ArrayList<String>();
@@ -330,7 +363,36 @@ public class Information {
 		if(num == ""){
 			s="Sorry";
 		}else{
-			s = "Your room is "+roomstring+", is it correct?";
+			s = "Your room number is ："+roomstring+", is it correct?";
+		}
+		
+		return s;
+		
+	}
+	
+	public String callroom_CN(String text) {
+		
+		ArrayList<String> list = new ArrayList<String>();
+		String num = "";
+		String s;
+		int room;
+		String roomstring="";
+		
+		for(int i=0;i<text.length();i++) {
+			if(text.charAt(i)>=48 && text.charAt(i)<=57) {
+
+				num=num+text.charAt(i);
+			}			
+		}
+		
+		for(int j=0;j<num.length();j++) {
+			roomstring += num.charAt(j)+" ";
+		}
+		
+		if(num == ""){
+			s="Sorry";
+		}else{
+			s = "您的房间号是："+roomstring+"对吗？";
 		}
 		
 		return s;

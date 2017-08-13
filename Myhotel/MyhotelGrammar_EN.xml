@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<grammar xml:lang="zh-CN" version="1.0" 
+<grammar xml:lang="en-US" version="1.0" 
 	xmlns="http://www.w3.org/2001/06/grammar" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.w3.org/2001/06/grammar http://www.iristk.net/xml/srgs.xsd" tag-format="semantics/1.0">
-
+	
   <rule id="languagesetting" scope="public">
   	<one-of>
   		<item>
@@ -23,45 +23,36 @@
   			<tag>out.chinese=1</tag>
   		</item>	
   	</one-of>
-  </rule>
+    </rule>
+
 
   <rule id="attraction" scope="public">
   	<one-of>
-		<item>景点</item>
-		<item>旅游景点</item>
-		<item>好玩</item>
-		<item>观光</item>  	
+		<item>attraction_</item>
+		<item>tourist attraction_</item>
+		<item>place_</item>
+		<item>view_</item>  	
   	</one-of>
   	<tag>out.attractions=1</tag>
   </rule>
   
   <rule id="natural" scope="public">
   	<one-of>
-  		<item>自然</item>
-  		<item>自然景点</item>
-  		<item>自然类</item>
-  		<item>风景</item>
+  		<item>natural</item>
   	</one-of>
   	<tag>out.natural=1</tag>
   </rule>
   
   <rule id="historical" scope="public">
   	<one-of>
-  		<item>历史</item>
-  		<item>历史景点</item>
-  		<item>历史类</item>
-  		<item>文化</item>
-  		<item>人文</item>
+  		<item>historical</item>
   	</one-of>
   	<tag>out.historical=1</tag>
   </rule>
   
   <rule id="popular" scope="public">
   	<one-of>
-  		<item>热门景点</item>
-  		<item>热门</item>
-  		<item>受欢迎</item>
-  		<item>最好</item>
+  		<item>popular</item>
   	</one-of>
   	<tag>out.popular=1</tag>
   </rule>
@@ -70,50 +61,48 @@
   	<one-of>
 		<item>
 			<one-of>
-				<item>格拉斯哥植物园</item>
-				<item>植物园</item>
-				<item>植物</item>
+				<item>Glasgow Botanic Garden_</item>
+				<item>Garden_</item>
+				<item>Botanic Garden_</item>
 			</one-of>
 			<tag>out.attrname="Glasgow Botanic Gardens"</tag>
 		</item>
 		<item>
 			<one-of>
-				<item>格拉斯哥大教堂</item>
-				<item>教堂</item>
+				<item>Glasgow Cathedral</item>
+				<item>Country Park</item>
+				<item>Country</item>
 			</one-of>
 			<tag>out.attrname="Glasgow Cathedral"</tag>
 		</item>
 		<item>
 			<one-of>
-				<item>凯文葛罗夫公园</item>
-				<item>公园</item>
-				<item>凯文公园</item>
-				<item>葛罗夫公园</item>
+				<item>Kelvingrove Park</item>
+				<item>Park</item>
 			</one-of>
 			<tag>out.attrname="Kelvingrove Park"</tag>
 		</item>
 		<item>
 			<one-of>
-				<item>凯文葛罗夫艺术博物馆</item>
-				<item>艺术博物馆</item>
-				<item>艺术</item>
-				<item>葛罗夫博物馆</item>
-				<item>凯文夫博物馆</item>
+				<item>Kelvingrove Art Gallery and Museum</item>
+				<item>Art</item>
+				<item>Gallery</item>
+				<item>Art Gallery</item>
+				<item>Art Gallery and Museum</item>
 			</one-of>
 			<tag>out.attrname="Kelvingrove Art Gallery and Museum"</tag>
 		</item>
 		<item>
 			<one-of>
-				<item>河滨博物馆</item>
-				<item>河滨</item>
+				<item>Riverside Museum</item>
+				<item>Riverside</item>
 			</one-of>
 			<tag>out.attrname="Riverside Museum"</tag>
 		</item>
 		<item>
 			<one-of>
-				<item>格拉斯哥大教堂</item>
-				<item>大教堂</item>
-				<item>教堂</item>
+				<item>Glasgow Cathedral</item>
+				<item>Cathedral</item>
 			</one-of>
 			<tag>out.attrname="Glasgow Cathedral"</tag>
 		</item>
@@ -122,10 +111,9 @@
   
   <rule id="transportation" scope="public">
   	<one-of>
-  		<item>交通</item>
-  		<item>公交</item>
-  		<item>地铁</item>
-  		<item>出行方式</item>
+  		<item>transportation</item>
+  		<item>bus</item>
+  		<item>subway</item>
   	</one-of>
   	<tag>out.transportation=1</tag>
   </rule>
@@ -134,8 +122,8 @@
   
   <rule id="room" scope="public">
   	<one-of>
-  		<item>房间</item>
-  		<item>住</item>
+  		<item>room_</item>
+  		<item>live</item>
   	</one-of>
   	<tag>out.rooms=1</tag>
   </rule>
@@ -144,41 +132,30 @@
   
   <rule id="otherroom" scope="public">
   	<one-of>
-  		<item>餐厅</item>
-  		<item>食堂</item>
-  		<item>吃饭</item>
-  		<item>健身</item> 
-  		<item>锻炼</item> 
-  		<item>运动</item>
-  		<item>健身房</item>		
+  		<item>restaurant_</item>
+  		<item>kitchen</item>
+  		<item>dining hall</item>
+  		<item>eat</item> 
+  		<item>gym</item> 
+  		<item>sport_</item>		
   	</one-of>
   		<tag>out.otherroom=1</tag> 
   </rule>
   
   <rule id="weather" scope="public">
-  	<one-of>
-  		<item>天气</item>
-  		<item>温度</item>
-  		<item>天怎么样</item>
-  		<item>气温</item>
-  		<item>几度</item>
-  		<item>多少度</item>
-  	</one-of>
+  	<item>weather</item>
   	<tag>out.weather=1</tag>
   </rule>
   
-  
-  
-  
-    <rule id="morningcall" scope="public">
+  <rule id="morningcall" scope="public">
   	<one-of>
   		<item>
   			<one-of>
-  				<item>叫早</item>
-  				<item>定时</item>
-  				<item>叫早服务</item>
-  				<item>叫醒</item>
-  				<item>叫醒服务</item>
+  				<item>call</item>
+  				<item>morning</item>
+  				<item>morning call</item>
+  				<item>awake</item>
+  				<item>wake</item>
   			</one-of>
   			<tag>out.call=1</tag>
   		</item>
@@ -187,63 +164,63 @@
   
   <rule id="clock" scope="public">
   	<one-of>
-  		<item>整</item>
-  		<item>点整</item>
+  		<item>o'clock</item>
+  		<item>clock</item>
   	</one-of>
   	<tag>out.clock=1</tag>
   </rule>
   
   <rule id="half" scope="public">
   	<one-of>
-  		<item>半</item>
-  		<item>点半</item>
+  		<item>half</item>
   	</one-of>
   	<tag>out.half=1</tag>
   </rule>
   
   <rule id="number" scope="public">
   	<one-of>
-  		<item>零<tag>out.number=0</tag></item>
+  		<item>zero<tag>out.number=0</tag></item>
+  		<item>o<tag>out.number=0</tag></item>
   		<item>0<tag>out.number=0</tag></item>
-  		<item>一<tag>out.number=1</tag></item>
+  		<item>one<tag>out.number=1</tag></item>
   		<item>1<tag>out.number=1</tag></item>
-  		<item>二<tag>out.number=2</tag></item>
+  		<item>two<tag>out.number=2</tag></item>
   		<item>2<tag>out.number=2</tag></item>
-  		<item>三<tag>out.number=3</tag></item>
+  		<item>three<tag>out.number=3</tag></item>
   		<item>3<tag>out.number=3</tag></item>
-  		<item>四<tag>out.number=4</tag></item>
+  		<item>four<tag>out.number=4</tag></item>
   		<item>4<tag>out.number=4</tag></item>
-  		<item>五<tag>out.number=5</tag></item>
+  		<item>five<tag>out.number=5</tag></item>
   		<item>5<tag>out.number=5</tag></item>
-  		<item>六<tag>out.number=6</tag></item>
+  		<item>six<tag>out.number=6</tag></item>
   		<item>6<tag>out.number=6</tag></item>
-  		<item>七<tag>out.number=7</tag></item>
+  		<item>seven<tag>out.number=7</tag></item>
   		<item>7<tag>out.number=7</tag></item>
-  		<item>八<tag>out.number=8</tag></item>
-  		<item>8<tag>out.number=8</tag></item>
-  		<item>九<tag>out.number=9</tag></item>
+  		<item>eight<tag>out.number=8</tag></item>
+  		<item>8<tag>out.number=8</tag></item> 		
+  		<item>nine<tag>out.number=9</tag></item>
   		<item>9<tag>out.number=9</tag></item>
-  		<item>十<tag>out.number=10</tag></item>
+  		<item>ten<tag>out.number=10</tag></item>
   		<item>10<tag>out.number=10</tag></item>
-  		<item>十一<tag>out.number=11</tag></item>
+  		<item>eleven<tag>out.number=11</tag></item>
   		<item>11<tag>out.number=11</tag></item>
-  		<item>十二<tag>out.number=12</tag></item>
+  		<item>twelve<tag>out.number=12</tag></item>
   		<item>12<tag>out.number=12</tag></item>
-  		<item>十三<tag>out.number=13</tag></item>
+  		<item>thirteen<tag>out.number=13</tag></item>
   		<item>13<tag>out.number=13</tag></item>
-  		<item>十四<tag>out.number=14</tag></item>
+  		<item>fourteen<tag>out.number=14</tag></item>
   		<item>14<tag>out.number=14</tag></item>
-  		<item>十五<tag>out.number=15</tag></item>
+  		<item>fifteen<tag>out.number=15</tag></item>
   		<item>15<tag>out.number=15</tag></item>
-  		<item>十六<tag>out.number=16</tag></item>
+  		<item>sixteen<tag>out.number=16</tag></item>
   		<item>16<tag>out.number=16</tag></item>
-  		<item>十七<tag>out.number=17</tag></item>
+  		<item>seventeen<tag>out.number=17</tag></item>
   		<item>17<tag>out.number=17</tag></item>
-  		<item>十八<tag>out.number=18</tag></item>
+  		<item>eighteen<tag>out.number=18</tag></item>
   		<item>18<tag>out.number=18</tag></item> 		
-  		<item>十九<tag>out.number=19</tag></item>
+  		<item>nineteen<tag>out.number=19</tag></item>
   		<item>19<tag>out.number=19</tag></item>
-  		<item>二十<tag>out.number=20</tag></item>
+  		<item>twenty<tag>out.number=20</tag></item>
   		<item>20<tag>out.number=20</tag></item>
   		<item>21<tag>out.number=21</tag></item>
   		<item>22<tag>out.number=22</tag></item>
@@ -284,14 +261,13 @@
   		<item>57<tag>out.number=57</tag></item>
   		<item>58<tag>out.number=58</tag></item>
   		<item>59<tag>out.number=59</tag></item>
-  		
   	</one-of>
   </rule>
   
   <rule id="date" scope="public">
   	<one-of>
-  		<item>明天<tag>out.date= "tomorrow"</tag></item>
-  		<item>今天<tag>out.date= "today"</tag></item>
+  		<item>tomorrow<tag>out.date= "tomorrow"</tag></item>
+  		<item>today<tag>out.date= "today"</tag></item>
   	</one-of>
   </rule>
   
@@ -299,50 +275,63 @@
   	<one-of>
   		<item>
   			<one-of>
-  				<item>上午</item>
-  				<item>早上</item>
-  				<item>早</item>
+  				<item>morning</item>
+  				<item>am</item>
+  				<item>a.m.</item>
+  				<item>AM</item>
+  				<item>A.M.</item>
   			</one-of>
   			<tag>out.apm="a.m."</tag>
   		</item>
   		<item>
   			<one-of>
-  				<item>下午</item>
-  				<item>傍晚</item>
-  				<item>晚上</item>
-  				<item>中午</item>
+  				<item>afternoon</item>
+  				<item>evening</item>
+  				<item>pm</item>
+  				<item>p.m.</item>
+  				<item>PM</item>
+  				<item>P.M.</item>
   			</one-of>
   			<tag>out.apm="p.m."</tag>
   		</item>
   	</one-of>
   </rule>
-    
   
+  <rule id="othertime" scope="public">
+  	<one-of>
+  		<item>midnight<tag>out.midnight=1</tag></item>
+  		<item>noon<tag>out.noon=1</tag></item>
+  	</one-of>
+  </rule>
+  
+  <rule id="past_to" scope="public">
+  	<one-of>
+  		<item>past<tag>out.past="past"</tag></item>
+  		<item>to<tag>out.to="to"</tag></item>
+  	</one-of>
+  </rule>
+  
+  
+	
+	
   
   <rule id="yes" scope="public">
   	<one-of>
-  		<item>好</item>
-  		<item>需要</item>
-  		<item>恩</item>
-  		<item>可以</item>
-  		<item>是</item>
-  		<item>对</item>
-		<item>是啊</item>
-		<item>对的</item>
-		<item>没错</item>
+  		<item>yeah</item>
+  		<item>yes</item>
+  		<item>okay</item>
+  		<item>OK</item>
+  		<item>of course</item>
   	</one-of>
   	<tag>out.yes=1</tag>
   </rule>
   
   <rule id="no" scope="public">
   	<one-of>
-  		<item>不</item>
-  		<item>不用</item>
-  		<item>不需要</item>
-  		<item>没有</item>
-  		<item>不对</item>
-  		<item>错了</item>
-  		<item>错</item>
+  		<item>no</item>
+  		<item>nope</item>
+  		<item>not</item>
+  		<item>nothing</item>
   	</one-of>
   	<tag>out.no=1</tag>
   </rule>

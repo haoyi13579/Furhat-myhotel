@@ -87,6 +87,9 @@ public class MyhotelSkill extends Skill  {
 			
 			handler.loadContext("default", new OpenVocabularyContext(language));
 			handler.loadContext("default", new SemanticGrammarContext(new SRGSGrammar(getPackageFile("MyhotelGrammar.xml"))));
+			
+			handler.loadContext("English", new OpenVocabularyContext(language));
+			handler.loadContext("English", new SemanticGrammarContext(new SRGSGrammar(getPackageFile("MyhotelGrammar_EN.xml"))));
 // Add the Chinese Contexxt			
 			handler.loadContext("Chinese", new OpenVocabularyContext(language, phrases));
 			handler.loadContext("Chinese", new SemanticGrammarContext(new SRGSGrammar(getPackageFile("MyhotelGrammar_CN.xml"))));

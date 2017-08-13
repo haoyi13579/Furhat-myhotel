@@ -35,17 +35,8 @@
 	
 	<state id="Greeting" extends="Dialog">
 		<onentry>
-			<exec>lang = "en"</exec>
-			<send event="action.context.default" p:context="'default'" />
 			<send event="action.voice" p:name="'David'"/>
-			<goto state="Start"/>  
-		</onentry>
-	</state>
-	
-<!--	<state id="Greeting" extends="Dialog">
-		<onentry>
-			<agent:say>Hi there, Do you want me to speak English or Chinese?</agent:say>
-			<agent:listen/>
+			<agent:prompt>Hi there, Do you want me to speak English or Chinese?</agent:prompt>
 			<goto state="Start"/>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:chinese">
@@ -56,21 +47,20 @@
 		</onevent>
 		<onevent name="sense.user.speak" cond="event?:sem:english">
 			<exec>lang = "en"</exec>
-			<send event="action.context.default" p:context="'default'" />
+			<send event="action.context.default" p:context="'English'" />
 			 	<send event="action.voice" p:name="'David'"/>
 				<goto state="Start"/>  
 		</onevent>  
-	</state>	-->
+	</state>	
 		
 	<state id="Start" extends="Dialog">
 		<onentry>
-			<agent:say>What can I do for you?</agent:say>
+			<agent:prompt>What can I do for you?</agent:prompt>
 			<!--  <agent:say>At present, I can help you with:
 						tourist attractions recommendation,
 						transportation to tourist attractions, and
 						room location query
 			</agent:say>  -->
-			<agent:listen/>
 		</onentry>
 		<onevent name="sense.user.speak**" cond="event?:sem:attractions">
 			<!-- <exec>questions.adjoin(asRecord(event:sem:questions))</exec> -->
@@ -87,11 +77,9 @@
 		
 		<onevent name="sense.user.speak**" cond="event?:sem:transportation">
 			<if cond="event?:sem:attra">
-				<agent:say>The trans detail part</agent:say>
 				<agent:say text="info.transdetail(info.readtrans(),event:sem:attra)"/>
 				<goto state = "CheckAgain"/>
 			<else/>
-				<agent:say>The trans second part</agent:say>
 				<goto state = "QueryTrans"/>
 			</if>			
 		</onevent>
@@ -131,10 +119,9 @@
      
      <state id="QueryAttr" extends="Dialog">
      	<onentry>
-     		<agent:say>
+     		<agent:prompt>
      			What kind of tourist attractions do you want to visit? Natural, historical or popular?
-     		</agent:say>
-     		<agent:listen/>
+     		</agent:prompt>
      	</onentry>
      	<onevent name="sense.user.speak**" cond="event?:sem:natural">
      		<goto state = "Nature"/>
@@ -173,8 +160,7 @@
      
      <state id="Attrdetial" extends="Dialog">
      	<onentry>
-     		<agent:say>If you want more details for attractions,please say the name.</agent:say>
-     		<agent:listen/>
+     		<agent:prompt>If you want more details for attractions,please say the name.</agent:prompt>
      	</onentry>
      	<onevent name="sense.user.speak**" cond="event?:sem:attrname">
      		<exec>String s = event.get("text").toString()</exec>
@@ -189,11 +175,11 @@
      
     <state id="QueryTrans" extends="Dialog">
 		<onentry>
-			<agent:say>Where do you want to go?</agent:say>
-			<agent:listen/>
+			<agent:prompt>Where do you want to go?</agent:prompt>
 		</onentry>
-		<onevent name="sense.user.speak" cond="event?:sem:attra">
-			<agent:say text="info.transdetail(info.readtrans(),event:sem:attra)"/>
+		<onevent name="sense.user.speak**" cond="event?:sem:attrname">
+			<agent:say text="event:sem:attrname"/>
+			<agent:say text="info.transdetail(info.readtrans(),event:sem:attrname)"/>
 			<goto state="CheckAgain"/>
 		</onevent>
 	</state>
@@ -201,8 +187,7 @@
      
      <state id="QueryRoom" extends="Dialog">
      	<onentry>
-     		<agent:say>Which room do you want to find?</agent:say>
-     		<agent:listen/>
+     		<agent:prompt>Which room do you want to find?</agent:prompt>
      	</onentry>
      	<onevent name="sense.user.speak**" cond="event?:sem:otherroom">
      		<agent:say>It is on the first floor</agent:say>
@@ -232,8 +217,7 @@
 	<state id="MorningCall" extends="Dialog">
 		<onentry>
 			<exec>call.remove("date");call.remove("hour");call.remove("minute");call.remove("apm");call.remove("room")</exec>
-			<agent:say>When do you want to awake?</agent:say>
-			<agent:listen/>
+			<agent:prompt>When do you want to awake?</agent:prompt>
 		</onentry>
 		
 		<onevent name="sense.user.speak" cond="event?:sem:clock and event?:sem:number">
@@ -338,8 +322,7 @@
 	
 	<state id="askhour" extends="Dialog">
 		<onentry>
-			<agent:say>Please say the hour of the morning call.</agent:say>
-			<agent:listen/>
+			<agent:prompt>Please say the hour of the morning call.</agent:prompt>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:number">
 			<exec>String tempstring = (event:sem:number).toString(); int num=Integer.valueOf(tempstring)</exec>
@@ -356,8 +339,7 @@
 	
 	<state id="askminute" extends="Dialog">
 		<onentry>
-			<agent:say>Please say the minute of the morning call.</agent:say>
-			<agent:listen/>
+			<agent:prompt>Please say the minute of the morning call.</agent:prompt>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:number">
 			<exec>call:minute = event:sem:number</exec>
@@ -367,8 +349,7 @@
 	
 	<state id="askapm" extends="Dialog">
 		<onentry>
-			<agent:say>Is it a.m. or p.m.?</agent:say>
-			<agent:listen/>
+			<agent:prompt>Is it a.m. or p.m.?</agent:prompt>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:apm">
 			<exec>call:apm = event:sem:apm</exec>
@@ -378,8 +359,7 @@
 	
 	<state id="askdate" extends="Dialog">
 		<onentry>
-			<agent:say>Do we need to call you at today or tomorrow?</agent:say>
-			<agent:listen/>
+			<agent:prompt>Do we need to call you at today or tomorrow?</agent:prompt>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:date">
 			<exec>call:date = event:sem:date</exec>
@@ -391,8 +371,7 @@
 		<onentry>
 			<exec>String datestring=(call:date).toString(); String hourstring=(call:hour).toString();
 			String minutestring=(call:minute).toString(); String apmstring=(call:apm).toString()</exec>
-		<agent:say text="info.timeconfirm(datestring, hourstring, minutestring, apmstring)"/>	
-		<agent:listen/>
+		<agent:prompt text="info.timeconfirm(datestring, hourstring, minutestring, apmstring)"/>	
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:yes">
 			<goto state="callroom"/>
@@ -405,8 +384,7 @@
 	
 	<state id="callroom" extends="Dialog">
 		<onentry>
-			<agent:say>Which room do you live in?</agent:say>
-			<agent:listen/>
+			<agent:prompt>Which room do you live in?</agent:prompt>
 		</onentry>
 		<onevent name="sense.user.speak">
 			<exec>String sss = event.get("text").toString()</exec>
@@ -443,8 +421,7 @@
 	
 	<state id="CheckAgain" extends="Dialog">
 		<onentry>
-			<agent:say>Do you need other help?</agent:say>
-			<agent:listen/>
+			<agent:prompt>Do you need other help?</agent:prompt>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:yes">
 			<agent:say>Okay</agent:say>
@@ -480,12 +457,12 @@
 		</onevent>
 		<onevent name="sense.user.leave" cond="system.isAttending(event)">
 			<agent:say>Goodbye</agent:say>
-			<if cond="system.hasUsers()">
+<!--  			<if cond="system.hasUsers()">
 				<agent:attendRandom/>
 				<goto state="Start" />
-			<else />
+			<else />  -->
 				<goto state="Idle"/>
-			</if>
+<!-- 			</if>  -->
 		</onevent>
 		<onevent name="repeat">
 			<reentry/>
@@ -499,15 +476,14 @@
 <!-- **************************************************************************************** -->
 
 
-	<state id="Start_CN" extends="Dialog">
+	<state id="Start_CN" extends="Dialog_CN">
 		<onentry>
-			<agent:say>请问有什么可以帮到您的？</agent:say>
+			<agent:prompt>请问有什么可以帮到您的？</agent:prompt>
 			<!--  <agent:say>At present, I can help you with:
 						tourist attractions recommendation,
 						transportation to tourist attractions, and
 						room location query
 			</agent:say>  -->
-			<agent:listen/>
 		</onentry>
 		<onevent name="sense.user.speak**" cond="event?:sem:attractions">
 			<!-- <exec>questions.adjoin(asRecord(event:sem:questions))</exec> -->
@@ -562,12 +538,11 @@
 	
 
      
-     <state id="QueryAttr_CN" extends="Dialog">
+     <state id="QueryAttr_CN" extends="Dialog_CN">
      	<onentry>
-     		<agent:say>
-     			您想参观那种景点？自然景点，历史景点还是热门景点？
-     		</agent:say>
-     		<agent:listen/>
+     		<agent:prompt>
+     			您想参观哪种景点？自然景点，历史景点还是热门景点？
+     		</agent:prompt>
      	</onentry>
      	<onevent name="sense.user.speak**" cond="event?:sem:natural">
      		<goto state = "Nature_CN"/>
@@ -604,10 +579,9 @@
      	</onentry>
      </state>
      
-     <state id="Attrdetial_CN" extends="Dialog">
+     <state id="Attrdetial_CN" extends="Dialog_CN">
      	<onentry>
-     		<agent:say>如果您想了解某个景点的详情，请说出该景点的名字。</agent:say>
-     		<agent:listen/>
+     		<agent:prompt>如果您想了解某个景点的详情，请说出该景点的名字。</agent:prompt>
      	</onentry>
      	<onevent name="sense.user.speak**" cond="event?:sem:attrname">
      		<exec>String s = event.get("text").toString()</exec>
@@ -620,22 +594,20 @@
      </state>
      
      
-    <state id="QueryTrans_CN" extends="Dialog">
+    <state id="QueryTrans_CN" extends="Dialog_CN">
 		<onentry>
-			<agent:say>您打算去哪里？</agent:say>
-			<agent:listen/>
+			<agent:prompt>您打算去哪里？</agent:prompt>
 		</onentry>
-		<onevent name="sense.user.speak" cond="event?:sem:attra">
-			<agent:say text="info.transdetail_CN(info.readtrans(),event:sem:attra)"/>
+		<onevent name="sense.user.speak" cond="event?:sem:attrname">
+			<agent:say text="info.transdetail_CN(info.readtrans(),event:sem:attrname)"/>
 			<goto state="CheckAgain_CN"/>
 		</onevent>
 	</state>
      
      
-     <state id="QueryRoom_CN" extends="Dialog">
+     <state id="QueryRoom_CN" extends="Dialog_CN">
      	<onentry>
-     		<agent:say>您在找哪个房间？</agent:say>
-     		<agent:listen/>
+     		<agent:prompt>您在找哪个房间？</agent:prompt>
      	</onentry>
      	<onevent name="sense.user.speak**" cond="event?:sem:otherroom">
      		<agent:say>它在一楼。</agent:say>
@@ -643,8 +615,13 @@
      	</onevent>
      	<onevent name="sense.user.speak**">
      		<exec>String ss = event.get("text").toString()</exec>
-     		<agent:say text="info.findroom_CN(ss)"/>
-     		<goto state="CheckAgain_CN"/>
+     		<if cond="eq('Sorry',info.findroom_CN(ss))">
+     			<agent:say>抱歉，我没有理解您说的话。</agent:say>
+     			<reentry/>
+     		<else/>
+     			<agent:say text="info.findroom_CN(ss)"/>
+     			<goto state="CheckAgain_CN"/>
+     		</if>
      	</onevent>
      </state>
 	
@@ -656,19 +633,199 @@
 		</onentry>		
 	</state>
 	
-	<state id="MorningCall_CN">
+	<state id="MorningCall_CN" extends="Dialog_CN">
 		<onentry>
-			<agent:say>s</agent:say>
+			<exec>call.remove("date");call.remove("hour");call.remove("minute");call.remove("apm");call.remove("room")</exec>
+			<agent:prompt>您需要几点叫您？</agent:prompt>
 		</onentry>
+				
+		<onevent name="sense.user.speak" cond="event?:sem:clock or event?:sem:number">
+			<exec>call:minute=0</exec>
+			<exec>Object temp=event:sem:number; String temps=temp.toString(); int num=Integer.parseInt(temps)</exec>
+			<if cond=" num &gt; 24 ">
+				<agent:say>对不起这是无效的时间。</agent:say>
+			<elseif cond="num &gt; 12"/>
+				<exec>call:hour = event:sem:number;Object apm="pm";call:apm = apm</exec>
+				
+			<else/>
+				<exec>call:hour = event:sem:number</exec>
+				<if cond="event?:sem:apm">
+					<exec>call:apm = event:sem:apm</exec>
+				</if>			
+			</if>
+			<if cond="event?:sem:date">
+				<exec>call:date = event:sem:date</exec>
+			</if>
+			<goto state="checkcall_CN"/>
+		</onevent>	
+		
+		<onevent name="sense.user.speak" cond="event?:sem:half and event?:sem:number">
+			<exec>Object temp=event:sem:number; String temps=temp.toString(); int num=Integer.parseInt(temps)</exec>
+			<exec>call:minute=30</exec>
+			<if cond="event?:sem:past">
+				<if cond=" num &gt; 23 ">
+					<agent:say>对不起这是无效的时间。</agent:say>
+				<elseif cond="num &gt; 11"/>
+					<exec>call:hour = event:sem:number;call:apm = "pm"</exec>
+				<else/>
+					<exec>call:hour = event:sem:number</exec>
+					<if cond="event?:sem:apm">
+						<exec>call:amp = event:sem:apm</exec>
+					</if>			
+				</if>
+				<if cond="event?:sem:date">
+					<exec>call:date = event:sem:date</exec>
+				</if>
+				<goto state="checkcall_CN"/>
+			</if>
+			
+			<if cond="event?:sem:to">
+				<if cond=" num &gt; 24 ">
+					<agent:say>对不起这是无效的时间。</agent:say>
+				<elseif cond="num &gt; 12"/>
+					<exec>call:hour = event:sem:number;call:apm = "pm"</exec>
+				<else/>
+					<exec>call:hour = event:sem:number</exec>
+					<if cond="event?:sem:apm">
+						<exec>call:amp = event:sem:apm</exec>
+					</if>			
+				</if>
+				<if cond="event?:sem:date">
+					<exec>call:date = event:sem:date</exec>
+				</if>
+				<goto state="checkcall_CN"/>
+			</if>			
+		</onevent>
+		
+		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<goto state="CheckAgain_CN"/>
+		</onevent>
+		
+		<onevent name="sense.user.speak" cond="event?:sem:number">
+			<goto state="checkcall_CN"/>
+		</onevent>
+			
+	</state>
+	
+	<state id="checkcall_CN">
+		<onentry>
+			<if cond="!call?:hour">
+				<goto state="askhour_CN"/>
+			<elseif cond="!call?:minute"/>
+				<goto state="askminute_CN"/>
+			<elseif cond="!call?:apm"/>
+				<goto state="askapm_CN"/>
+			<elseif cond="!call?:date"/>
+				<goto state="askdate_CN"/>
+			<else/>
+				<goto state="calldone_CN"/>
+			</if>
+		</onentry>
+	</state>
+	
+	<state id="askhour_CN" extends="Dialog_CN">
+		<onentry>
+			<agent:prompt>请设置小时数。</agent:prompt>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:number">
+			<exec>String tempstring = (event:sem:number).toString(); int num=Integer.valueOf(tempstring)</exec>
+			<if cond=" num &gt; 24 ">
+				<agent:say>对不起这是无效的时间。</agent:say>
+			<elseif cond=" num &gt; 11 "/>	
+				<exec>call:hour = event:sem:number; call:apm = "pm"</exec>
+			<else/>
+				<exec>call:hour = event:sem:number</exec>
+			</if>
+			<goto state="checkcall_CN"/>
+		</onevent>
+	</state>
+	
+	<state id="askminute_CN" extends="Dialog_CN">
+		<onentry>
+			<agent:prompt>请设置分钟数。</agent:prompt>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:number">
+			<exec>call:minute = event:sem:number</exec>
+			<goto state="checkcall_CN"/>
+		</onevent>		
+	</state>
+	
+	<state id="askapm_CN" extends="Dialog_CN">
+		<onentry>
+			<agent:prompt>请问是上午还是下午?</agent:prompt>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:apm">
+			<exec>call:apm = event:sem:apm</exec>
+			<goto state="checkcall_CN"/>
+		</onevent>		
+	</state>
+	
+	<state id="askdate_CN" extends="Dialog_CN">
+		<onentry>
+			<agent:prompt>请问是今天还是明天？</agent:prompt>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:date">
+			<exec>call:date = event:sem:date</exec>
+			<goto state="checkcall_CN"/>
+		</onevent>		
+	</state>
+	
+	<state id="calldone_CN" extends="Dialog_CN">
+		<onentry>
+			<exec>String datestring=(call:date).toString(); String hourstring=(call:hour).toString();
+			String minutestring=(call:minute).toString(); String apmstring=(call:apm).toString()</exec>
+		<agent:prompt text="info.timeconfirm_CN(datestring, hourstring, minutestring, apmstring)"/>	
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:yes">
+			<goto state="callroom_CN"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<exec>call.remove("date");call.remove("hour");call.remove("minute");call.remove("apm")</exec>
+			<goto state="MorningCall_CN"/>
+		</onevent>
+	</state>
+	
+	<state id="callroom_CN" extends="Dialog_CN">
+		<onentry>
+			<agent:prompt>请问您的房间号是多少？</agent:prompt>
+		</onentry>
+		<onevent name="sense.user.speak">
+			<exec>String sss = event.get("text").toString()</exec>
+			<if cond="eq('Sorry',info.callroom_CN(sss))">
+				<agent:say>抱歉，我没有理解您说的话。</agent:say>
+				<reentry/>
+			<else/>
+				<agent:say text="info.callroom_CN(sss)"/>
+				<exec>call:room = info.getcallroomnum(sss)</exec>
+				<goto state="roomconfirm_CN"/>
+			</if>					
+		</onevent>		
+	</state>
+	
+	<state id="roomconfirm_CN" extends="Dialog_CN">
+		<onentry>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<exec>call.remove("room");</exec>
+			<goto state="callroom_CN"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:yes">
+			<exec>String datestring=(call:date).toString(); String hourstring=(call:hour).toString();
+				String minutestring=(call:minute).toString(); String apmstring=(call:apm).toString();
+				String roomstring=(call:room).toString()</exec>
+			<exec>info.addcsv(datestring, hourstring, minutestring, apmstring, roomstring)</exec>
+			<goto state="CheckAgain_CN"/>
+		</onevent>
 	</state>
 
 
 
+
 	
-	<state id="CheckAgain_CN" extends="Dialog">
+	<state id="CheckAgain_CN" extends="Dialog_CN">
 		<onentry>
-			<agent:say>您还需要其他帮助吗？</agent:say>
-			<agent:listen/>
+			<agent:prompt>您还需要其他帮助吗？</agent:prompt>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:yes">
 			<agent:say>好的</agent:say>

@@ -2,7 +2,7 @@
 <grammar xml:lang="en-US" version="1.0" 
 	xmlns="http://www.w3.org/2001/06/grammar" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.w3.org/2001/06/grammar http://www.iristk.net/xml/srgs.xsd" tag-format="semantics/1.0">
-
+	
   <rule id="languagesetting" scope="public">
   	<one-of>
   		<item>
@@ -23,247 +23,25 @@
   			<tag>out.chinese=1</tag>
   		</item>	
   	</one-of>
-    </rule>
+  </rule>
 
 
-  <rule id="attraction" scope="public">
-  	<one-of>
-		<item>attraction_</item>
-		<item>tourist attraction_</item>
-		<item>place_</item>
-		<item>view_</item>  	
-  	</one-of>
-  	<tag>out.attractions=1</tag>
-  </rule>
-  
-  <rule id="natural" scope="public">
-  	<one-of>
-  		<item>natural</item>
-  	</one-of>
-  	<tag>out.natural=1</tag>
-  </rule>
-  
-  <rule id="historical" scope="public">
-  	<one-of>
-  		<item>historical</item>
-  	</one-of>
-  	<tag>out.historical=1</tag>
-  </rule>
-  
-  <rule id="popular" scope="public">
-  	<one-of>
-  		<item>popular</item>
-  	</one-of>
-  	<tag>out.popular=1</tag>
-  </rule>
-  
-  <rule id="attrname" scope="public">
-  	<one-of>
-		<item>
-			<one-of>
-				<item>Glasgow Botanic Gardens</item>
-				<item>Garden_</item>
-			</one-of>
-			<tag>out.attrname="Glasgow Botanic Gardens"</tag>
-		</item>
-		<item>
-			<one-of>
-				<item>Glasgow Cathedral</item>
-				<item>Country Park</item>
-				<item>Country</item>
-			</one-of>
-			<tag>out.attrname="Glasgow Cathedral"</tag>
-		</item>
-		<item>
-			<one-of>
-				<item>Kelvingrove Park</item>
-				<item>Park</item>
-			</one-of>
-			<tag>out.attrname="Kelvingrove Park"</tag>
-		</item>
-		<item>
-			<one-of>
-				<item>Kelvingrove Art Gallery and Museum</item>
-				<item>Art</item>
-				<item>Gallery</item>
-				<item>Art Gallery</item>
-				<item>Art Gallery and Museum</item>
-			</one-of>
-			<tag>out.attrname="Kelvingrove Art Gallery and Museum"</tag>
-		</item>
-		<item>
-			<one-of>
-				<item>Riverside Museum</item>
-				<item>Riverside</item>
-			</one-of>
-			<tag>out.attrname="Riverside Museum"</tag>
-		</item>
-		<item>
-			<one-of>
-				<item>Glasgow Cathedral</item>
-				<item>Cathedral</item>
-			</one-of>
-			<tag>out.attrname="Glasgow Cathedral"</tag>
-		</item>
-  	</one-of>
-  </rule>
-  
-  <rule id="transportation" scope="public">
-  	<one-of>
-  		<item>transportation</item>
-  		<item>bus</item>
-  		<item>subway</item>
-  	</one-of>
-  	<tag>out.transportation=1</tag>
-  </rule>
-  
-  
-  
-  <rule id="room" scope="public">
-  	<one-of>
-  		<item>room_</item>
-  		<item>live</item>
-  	</one-of>
-  	<tag>out.rooms=1</tag>
-  </rule>
-  
 
-  
-  <rule id="otherroom" scope="public">
-  	<one-of>
-  		<item>restaurant_</item>
-  		<item>kitchen</item>
-  		<item>dining hall</item>
-  		<item>eat</item> 
-  		<item>gym</item> 
-  		<item>sport_</item>		
-  	</one-of>
-  		<tag>out.otherroom=1</tag> 
-  </rule>
-  
-  <rule id="weather" scope="public">
-  	<item>weather</item>
-  	<tag>out.weather=1</tag>
-  </rule>
-  
-  <rule id="morningcall" scope="public">
-  	<one-of>
-  		<item>
-  			<one-of>
-  				<item>call</item>
-  				<item>morning</item>
-  				<item>morning call</item>
-  				<item>awake</item>
-  				<item>wake</item>
-  			</one-of>
-  			<tag>out.call=1</tag>
-  		</item>
-  	</one-of>
-  </rule>
-  
-  <rule id="clock" scope="public">
-  	<one-of>
-  		<item>o'clock</item>
-  		<item>clock</item>
-  	</one-of>
-  	<tag>out.clock=1</tag>
-  </rule>
-  
-  <rule id="half" scope="public">
-  	<one-of>
-  		<item>half</item>
-  	</one-of>
-  	<tag>out.half=1</tag>
-  </rule>
-  
-  <rule id="number" scope="public">
-  	<one-of>
-  		<item>one<tag>out.number=1</tag></item>
-  		<item>1<tag>out.number=1</tag></item>
-  		<item>two<tag>out.number=2</tag></item>
-  		<item>2<tag>out.number=2</tag></item>
-  		<item>three<tag>out.number=3</tag></item>
-  		<item>3<tag>out.number=3</tag></item>
-  		<item>four<tag>out.number=4</tag></item>
-  		<item>4<tag>out.number=4</tag></item>
-  		<item>five<tag>out.number=5</tag></item>
-  		<item>5<tag>out.number=5</tag></item>
-  		<item>six<tag>out.number=6</tag></item>
-  		<item>6<tag>out.number=6</tag></item>
-  		<item>seven<tag>out.number=7</tag></item>
-  		<item>7<tag>out.number=7</tag></item>
-  		<item>eight<tag>out.number=8</tag></item>
-  		<item>8<tag>out.number=8</tag></item>
-  	</one-of>
-  </rule>
-  
-  <rule id="date" scope="public">
-  	<one-of>
-  		<item>tomorrow<tag>out.date= "tomorrow"</tag></item>
-  		<item>today<tag>out.date= "today"</tag></item>
-  	</one-of>
-  </rule>
-  
-  <rule id="apm" scope="public">
-  	<one-of>
-  		<item>
-  			<one-of>
-  				<item>am</item>
-  				<item>a.m.</item>
-  				<item>AM</item>
-  				<item>A.M.</item>
-  			</one-of>
-  			<tag>out.apm="a.m."</tag>
-  		</item>
-  		<item>
-  			<one-of>
-  				<item>pm</item>
-  				<item>p.m.</item>
-  				<item>PM</item>
-  				<item>P.M.</item>
-  			</one-of>
-  			<tag>out.apm="p.m."</tag>
-  		</item>
-  	</one-of>
-  </rule>
-  
-  <rule id="othertime" scope="public">
-  	<one-of>
-  		<item>midnight<tag>out.midnight=1</tag></item>
-  		<item>noon<tag>out.noon=1</tag></item>
-  	</one-of>
-  </rule>
-  
-  <rule id="past_to" scope="public">
-  	<one-of>
-  		<item>past<tag>out.past="past"</tag></item>
-  		<item>to<tag>out.to="to"</tag></item>
-  	</one-of>
-  </rule>
-  
-  
-	
-	
-  
-  <rule id="yes" scope="public">
-  	<one-of>
-  		<item>yeah</item>
-  		<item>yes</item>
-  		<item>okay</item>
-  		<item>OK</item>
-  		<item>of course</item>
-  	</one-of>
-  	<tag>out.yes=1</tag>
-  </rule>
-  
-  <rule id="no" scope="public">
-  	<one-of>
-  		<item>no</item>
-  		<item>nope</item>
-  		<item>not</item>
-  		<item>nothing</item>
-  	</one-of>
-  	<tag>out.no=1</tag>
-  </rule>
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </grammar>
