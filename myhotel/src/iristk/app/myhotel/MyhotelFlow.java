@@ -19,7 +19,8 @@ public class MyhotelFlow extends iristk.flow.Flow {
 	private iristk.situated.SystemAgent system;
 	private Integer number;
 	private String lang;
-	private Object attrnamepass;
+	private Object attrnamepassobject;
+	private String attrnamepassstring;
 
 	private void initVariables() {
 		call = asRecord(new Record());
@@ -59,12 +60,20 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		this.lang = value;
 	}
 
-	public Object getAttrnamepass() {
-		return this.attrnamepass;
+	public Object getAttrnamepassobject() {
+		return this.attrnamepassobject;
 	}
 
-	public void setAttrnamepass(Object value) {
-		this.attrnamepass = value;
+	public void setAttrnamepassobject(Object value) {
+		this.attrnamepassobject = value;
+	}
+
+	public String getAttrnamepassstring() {
+		return this.attrnamepassstring;
+	}
+
+	public void setAttrnamepassstring(String value) {
+		this.attrnamepassstring = value;
 	}
 
 	public iristk.situated.SystemAgentFlow getAgent() {
@@ -89,7 +98,8 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		if (name.equals("system")) return this.system;
 		if (name.equals("number")) return this.number;
 		if (name.equals("lang")) return this.lang;
-		if (name.equals("attrnamepass")) return this.attrnamepass;
+		if (name.equals("attrnamepassobject")) return this.attrnamepassobject;
+		if (name.equals("attrnamepassstring")) return this.attrnamepassstring;
 		if (name.equals("agent")) return this.agent;
 		if (name.equals("info")) return this.info;
 		if (name.equals("weather")) return this.weather;
@@ -124,34 +134,34 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 24
+			// Line: 25
 			try {
 				EXECUTION: {
-					int count = getCount(550337732) + 1;
-					incrCount(550337732);
-					// Line: 25
+					int count = getCount(173875158) + 1;
+					incrCount(173875158);
+					// Line: 26
 					if (system.hasUsers()) {
 						iristk.situated.SystemAgentFlow.attendRandom state0 = agent.new attendRandom();
-						if (!flowThread.callState(state0, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 25, 33)))) {
+						if (!flowThread.callState(state0, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 26, 33)))) {
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						// Line: 27
+						// Line: 28
 						Greeting state1 = new Greeting();
-						flowThread.gotoState(state1, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 27, 29)));
+						flowThread.gotoState(state1, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 28, 29)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
-						// Line: 28
+						// Line: 29
 					} else {
 						iristk.situated.SystemAgentFlow.attendNobody state2 = agent.new attendNobody();
-						if (!flowThread.callState(state2, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 25, 33)))) {
+						if (!flowThread.callState(state2, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 26, 33)))) {
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 24, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 25, 12));
 			}
 		}
 
@@ -159,29 +169,29 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 32
+			// Line: 33
 			try {
-				count = getCount(336738016) + 1;
+				count = getCount(662601284) + 1;
 				if (event.triggers("sense.user.enter")) {
-					incrCount(336738016);
+					incrCount(662601284);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
 						iristk.situated.SystemAgentFlow.attend state3 = agent.new attend();
 						state3.setTarget(event.get("user"));
-						if (!flowThread.callState(state3, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 32, 36)))) {
+						if (!flowThread.callState(state3, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 33, 36)))) {
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						// Line: 34
+						// Line: 35
 						Greeting state4 = new Greeting();
-						flowThread.gotoState(state4, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 34, 28)));
+						flowThread.gotoState(state4, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 35, 28)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 32, 36));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 33, 36));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -207,31 +217,31 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 39
+			// Line: 40
 			try {
 				EXECUTION: {
-					int count = getCount(700900704) + 1;
-					incrCount(700900704);
-					// Line: 40
+					int count = getCount(1662054433) + 1;
+					incrCount(1662054433);
+					// Line: 41
 					Event sendEvent5 = new Event("action.voice");
 					sendEvent5.putIfNotNull("name", "David");
-					flowRunner.sendEvent(sendEvent5, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 40, 49)));
+					flowRunner.sendEvent(sendEvent5, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 41, 49)));
 					iristk.situated.SystemAgentFlow.prompt state6 = agent.new prompt();
 					StringCreator string7 = new StringCreator();
 					string7.append("Hi there, Do you want me to speak English or Chinese?");
 					state6.setText(string7.toString());
-					if (!flowThread.callState(state6, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 39, 12)))) {
+					if (!flowThread.callState(state6, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 40, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 42
+					// Line: 43
 					Start state8 = new Start();
-					flowThread.gotoState(state8, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 42, 25)));
+					flowThread.gotoState(state8, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 43, 25)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 39, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 40, 12));
 			}
 		}
 
@@ -239,27 +249,27 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 44
+			// Line: 45
 			try {
-				count = getCount(1922281053) + 1;
+				count = getCount(400382825) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:english")) {
-						incrCount(1922281053);
+						incrCount(400382825);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 45
-							lang = "en";
 							// Line: 46
+							lang = "en";
+							// Line: 47
 							Event sendEvent9 = new Event("action.context.default");
 							sendEvent9.putIfNotNull("context", "English");
-							flowRunner.sendEvent(sendEvent9, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 46, 65)));
-							// Line: 47
+							flowRunner.sendEvent(sendEvent9, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 47, 65)));
+							// Line: 48
 							Event sendEvent10 = new Event("action.voice");
 							sendEvent10.putIfNotNull("name", "David");
-							flowRunner.sendEvent(sendEvent10, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 47, 51)));
-							// Line: 48
+							flowRunner.sendEvent(sendEvent10, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 48, 51)));
+							// Line: 49
 							Start state11 = new Start();
-							flowThread.gotoState(state11, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 48, 26)));
+							flowThread.gotoState(state11, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 49, 26)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -267,46 +277,46 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 44, 62));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 45, 62));
 			}
-			// Line: 50
+			// Line: 51
 			try {
-				count = getCount(1880549408) + 1;
+				count = getCount(415082188) + 1;
 				if (event.triggers("sense.user.speak")) {
-					incrCount(1880549408);
+					incrCount(415082188);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						// Line: 51
-						String s = event.get("text").toString(); int value=mandarin.language(s);
 						// Line: 52
+						String s = event.get("text").toString(); int value=mandarin.language(s);
+						// Line: 53
 						if (value==2) {
-							// Line: 53
-							lang = "zh";
 							// Line: 54
+							lang = "zh";
+							// Line: 55
 							Event sendEvent12 = new Event("action.context.default");
 							sendEvent12.putIfNotNull("context", "Chinese");
-							flowRunner.sendEvent(sendEvent12, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 54, 66)));
-							// Line: 55
+							flowRunner.sendEvent(sendEvent12, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 55, 66)));
+							// Line: 56
 							Event sendEvent13 = new Event("action.voice");
 							sendEvent13.putIfNotNull("name", "HuiHui");
-							flowRunner.sendEvent(sendEvent13, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 55, 51)));
-							// Line: 56
+							flowRunner.sendEvent(sendEvent13, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 56, 51)));
+							// Line: 57
 							Start_CN state14 = new Start_CN();
-							flowThread.gotoState(state14, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 56, 29)));
+							flowThread.gotoState(state14, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 57, 29)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 57
+							// Line: 58
 						} else {
 							iristk.situated.SystemAgentFlow.say state15 = agent.new say();
 							StringCreator string16 = new StringCreator();
 							string16.append("Sorry, I didn't get that.");
 							state15.setText(string16.toString());
-							if (!flowThread.callState(state15, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 52, 24)))) {
+							if (!flowThread.callState(state15, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 53, 24)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 59
-							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 59, 15)));
+							// Line: 60
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 60, 15)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -314,7 +324,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 50, 36));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 51, 36));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -340,22 +350,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 65
+			// Line: 66
 			try {
 				EXECUTION: {
-					int count = getCount(1404035790) + 1;
-					incrCount(1404035790);
+					int count = getCount(202174161) + 1;
+					incrCount(202174161);
 					iristk.situated.SystemAgentFlow.prompt state17 = agent.new prompt();
 					StringCreator string18 = new StringCreator();
 					string18.append("What can I do for you?");
 					state17.setText(string18.toString());
-					if (!flowThread.callState(state17, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 65, 12)))) {
+					if (!flowThread.callState(state17, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 66, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 65, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 66, 12));
 			}
 		}
 
@@ -363,40 +373,40 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 73
+			// Line: 74
 			try {
-				count = getCount(815665406) + 1;
+				count = getCount(1822864896) + 1;
 				if (event.triggers("sense.user.speak**")) {
 					if (event.has("sem:attractions")) {
-						incrCount(815665406);
+						incrCount(1822864896);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 75
+							// Line: 76
 							if (event.has("sem:natural")) {
-								// Line: 76
-								Nature state19 = new Nature();
-								flowThread.gotoState(state19, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 76, 29)));
-								eventResult = EVENT_ABORTED;
-								break EXECUTION;
 								// Line: 77
-							} else if (event.has("sem:historical")) {
+								Nature state19 = new Nature();
+								flowThread.gotoState(state19, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 77, 29)));
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
 								// Line: 78
-								History state20 = new History();
-								flowThread.gotoState(state20, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 78, 30)));
-								eventResult = EVENT_ABORTED;
-								break EXECUTION;
+							} else if (event.has("sem:historical")) {
 								// Line: 79
-							} else if (event.has("sem:popular")) {
-								// Line: 80
-								Popular state21 = new Popular();
-								flowThread.gotoState(state21, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 80, 30)));
+								History state20 = new History();
+								flowThread.gotoState(state20, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 79, 30)));
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
+								// Line: 80
+							} else if (event.has("sem:popular")) {
 								// Line: 81
-							} else {
+								Popular state21 = new Popular();
+								flowThread.gotoState(state21, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 81, 30)));
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
 								// Line: 82
+							} else {
+								// Line: 83
 								QueryAttr state22 = new QueryAttr();
-								flowThread.gotoState(state22, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 82, 32)));
+								flowThread.gotoState(state22, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 83, 32)));
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
@@ -405,34 +415,34 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 73, 68));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 74, 68));
 			}
-			// Line: 86
+			// Line: 87
 			try {
-				count = getCount(1051902726) + 1;
+				count = getCount(935483256) + 1;
 				if (event.triggers("sense.user.speak**")) {
 					if (event.has("sem:transportation")) {
-						incrCount(1051902726);
+						incrCount(935483256);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 87
+							// Line: 88
 							if (event.has("sem:attrname")) {
 								iristk.situated.SystemAgentFlow.say state23 = agent.new say();
 								state23.setText(info.transdetail(info.readtrans(),event.get("sem:attrname")));
-								if (!flowThread.callState(state23, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 87, 35)))) {
+								if (!flowThread.callState(state23, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 88, 35)))) {
 									eventResult = EVENT_ABORTED;
 									break EXECUTION;
 								}
-								// Line: 89
+								// Line: 90
 								CheckAgain state24 = new CheckAgain();
-								flowThread.gotoState(state24, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 89, 33)));
+								flowThread.gotoState(state24, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 90, 33)));
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
-								// Line: 90
-							} else {
 								// Line: 91
+							} else {
+								// Line: 92
 								QueryTrans state25 = new QueryTrans();
-								flowThread.gotoState(state25, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 91, 33)));
+								flowThread.gotoState(state25, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 92, 33)));
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
@@ -441,19 +451,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 86, 71));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 87, 71));
 			}
-			// Line: 95
+			// Line: 96
 			try {
-				count = getCount(1267497340) + 1;
+				count = getCount(1782985011) + 1;
 				if (event.triggers("sense.user.speak**")) {
 					if (event.has("sem:rooms")) {
-						incrCount(1267497340);
+						incrCount(1782985011);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 97
+							// Line: 98
 							QueryRoom state26 = new QueryRoom();
-							flowThread.gotoState(state26, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 97, 31)));
+							flowThread.gotoState(state26, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 98, 31)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -461,19 +471,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 95, 62));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 96, 62));
 			}
-			// Line: 100
+			// Line: 101
 			try {
-				count = getCount(423935999) + 1;
+				count = getCount(2006536821) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:weather")) {
-						incrCount(423935999);
+						incrCount(2006536821);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 101
+							// Line: 102
 							QueryWeather state27 = new QueryWeather();
-							flowThread.gotoState(state27, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 101, 34)));
+							flowThread.gotoState(state27, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 102, 34)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -481,19 +491,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 100, 62));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 101, 62));
 			}
-			// Line: 104
+			// Line: 105
 			try {
-				count = getCount(973152050) + 1;
+				count = getCount(750812820) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:call")) {
-						incrCount(973152050);
+						incrCount(750812820);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 105
+							// Line: 106
 							MorningCall state28 = new MorningCall();
-							flowThread.gotoState(state28, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 105, 33)));
+							flowThread.gotoState(state28, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 106, 33)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -501,27 +511,27 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 104, 59));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 105, 59));
 			}
-			// Line: 108
+			// Line: 109
 			try {
-				count = getCount(229971894) + 1;
+				count = getCount(1271491837) + 1;
 				if (event.triggers("sense.user.speak**")) {
 					if (event.has("sem:no")) {
-						incrCount(229971894);
+						incrCount(1271491837);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							iristk.situated.SystemAgentFlow.say state29 = agent.new say();
 							StringCreator string30 = new StringCreator();
 							string30.append("Okay");
 							state29.setText(string30.toString());
-							if (!flowThread.callState(state29, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 108, 59)))) {
+							if (!flowThread.callState(state29, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 109, 59)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 110
+							// Line: 111
 							Goodbye state31 = new Goodbye();
-							flowThread.gotoState(state31, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 110, 27)));
+							flowThread.gotoState(state31, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 111, 27)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -529,7 +539,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 108, 59));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 109, 59));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -555,16 +565,16 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 118
+			// Line: 119
 			try {
 				EXECUTION: {
-					int count = getCount(2106876024) + 1;
-					incrCount(2106876024);
+					int count = getCount(831508152) + 1;
+					incrCount(831508152);
 					iristk.situated.SystemAgentFlow.say state32 = agent.new say();
 					StringCreator string33 = new StringCreator();
 					string33.append("Goodbye.");
 					state32.setText(string33.toString());
-					if (!flowThread.callState(state32, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 118, 12)))) {
+					if (!flowThread.callState(state32, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 119, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -572,25 +582,25 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					StringCreator string35 = new StringCreator();
 					string35.append("Please leave the detection area");
 					state34.setText(string35.toString());
-					if (!flowThread.callState(state34, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 118, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 121
-					iristk.flow.DialogFlow.wait waitState36 = new iristk.flow.DialogFlow.wait();
-					waitState36.setMsec(2000);
-					if (!flowThread.callState(waitState36, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 121, 23)))) {
+					if (!flowThread.callState(state34, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 119, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 122
+					iristk.flow.DialogFlow.wait waitState36 = new iristk.flow.DialogFlow.wait();
+					waitState36.setMsec(2000);
+					if (!flowThread.callState(waitState36, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 122, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 123
 					Idle state37 = new Idle();
-					flowThread.gotoState(state37, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 122, 24)));
+					flowThread.gotoState(state37, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 123, 24)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 118, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 119, 12));
 			}
 		}
 
@@ -622,22 +632,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 129
+			// Line: 130
 			try {
 				EXECUTION: {
-					int count = getCount(1729053261) + 1;
-					incrCount(1729053261);
+					int count = getCount(809091335) + 1;
+					incrCount(809091335);
 					iristk.situated.SystemAgentFlow.prompt state38 = agent.new prompt();
 					StringCreator string39 = new StringCreator();
 					string39.append("What kind of tourist attractions do you want to visit? Natural, historical or popular?");
 					state38.setText(string39.toString());
-					if (!flowThread.callState(state38, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 129, 16)))) {
+					if (!flowThread.callState(state38, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 130, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 129, 16));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 130, 16));
 			}
 		}
 
@@ -645,17 +655,17 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 134
+			// Line: 135
 			try {
-				count = getCount(1898375535) + 1;
+				count = getCount(676768537) + 1;
 				if (event.triggers("sense.user.speak**")) {
 					if (event.has("sem:natural")) {
-						incrCount(1898375535);
+						incrCount(676768537);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 135
+							// Line: 136
 							Nature state40 = new Nature();
-							flowThread.gotoState(state40, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 135, 32)));
+							flowThread.gotoState(state40, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 136, 32)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -663,19 +673,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 134, 68));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 135, 68));
 			}
-			// Line: 137
+			// Line: 138
 			try {
-				count = getCount(1383936445) + 1;
+				count = getCount(1214757511) + 1;
 				if (event.triggers("sense.user.speak**")) {
 					if (event.has("sem:historical")) {
-						incrCount(1383936445);
+						incrCount(1214757511);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 138
+							// Line: 139
 							History state41 = new History();
-							flowThread.gotoState(state41, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 138, 33)));
+							flowThread.gotoState(state41, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 139, 33)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -683,19 +693,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 137, 71));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 138, 71));
 			}
-			// Line: 140
+			// Line: 141
 			try {
-				count = getCount(165083524) + 1;
+				count = getCount(733675738) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:popular")) {
-						incrCount(165083524);
+						incrCount(733675738);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 141
+							// Line: 142
 							Popular state42 = new Popular();
-							flowThread.gotoState(state42, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 141, 33)));
+							flowThread.gotoState(state42, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 142, 33)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -703,19 +713,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 140, 66));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 141, 66));
 			}
-			// Line: 143
+			// Line: 144
 			try {
-				count = getCount(1297806469) + 1;
+				count = getCount(20230332) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:no")) {
-						incrCount(1297806469);
+						incrCount(20230332);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 144
+							// Line: 145
 							CheckAgain state43 = new CheckAgain();
-							flowThread.gotoState(state43, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 144, 36)));
+							flowThread.gotoState(state43, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 145, 36)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -723,7 +733,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 143, 61));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 144, 61));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -749,25 +759,25 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 149
+			// Line: 150
 			try {
 				EXECUTION: {
-					int count = getCount(749786990) + 1;
-					incrCount(749786990);
+					int count = getCount(1729581023) + 1;
+					incrCount(1729581023);
 					iristk.situated.SystemAgentFlow.say state44 = agent.new say();
 					state44.setText(info.recommend(info.readattr(),"Natural"));
-					if (!flowThread.callState(state44, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 149, 16)))) {
+					if (!flowThread.callState(state44, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 150, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 151
+					// Line: 152
 					Attrdetial state45 = new Attrdetial();
-					flowThread.gotoState(state45, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 151, 34)));
+					flowThread.gotoState(state45, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 152, 34)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 149, 16));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 150, 16));
 			}
 		}
 
@@ -799,25 +809,25 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 156
+			// Line: 157
 			try {
 				EXECUTION: {
-					int count = getCount(773356387) + 1;
-					incrCount(773356387);
+					int count = getCount(1129344852) + 1;
+					incrCount(1129344852);
 					iristk.situated.SystemAgentFlow.say state46 = agent.new say();
 					state46.setText(info.recommend(info.readattr(),"Historical"));
-					if (!flowThread.callState(state46, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 156, 16)))) {
+					if (!flowThread.callState(state46, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 157, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 158
+					// Line: 159
 					Attrdetial state47 = new Attrdetial();
-					flowThread.gotoState(state47, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 158, 34)));
+					flowThread.gotoState(state47, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 159, 34)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 156, 16));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 157, 16));
 			}
 		}
 
@@ -849,25 +859,25 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 163
+			// Line: 164
 			try {
 				EXECUTION: {
-					int count = getCount(719850766) + 1;
-					incrCount(719850766);
+					int count = getCount(1152680601) + 1;
+					incrCount(1152680601);
 					iristk.situated.SystemAgentFlow.say state48 = agent.new say();
 					state48.setText(info.popular(info.readattr()));
-					if (!flowThread.callState(state48, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 163, 16)))) {
+					if (!flowThread.callState(state48, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 164, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 165
+					// Line: 166
 					Attrdetial state49 = new Attrdetial();
-					flowThread.gotoState(state49, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 165, 34)));
+					flowThread.gotoState(state49, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 166, 34)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 163, 16));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 164, 16));
 			}
 		}
 
@@ -899,22 +909,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 170
+			// Line: 171
 			try {
 				EXECUTION: {
-					int count = getCount(1398564360) + 1;
-					incrCount(1398564360);
+					int count = getCount(603108465) + 1;
+					incrCount(603108465);
 					iristk.situated.SystemAgentFlow.prompt state50 = agent.new prompt();
 					StringCreator string51 = new StringCreator();
 					string51.append("If you want more details for attractions,please say the name.");
 					state50.setText(string51.toString());
-					if (!flowThread.callState(state50, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 170, 16)))) {
+					if (!flowThread.callState(state50, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 171, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 170, 16));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 171, 16));
 			}
 		}
 
@@ -922,32 +932,32 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 173
+			// Line: 174
 			try {
-				count = getCount(959873296) + 1;
+				count = getCount(1420250436) + 1;
 				if (event.triggers("sense.user.speak**")) {
 					if (event.has("sem:attrname")) {
-						incrCount(959873296);
+						incrCount(1420250436);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 174
-							attrnamepass=event.get("sem:attrname");
+							// Line: 175
+							attrnamepassobject=event.get("sem:attrname");
 							iristk.situated.SystemAgentFlow.say state52 = agent.new say();
 							state52.setText(info.detail(info.readattr(),event.get("sem:attrname")));
-							if (!flowThread.callState(state52, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 173, 69)))) {
-								eventResult = EVENT_ABORTED;
-								break EXECUTION;
-							}
-							// Line: 176
-							iristk.flow.DialogFlow.wait waitState53 = new iristk.flow.DialogFlow.wait();
-							waitState53.setMsec(800);
-							if (!flowThread.callState(waitState53, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 176, 28)))) {
+							if (!flowThread.callState(state52, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 174, 69)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 177
+							iristk.flow.DialogFlow.wait waitState53 = new iristk.flow.DialogFlow.wait();
+							waitState53.setMsec(800);
+							if (!flowThread.callState(waitState53, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 177, 28)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 178
 							Attrtrans state54 = new Attrtrans();
-							flowThread.gotoState(state54, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 177, 35)));
+							flowThread.gotoState(state54, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 178, 35)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -955,7 +965,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 173, 69));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 174, 69));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -981,27 +991,27 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 183
+			// Line: 184
 			try {
 				EXECUTION: {
-					int count = getCount(28241320) + 1;
-					incrCount(28241320);
+					int count = getCount(1121319418) + 1;
+					incrCount(1121319418);
 					iristk.situated.SystemAgentFlow.say state55 = agent.new say();
 					StringCreator string56 = new StringCreator();
 					string56.append("Do you want to know how to get there?");
 					state55.setText(string56.toString());
-					if (!flowThread.callState(state55, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 183, 16)))) {
+					if (!flowThread.callState(state55, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 184, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					iristk.situated.SystemAgentFlow.listen state57 = agent.new listen();
-					if (!flowThread.callState(state57, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 183, 16)))) {
+					if (!flowThread.callState(state57, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 184, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 183, 16));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 184, 16));
 			}
 		}
 
@@ -1009,23 +1019,23 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 187
+			// Line: 188
 			try {
-				count = getCount(959626847) + 1;
+				count = getCount(2081061702) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:yes")) {
-						incrCount(959626847);
+						incrCount(2081061702);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							iristk.situated.SystemAgentFlow.say state58 = agent.new say();
-							state58.setText(info.transdetail(info.readtrans(),attrnamepass));
-							if (!flowThread.callState(state58, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 187, 62)))) {
+							state58.setText(info.transdetail(info.readtrans(),attrnamepassobject));
+							if (!flowThread.callState(state58, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 188, 62)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 189
+							// Line: 190
 							CheckAgain state59 = new CheckAgain();
-							flowThread.gotoState(state59, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 189, 36)));
+							flowThread.gotoState(state59, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 190, 36)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1033,19 +1043,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 187, 62));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 188, 62));
 			}
-			// Line: 191
+			// Line: 192
 			try {
-				count = getCount(757826023) + 1;
+				count = getCount(1566906301) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:no")) {
-						incrCount(757826023);
+						incrCount(1566906301);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 192
+							// Line: 193
 							CheckAgain state60 = new CheckAgain();
-							flowThread.gotoState(state60, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 192, 36)));
+							flowThread.gotoState(state60, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 193, 36)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1053,7 +1063,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 191, 61));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 192, 61));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -1079,22 +1089,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 198
+			// Line: 199
 			try {
 				EXECUTION: {
-					int count = getCount(535850524) + 1;
-					incrCount(535850524);
+					int count = getCount(1380702397) + 1;
+					incrCount(1380702397);
 					iristk.situated.SystemAgentFlow.prompt state61 = agent.new prompt();
 					StringCreator string62 = new StringCreator();
 					string62.append("Where do you want to go?");
 					state61.setText(string62.toString());
-					if (!flowThread.callState(state61, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 198, 12)))) {
+					if (!flowThread.callState(state61, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 199, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 198, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 199, 12));
 			}
 		}
 
@@ -1102,23 +1112,23 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 201
+			// Line: 202
 			try {
-				count = getCount(1847980220) + 1;
+				count = getCount(661058998) + 1;
 				if (event.triggers("sense.user.speak**")) {
 					if (event.has("sem:attrname")) {
-						incrCount(1847980220);
+						incrCount(661058998);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							iristk.situated.SystemAgentFlow.say state63 = agent.new say();
 							state63.setText(info.transdetail(info.readtrans(),event.get("sem:attrname")));
-							if (!flowThread.callState(state63, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 201, 65)))) {
+							if (!flowThread.callState(state63, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 202, 65)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 203
+							// Line: 204
 							CheckAgain state64 = new CheckAgain();
-							flowThread.gotoState(state64, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 203, 30)));
+							flowThread.gotoState(state64, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 204, 30)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1126,7 +1136,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 201, 65));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 202, 65));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -1152,22 +1162,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 209
+			// Line: 210
 			try {
 				EXECUTION: {
-					int count = getCount(980821448) + 1;
-					incrCount(980821448);
+					int count = getCount(638566090) + 1;
+					incrCount(638566090);
 					iristk.situated.SystemAgentFlow.prompt state65 = agent.new prompt();
 					StringCreator string66 = new StringCreator();
 					string66.append("Which room do you want to find?");
 					state65.setText(string66.toString());
-					if (!flowThread.callState(state65, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 209, 16)))) {
+					if (!flowThread.callState(state65, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 210, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 209, 16));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 210, 16));
 			}
 		}
 
@@ -1175,25 +1185,25 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 212
+			// Line: 213
 			try {
-				count = getCount(2065142314) + 1;
+				count = getCount(911488248) + 1;
 				if (event.triggers("sense.user.speak**")) {
 					if (event.has("sem:otherroom")) {
-						incrCount(2065142314);
+						incrCount(911488248);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							iristk.situated.SystemAgentFlow.say state67 = agent.new say();
 							StringCreator string68 = new StringCreator();
 							string68.append("It is on the first floor");
 							state67.setText(string68.toString());
-							if (!flowThread.callState(state67, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 212, 70)))) {
+							if (!flowThread.callState(state67, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 213, 70)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 214
+							// Line: 215
 							CheckAgain state69 = new CheckAgain();
-							flowThread.gotoState(state69, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 214, 34)));
+							flowThread.gotoState(state69, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 215, 34)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1201,42 +1211,42 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 212, 70));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 213, 70));
 			}
-			// Line: 216
+			// Line: 217
 			try {
-				count = getCount(1707429754) + 1;
+				count = getCount(1684036044) + 1;
 				if (event.triggers("sense.user.speak**")) {
-					incrCount(1707429754);
+					incrCount(1684036044);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						// Line: 217
-						String ss = event.get("text").toString();
 						// Line: 218
+						String ss = event.get("text").toString();
+						// Line: 219
 						if (eq("Sorry",info.findroom(ss))) {
 							iristk.situated.SystemAgentFlow.say state70 = agent.new say();
 							StringCreator string71 = new StringCreator();
 							string71.append("Sorry, I didn't get that.");
 							state70.setText(string71.toString());
-							if (!flowThread.callState(state70, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 218, 49)))) {
+							if (!flowThread.callState(state70, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 219, 49)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 220
-							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 220, 19)));
+							// Line: 221
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 221, 19)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 221
+							// Line: 222
 						} else {
 							iristk.situated.SystemAgentFlow.say state72 = agent.new say();
 							state72.setText(info.findroom(ss));
-							if (!flowThread.callState(state72, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 218, 49)))) {
+							if (!flowThread.callState(state72, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 219, 49)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 223
+							// Line: 224
 							CheckAgain state73 = new CheckAgain();
-							flowThread.gotoState(state73, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 223, 35)));
+							flowThread.gotoState(state73, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 224, 35)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1244,7 +1254,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 216, 42));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 217, 42));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -1270,25 +1280,25 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 230
+			// Line: 231
 			try {
 				EXECUTION: {
-					int count = getCount(1563930429) + 1;
-					incrCount(1563930429);
+					int count = getCount(1432891333) + 1;
+					incrCount(1432891333);
 					iristk.situated.SystemAgentFlow.say state74 = agent.new say();
 					state74.setText(weather.getweather());
-					if (!flowThread.callState(state74, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 230, 12)))) {
+					if (!flowThread.callState(state74, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 231, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 232
+					// Line: 233
 					CheckAgain state75 = new CheckAgain();
-					flowThread.gotoState(state75, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 232, 30)));
+					flowThread.gotoState(state75, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 233, 30)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 230, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 231, 12));
 			}
 		}
 
@@ -1320,24 +1330,24 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 238
+			// Line: 239
 			try {
 				EXECUTION: {
-					int count = getCount(386470009) + 1;
-					incrCount(386470009);
-					// Line: 239
+					int count = getCount(438674158) + 1;
+					incrCount(438674158);
+					// Line: 240
 					call.remove("date");call.remove("hour");call.remove("minute");call.remove("apm");call.remove("room");
 					iristk.situated.SystemAgentFlow.prompt state76 = agent.new prompt();
 					StringCreator string77 = new StringCreator();
 					string77.append("When do you want to awake?");
 					state76.setText(string77.toString());
-					if (!flowThread.callState(state76, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 238, 12)))) {
+					if (!flowThread.callState(state76, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 239, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 238, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 239, 12));
 			}
 		}
 
@@ -1345,50 +1355,54 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 243
+			// Line: 244
 			try {
-				count = getCount(12862009) + 1;
+				count = getCount(641610647) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:clock") && event.has("sem:number")) {
-						incrCount(12862009);
+						incrCount(641610647);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 244
-							call.putIfNotNull("minute", 0);
 							// Line: 245
-							Object temp=event.get("sem:number"); String temps=temp.toString(); int num=Integer.parseInt(temps);
+							call.putIfNotNull("minute", 0);
 							// Line: 246
+							Object temp=event.get("sem:number"); String temps=temp.toString(); int num=Integer.parseInt(temps);
+							// Line: 247
 							if ( num > 24 ) {
 								iristk.situated.SystemAgentFlow.say state78 = agent.new say();
 								StringCreator string79 = new StringCreator();
 								string79.append("Sorry the time is invalid.");
 								state78.setText(string79.toString());
-								if (!flowThread.callState(state78, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 246, 29)))) {
+								if (!flowThread.callState(state78, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 247, 29)))) {
 									eventResult = EVENT_ABORTED;
 									break EXECUTION;
 								}
-								// Line: 248
-							} else if (num > 12) {
 								// Line: 249
-								call.putIfNotNull("hour", event.get("sem:number"));Object apm="pm";call.putIfNotNull("apm", apm);
+								flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 249, 15)));
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+								// Line: 250
+							} else if (num > 12) {
 								// Line: 251
-							} else {
-								// Line: 252
-								call.putIfNotNull("hour", event.get("sem:number"));
+								call.putIfNotNull("hour", event.get("sem:number"));Object apm="pm";call.putIfNotNull("apm", apm);
 								// Line: 253
+							} else {
+								// Line: 254
+								call.putIfNotNull("hour", event.get("sem:number"));
+								// Line: 255
 								if (event.has("sem:apm")) {
-									// Line: 254
+									// Line: 256
 									call.putIfNotNull("apm", event.get("sem:apm"));
 								}
 							}
-							// Line: 257
+							// Line: 259
 							if (event.has("sem:date")) {
-								// Line: 258
+								// Line: 260
 								call.putIfNotNull("date", event.get("sem:date"));
 							}
-							// Line: 260
+							// Line: 262
 							checkcall state80 = new checkcall();
-							flowThread.gotoState(state80, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 260, 29)));
+							flowThread.gotoState(state80, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 262, 29)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1396,91 +1410,99 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 243, 82));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 244, 82));
 			}
-			// Line: 263
+			// Line: 265
 			try {
-				count = getCount(1854273179) + 1;
+				count = getCount(1116731630) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:half") && event.has("sem:number")) {
-						incrCount(1854273179);
+						incrCount(1116731630);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 264
-							Object temp=event.get("sem:number"); String temps=temp.toString(); int num=Integer.parseInt(temps);
-							// Line: 265
-							call.putIfNotNull("minute", 30);
 							// Line: 266
+							Object temp=event.get("sem:number"); String temps=temp.toString(); int num=Integer.parseInt(temps);
+							// Line: 267
+							call.putIfNotNull("minute", 30);
+							// Line: 268
 							if (event.has("sem:past")) {
-								// Line: 267
+								// Line: 269
 								if ( num > 23 ) {
 									iristk.situated.SystemAgentFlow.say state81 = agent.new say();
 									StringCreator string82 = new StringCreator();
 									string82.append("Sorry the time is invalid.");
 									state81.setText(string82.toString());
-									if (!flowThread.callState(state81, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 267, 30)))) {
+									if (!flowThread.callState(state81, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 269, 30)))) {
 										eventResult = EVENT_ABORTED;
 										break EXECUTION;
 									}
-									// Line: 269
-								} else if (num > 11) {
-									// Line: 270
-									call.putIfNotNull("hour", event.get("sem:number"));call.putIfNotNull("apm", "pm");
 									// Line: 271
-								} else {
+									flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 271, 16)));
+									eventResult = EVENT_ABORTED;
+									break EXECUTION;
 									// Line: 272
-									call.putIfNotNull("hour", event.get("sem:number"));
+								} else if (num > 11) {
 									// Line: 273
+									call.putIfNotNull("hour", event.get("sem:number"));call.putIfNotNull("apm", "a.m.");
+									// Line: 274
+								} else {
+									// Line: 275
+									call.putIfNotNull("hour", event.get("sem:number"));
+									// Line: 276
 									if (event.has("sem:apm")) {
-										// Line: 274
+										// Line: 277
 										call.putIfNotNull("amp", event.get("sem:apm"));
 									}
 								}
-								// Line: 277
+								// Line: 280
 								if (event.has("sem:date")) {
-									// Line: 278
+									// Line: 281
 									call.putIfNotNull("date", event.get("sem:date"));
 								}
-								// Line: 280
+								// Line: 283
 								checkcall state83 = new checkcall();
-								flowThread.gotoState(state83, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 280, 30)));
+								flowThread.gotoState(state83, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 283, 30)));
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 283
+							// Line: 286
 							if (event.has("sem:to")) {
-								// Line: 284
+								// Line: 287
 								if ( num > 24 ) {
 									iristk.situated.SystemAgentFlow.say state84 = agent.new say();
 									StringCreator string85 = new StringCreator();
 									string85.append("Sorry the time is invalid.");
 									state84.setText(string85.toString());
-									if (!flowThread.callState(state84, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 284, 30)))) {
+									if (!flowThread.callState(state84, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 287, 30)))) {
 										eventResult = EVENT_ABORTED;
 										break EXECUTION;
 									}
-									// Line: 286
-								} else if (num > 12) {
-									// Line: 287
-									call.putIfNotNull("hour", event.get("sem:number"));call.putIfNotNull("apm", "pm");
-									// Line: 288
-								} else {
 									// Line: 289
-									call.putIfNotNull("hour", event.get("sem:number"));
+									flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 289, 16)));
+									eventResult = EVENT_ABORTED;
+									break EXECUTION;
 									// Line: 290
+								} else if (num > 12) {
+									// Line: 291
+									call.putIfNotNull("hour", event.get("sem:number"));call.putIfNotNull("apm", "a.m.");
+									// Line: 292
+								} else {
+									// Line: 293
+									call.putIfNotNull("hour", event.get("sem:number"));
+									// Line: 294
 									if (event.has("sem:apm")) {
-										// Line: 291
+										// Line: 295
 										call.putIfNotNull("amp", event.get("sem:apm"));
 									}
 								}
-								// Line: 294
+								// Line: 298
 								if (event.has("sem:date")) {
-									// Line: 295
+									// Line: 299
 									call.putIfNotNull("date", event.get("sem:date"));
 								}
-								// Line: 297
+								// Line: 301
 								checkcall state86 = new checkcall();
-								flowThread.gotoState(state86, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 297, 30)));
+								flowThread.gotoState(state86, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 301, 30)));
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
@@ -1489,26 +1511,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 263, 81));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 265, 81));
 			}
-			// Line: 301
+			// Line: 305
 			try {
-				count = getCount(937928782) + 1;
+				count = getCount(638343515) + 1;
 				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:noon")) {
-						incrCount(937928782);
+					if (event.has("sem:no")) {
+						incrCount(638343515);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 302
-							call.putIfNotNull("hour", 12); call.putIfNotNull("minute", 0); call.putIfNotNull("apm", "am");
-							// Line: 303
-							if (event.has("sem:date")) {
-								// Line: 304
-								call.putIfNotNull("date", event.get("sem:date"));
-							}
 							// Line: 306
-							checkcall state87 = new checkcall();
-							flowThread.gotoState(state87, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 306, 29)));
+							CheckAgain state87 = new CheckAgain();
+							flowThread.gotoState(state87, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 306, 30)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1516,26 +1531,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 301, 59));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 305, 57));
 			}
 			// Line: 309
 			try {
-				count = getCount(1765276954) + 1;
+				count = getCount(1612020313) + 1;
 				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:midnight")) {
-						incrCount(1765276954);
+					if (event.has("sem:number")) {
+						incrCount(1612020313);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							// Line: 310
-							call.putIfNotNull("hour", 0); call.putIfNotNull("minute", 0); call.putIfNotNull("apm", "am");
-							// Line: 311
-							if (event.has("sem:date")) {
-								// Line: 312
-								call.putIfNotNull("date", event.get("sem:date"));
-							}
-							// Line: 314
 							checkcall state88 = new checkcall();
-							flowThread.gotoState(state88, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 314, 29)));
+							flowThread.gotoState(state88, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 310, 29)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1543,47 +1551,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 309, 63));
-			}
-			// Line: 317
-			try {
-				count = getCount(1939637186) + 1;
-				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:no")) {
-						incrCount(1939637186);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 318
-							CheckAgain state89 = new CheckAgain();
-							flowThread.gotoState(state89, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 318, 30)));
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
-					}
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 317, 57));
-			}
-			// Line: 321
-			try {
-				count = getCount(1103220874) + 1;
-				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:number")) {
-						incrCount(1103220874);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 322
-							checkcall state90 = new checkcall();
-							flowThread.gotoState(state90, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 322, 29)));
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
-					}
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 321, 61));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 309, 61));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -1609,50 +1577,50 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 328
+			// Line: 315
 			try {
 				EXECUTION: {
-					int count = getCount(1138778462) + 1;
-					incrCount(1138778462);
-					// Line: 329
+					int count = getCount(1259831402) + 1;
+					incrCount(1259831402);
+					// Line: 316
 					if (!call.has("hour")) {
-						// Line: 330
-						askhour state91 = new askhour();
-						flowThread.gotoState(state91, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 330, 28)));
+						// Line: 317
+						askhour state89 = new askhour();
+						flowThread.gotoState(state89, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 317, 28)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
-						// Line: 331
+						// Line: 318
 					} else if (!call.has("minute")) {
-						// Line: 332
-						askminute state92 = new askminute();
-						flowThread.gotoState(state92, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 332, 30)));
+						// Line: 319
+						askminute state90 = new askminute();
+						flowThread.gotoState(state90, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 319, 30)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
-						// Line: 333
+						// Line: 320
 					} else if (!call.has("apm")) {
-						// Line: 334
-						askapm state93 = new askapm();
-						flowThread.gotoState(state93, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 334, 27)));
+						// Line: 321
+						askapm state91 = new askapm();
+						flowThread.gotoState(state91, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 321, 27)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
-						// Line: 335
+						// Line: 322
 					} else if (!call.has("date")) {
-						// Line: 336
-						askdate state94 = new askdate();
-						flowThread.gotoState(state94, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 336, 28)));
+						// Line: 323
+						askdate state92 = new askdate();
+						flowThread.gotoState(state92, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 323, 28)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
-						// Line: 337
+						// Line: 324
 					} else {
-						// Line: 338
-						calldone state95 = new calldone();
-						flowThread.gotoState(state95, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 338, 29)));
+						// Line: 325
+						calldone state93 = new calldone();
+						flowThread.gotoState(state93, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 325, 29)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 328, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 315, 12));
 			}
 		}
 
@@ -1684,22 +1652,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 344
+			// Line: 331
 			try {
 				EXECUTION: {
-					int count = getCount(1711276889) + 1;
-					incrCount(1711276889);
-					iristk.situated.SystemAgentFlow.prompt state96 = agent.new prompt();
-					StringCreator string97 = new StringCreator();
-					string97.append("Please say the hour of the morning call.");
-					state96.setText(string97.toString());
-					if (!flowThread.callState(state96, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 344, 12)))) {
+					int count = getCount(662733242) + 1;
+					incrCount(662733242);
+					iristk.situated.SystemAgentFlow.prompt state94 = agent.new prompt();
+					StringCreator string95 = new StringCreator();
+					string95.append("Please say the hour of the morning call.");
+					state94.setText(string95.toString());
+					if (!flowThread.callState(state94, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 331, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 344, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 331, 12));
 			}
 		}
 
@@ -1707,38 +1675,42 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 347
+			// Line: 334
 			try {
-				count = getCount(2135100117) + 1;
+				count = getCount(1615239747) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:number")) {
-						incrCount(2135100117);
+						incrCount(1615239747);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 348
+							// Line: 335
 							String tempstring = (event.get("sem:number")).toString(); int num=Integer.valueOf(tempstring);
-							// Line: 349
+							// Line: 336
 							if ( num > 24 ) {
-								iristk.situated.SystemAgentFlow.say state98 = agent.new say();
-								StringCreator string99 = new StringCreator();
-								string99.append("Sorry the time is invalid.");
-								state98.setText(string99.toString());
-								if (!flowThread.callState(state98, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 349, 29)))) {
+								iristk.situated.SystemAgentFlow.say state96 = agent.new say();
+								StringCreator string97 = new StringCreator();
+								string97.append("Sorry the time is invalid.");
+								state96.setText(string97.toString());
+								if (!flowThread.callState(state96, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 336, 29)))) {
 									eventResult = EVENT_ABORTED;
 									break EXECUTION;
 								}
-								// Line: 351
-							} else if ( num > 11 ) {
-								// Line: 352
-								call.putIfNotNull("hour", event.get("sem:number")); call.putIfNotNull("apm", "pm");
-								// Line: 353
+								// Line: 338
+								flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 338, 15)));
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+								// Line: 339
+							} else if ( num > 12 ) {
+								// Line: 340
+								call.putIfNotNull("hour", event.get("sem:number")); call.putIfNotNull("apm", "a.m.");
+								// Line: 341
 							} else {
-								// Line: 354
+								// Line: 342
 								call.putIfNotNull("hour", event.get("sem:number"));
 							}
-							// Line: 356
-							checkcall state100 = new checkcall();
-							flowThread.gotoState(state100, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 356, 29)));
+							// Line: 344
+							checkcall state98 = new checkcall();
+							flowThread.gotoState(state98, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 344, 29)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1746,7 +1718,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 347, 61));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 334, 61));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -1772,22 +1744,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 361
+			// Line: 349
 			try {
 				EXECUTION: {
-					int count = getCount(1162230640) + 1;
-					incrCount(1162230640);
-					iristk.situated.SystemAgentFlow.prompt state101 = agent.new prompt();
-					StringCreator string102 = new StringCreator();
-					string102.append("Please say the minute of the morning call.");
-					state101.setText(string102.toString());
-					if (!flowThread.callState(state101, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 361, 12)))) {
+					int count = getCount(909064868) + 1;
+					incrCount(909064868);
+					iristk.situated.SystemAgentFlow.prompt state99 = agent.new prompt();
+					StringCreator string100 = new StringCreator();
+					string100.append("Please say the minute of the morning call.");
+					state99.setText(string100.toString());
+					if (!flowThread.callState(state99, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 349, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 361, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 349, 12));
 			}
 		}
 
@@ -1795,19 +1767,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 364
+			// Line: 352
 			try {
-				count = getCount(642752269) + 1;
+				count = getCount(706053828) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:number")) {
-						incrCount(642752269);
+						incrCount(706053828);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 365
+							// Line: 353
 							call.putIfNotNull("minute", event.get("sem:number"));
-							// Line: 366
-							checkcall state103 = new checkcall();
-							flowThread.gotoState(state103, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 366, 29)));
+							// Line: 354
+							checkcall state101 = new checkcall();
+							flowThread.gotoState(state101, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 354, 29)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1815,7 +1787,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 364, 61));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 352, 61));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -1841,22 +1813,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 371
+			// Line: 359
 			try {
 				EXECUTION: {
-					int count = getCount(1959711682) + 1;
-					incrCount(1959711682);
-					iristk.situated.SystemAgentFlow.prompt state104 = agent.new prompt();
-					StringCreator string105 = new StringCreator();
-					string105.append("Is it a.m. or p.m.?");
-					state104.setText(string105.toString());
-					if (!flowThread.callState(state104, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 371, 12)))) {
+					int count = getCount(288812155) + 1;
+					incrCount(288812155);
+					iristk.situated.SystemAgentFlow.prompt state102 = agent.new prompt();
+					StringCreator string103 = new StringCreator();
+					string103.append("Is it a.m. or p.m.?");
+					state102.setText(string103.toString());
+					if (!flowThread.callState(state102, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 359, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 371, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 359, 12));
 			}
 		}
 
@@ -1864,19 +1836,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 374
+			// Line: 362
 			try {
-				count = getCount(383734626) + 1;
+				count = getCount(871247429) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:apm")) {
-						incrCount(383734626);
+						incrCount(871247429);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 375
+							// Line: 363
 							call.putIfNotNull("apm", event.get("sem:apm"));
-							// Line: 376
-							checkcall state106 = new checkcall();
-							flowThread.gotoState(state106, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 376, 29)));
+							// Line: 364
+							checkcall state104 = new checkcall();
+							flowThread.gotoState(state104, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 364, 29)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1884,7 +1856,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 374, 58));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 362, 58));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -1910,22 +1882,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 381
+			// Line: 369
 			try {
 				EXECUTION: {
-					int count = getCount(1167978180) + 1;
-					incrCount(1167978180);
-					iristk.situated.SystemAgentFlow.prompt state107 = agent.new prompt();
-					StringCreator string108 = new StringCreator();
-					string108.append("Do we need to call you at today or tomorrow?");
-					state107.setText(string108.toString());
-					if (!flowThread.callState(state107, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 381, 12)))) {
+					int count = getCount(936058639) + 1;
+					incrCount(936058639);
+					iristk.situated.SystemAgentFlow.prompt state105 = agent.new prompt();
+					StringCreator string106 = new StringCreator();
+					string106.append("Do we need to call you at today or tomorrow?");
+					state105.setText(string106.toString());
+					if (!flowThread.callState(state105, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 369, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 381, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 369, 12));
 			}
 		}
 
@@ -1933,19 +1905,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 384
+			// Line: 372
 			try {
-				count = getCount(1343590544) + 1;
+				count = getCount(1554093195) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:date")) {
-						incrCount(1343590544);
+						incrCount(1554093195);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 385
+							// Line: 373
 							call.putIfNotNull("date", event.get("sem:date"));
-							// Line: 386
-							checkcall state109 = new checkcall();
-							flowThread.gotoState(state109, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 386, 29)));
+							// Line: 374
+							checkcall state107 = new checkcall();
+							flowThread.gotoState(state107, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 374, 29)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1953,7 +1925,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 384, 59));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 372, 59));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -1979,23 +1951,23 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 391
+			// Line: 379
 			try {
 				EXECUTION: {
-					int count = getCount(273591381) + 1;
-					incrCount(273591381);
-					// Line: 392
+					int count = getCount(1581203743) + 1;
+					incrCount(1581203743);
+					// Line: 380
 					String datestring=(call.get("date")).toString(); String hourstring=(call.get("hour")).toString();
 					String minutestring=(call.get("minute")).toString(); String apmstring=(call.get("apm")).toString();
-					iristk.situated.SystemAgentFlow.prompt state110 = agent.new prompt();
-					state110.setText(info.timeconfirm(datestring, hourstring, minutestring, apmstring));
-					if (!flowThread.callState(state110, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 391, 12)))) {
+					iristk.situated.SystemAgentFlow.prompt state108 = agent.new prompt();
+					state108.setText(info.timeconfirm(datestring, hourstring, minutestring, apmstring));
+					if (!flowThread.callState(state108, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 379, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 391, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 379, 12));
 			}
 		}
 
@@ -2003,17 +1975,17 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 396
+			// Line: 384
 			try {
-				count = getCount(994687208) + 1;
+				count = getCount(517787201) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:yes")) {
-						incrCount(994687208);
+						incrCount(517787201);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 397
-							callroom state111 = new callroom();
-							flowThread.gotoState(state111, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 397, 28)));
+							// Line: 385
+							callroom state109 = new callroom();
+							flowThread.gotoState(state109, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 385, 28)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -2021,21 +1993,21 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 396, 58));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 384, 58));
 			}
-			// Line: 399
+			// Line: 387
 			try {
-				count = getCount(735320042) + 1;
+				count = getCount(1613974684) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:no")) {
-						incrCount(735320042);
+						incrCount(1613974684);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 400
+							// Line: 388
 							call.remove("date");call.remove("hour");call.remove("minute");call.remove("apm");
-							// Line: 401
-							MorningCall state112 = new MorningCall();
-							flowThread.gotoState(state112, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 401, 31)));
+							// Line: 389
+							MorningCall state110 = new MorningCall();
+							flowThread.gotoState(state110, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 389, 31)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -2043,7 +2015,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 399, 57));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 387, 57));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -2069,22 +2041,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 406
+			// Line: 394
 			try {
 				EXECUTION: {
-					int count = getCount(340178238) + 1;
-					incrCount(340178238);
-					iristk.situated.SystemAgentFlow.prompt state113 = agent.new prompt();
-					StringCreator string114 = new StringCreator();
-					string114.append("Which room do you live in?");
-					state113.setText(string114.toString());
-					if (!flowThread.callState(state113, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 406, 12)))) {
+					int count = getCount(1924091592) + 1;
+					incrCount(1924091592);
+					iristk.situated.SystemAgentFlow.prompt state111 = agent.new prompt();
+					StringCreator string112 = new StringCreator();
+					string112.append("Which room do you live in?");
+					state111.setText(string112.toString());
+					if (!flowThread.callState(state111, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 394, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 406, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 394, 12));
 			}
 		}
 
@@ -2092,42 +2064,42 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 409
+			// Line: 397
 			try {
-				count = getCount(1664560010) + 1;
+				count = getCount(1543852136) + 1;
 				if (event.triggers("sense.user.speak")) {
-					incrCount(1664560010);
+					incrCount(1543852136);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						// Line: 410
+						// Line: 398
 						String sss = event.get("text").toString();
-						// Line: 411
+						// Line: 399
 						if (eq("Sorry",info.callroom(sss))) {
-							iristk.situated.SystemAgentFlow.say state115 = agent.new say();
-							StringCreator string116 = new StringCreator();
-							string116.append("Sorry, I didn't get that.");
-							state115.setText(string116.toString());
-							if (!flowThread.callState(state115, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 411, 46)))) {
+							iristk.situated.SystemAgentFlow.say state113 = agent.new say();
+							StringCreator string114 = new StringCreator();
+							string114.append("Sorry, I didn't get that.");
+							state113.setText(string114.toString());
+							if (!flowThread.callState(state113, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 399, 46)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 413
-							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 413, 15)));
+							// Line: 401
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 401, 15)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 414
+							// Line: 402
 						} else {
-							iristk.situated.SystemAgentFlow.say state117 = agent.new say();
-							state117.setText(info.callroom(sss));
-							if (!flowThread.callState(state117, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 411, 46)))) {
+							iristk.situated.SystemAgentFlow.say state115 = agent.new say();
+							state115.setText(info.callroom(sss));
+							if (!flowThread.callState(state115, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 399, 46)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 416
+							// Line: 404
 							call.putIfNotNull("room", info.getcallroomnum(sss));
-							// Line: 417
-							roomconfirm state118 = new roomconfirm();
-							flowThread.gotoState(state118, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 417, 32)));
+							// Line: 405
+							roomconfirm state116 = new roomconfirm();
+							flowThread.gotoState(state116, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 405, 32)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -2135,7 +2107,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 409, 36));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 397, 36));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -2161,19 +2133,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 423
+			// Line: 411
 			try {
 				EXECUTION: {
-					int count = getCount(2055427142) + 1;
-					incrCount(2055427142);
-					iristk.situated.SystemAgentFlow.listen state119 = agent.new listen();
-					if (!flowThread.callState(state119, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 423, 12)))) {
+					int count = getCount(1939255063) + 1;
+					incrCount(1939255063);
+					iristk.situated.SystemAgentFlow.listen state117 = agent.new listen();
+					if (!flowThread.callState(state117, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 411, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 423, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 411, 12));
 			}
 		}
 
@@ -2181,19 +2153,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 426
+			// Line: 414
 			try {
-				count = getCount(1332835233) + 1;
+				count = getCount(2076704485) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:no")) {
-						incrCount(1332835233);
+						incrCount(2076704485);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 427
+							// Line: 415
 							call.remove("room");
-							// Line: 428
-							callroom state120 = new callroom();
-							flowThread.gotoState(state120, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 428, 28)));
+							// Line: 416
+							callroom state118 = new callroom();
+							flowThread.gotoState(state118, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 416, 28)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -2201,25 +2173,25 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 426, 57));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 414, 57));
 			}
-			// Line: 430
+			// Line: 418
 			try {
-				count = getCount(500707282) + 1;
+				count = getCount(26241706) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:yes")) {
-						incrCount(500707282);
+						incrCount(26241706);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 431
+							// Line: 419
 							String datestring=(call.get("date")).toString(); String hourstring=(call.get("hour")).toString();
 							String minutestring=(call.get("minute")).toString(); String apmstring=(call.get("apm")).toString();
 							String roomstring=(call.get("room")).toString();
-							// Line: 434
+							// Line: 422
 							info.addcsv(datestring, hourstring, minutestring, apmstring, roomstring);
-							// Line: 435
-							CheckAgain state121 = new CheckAgain();
-							flowThread.gotoState(state121, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 435, 30)));
+							// Line: 423
+							CheckAgain state119 = new CheckAgain();
+							flowThread.gotoState(state119, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 423, 30)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -2227,7 +2199,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 430, 58));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 418, 58));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -2253,22 +2225,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 443
+			// Line: 431
 			try {
 				EXECUTION: {
-					int count = getCount(1085990947) + 1;
-					incrCount(1085990947);
-					iristk.situated.SystemAgentFlow.prompt state122 = agent.new prompt();
-					StringCreator string123 = new StringCreator();
-					string123.append("Do you need other help?");
-					state122.setText(string123.toString());
-					if (!flowThread.callState(state122, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 443, 12)))) {
+					int count = getCount(1977786067) + 1;
+					incrCount(1977786067);
+					iristk.situated.SystemAgentFlow.prompt state120 = agent.new prompt();
+					StringCreator string121 = new StringCreator();
+					string121.append("Do you need other help?");
+					state120.setText(string121.toString());
+					if (!flowThread.callState(state120, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 431, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 443, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 431, 12));
 			}
 		}
 
@@ -2276,25 +2248,25 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 446
+			// Line: 434
 			try {
-				count = getCount(335023601) + 1;
+				count = getCount(1095588950) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:yes")) {
-						incrCount(335023601);
+						incrCount(1095588950);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							iristk.situated.SystemAgentFlow.say state124 = agent.new say();
-							StringCreator string125 = new StringCreator();
-							string125.append("Okay");
-							state124.setText(string125.toString());
-							if (!flowThread.callState(state124, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 446, 58)))) {
+							iristk.situated.SystemAgentFlow.say state122 = agent.new say();
+							StringCreator string123 = new StringCreator();
+							string123.append("Okay");
+							state122.setText(string123.toString());
+							if (!flowThread.callState(state122, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 434, 58)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 448
-							Start state126 = new Start();
-							flowThread.gotoState(state126, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 448, 25)));
+							// Line: 436
+							Start state124 = new Start();
+							flowThread.gotoState(state124, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 436, 25)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -2302,27 +2274,27 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 446, 58));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 434, 58));
 			}
-			// Line: 450
+			// Line: 438
 			try {
-				count = getCount(520432680) + 1;
+				count = getCount(2094877528) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:no")) {
-						incrCount(520432680);
+						incrCount(2094877528);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							iristk.situated.SystemAgentFlow.say state127 = agent.new say();
-							StringCreator string128 = new StringCreator();
-							string128.append("Okay");
-							state127.setText(string128.toString());
-							if (!flowThread.callState(state127, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 450, 57)))) {
+							iristk.situated.SystemAgentFlow.say state125 = agent.new say();
+							StringCreator string126 = new StringCreator();
+							string126.append("Okay");
+							state125.setText(string126.toString());
+							if (!flowThread.callState(state125, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 438, 57)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 452
-							Goodbye state129 = new Goodbye();
-							flowThread.gotoState(state129, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 452, 27)));
+							// Line: 440
+							Goodbye state127 = new Goodbye();
+							flowThread.gotoState(state127, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 440, 27)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -2330,7 +2302,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 450, 57));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 438, 57));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -2362,17 +2334,17 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 457
+			// Line: 445
 			try {
-				count = getCount(619963740) + 1;
+				count = getCount(1308061341) + 1;
 				if (event.triggers("sense.user.speech.start")) {
 					if (system.isAttending(event) && eq(event.get("speakers"), 1)) {
-						incrCount(619963740);
+						incrCount(1308061341);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							iristk.situated.SystemAgentFlow.gesture state130 = agent.new gesture();
-							state130.setName("smile");
-							if (!flowThread.callState(state130, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 457, 102)))) {
+							iristk.situated.SystemAgentFlow.gesture state128 = agent.new gesture();
+							state128.setName("smile");
+							if (!flowThread.callState(state128, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 445, 102)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
@@ -2381,44 +2353,44 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 457, 102));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 445, 102));
 			}
-			// Line: 460
+			// Line: 448
 			try {
-				count = getCount(312605062) + 1;
+				count = getCount(1533438960) + 1;
 				if (event.triggers("sense.user.speak")) {
-					incrCount(312605062);
+					incrCount(1533438960);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						iristk.situated.SystemAgentFlow.say state131 = agent.new say();
-						StringCreator string132 = new StringCreator();
-						string132.append("Sorry, I didn't get that.");
-						state131.setText(string132.toString());
-						if (!flowThread.callState(state131, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 460, 36)))) {
+						iristk.situated.SystemAgentFlow.say state129 = agent.new say();
+						StringCreator string130 = new StringCreator();
+						string130.append("Sorry, I didn't get that.");
+						state129.setText(string130.toString());
+						if (!flowThread.callState(state129, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 448, 36)))) {
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						// Line: 462
-						flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 462, 14)));
+						// Line: 450
+						flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 450, 14)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 460, 36));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 448, 36));
 			}
-			// Line: 464
+			// Line: 452
 			try {
-				count = getCount(1628304645) + 1;
+				count = getCount(1391156415) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:exit")) {
-						incrCount(1628304645);
+						incrCount(1391156415);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 465
-							Greeting state133 = new Greeting();
-							flowThread.gotoState(state133, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 465, 28)));
+							// Line: 453
+							Greeting state131 = new Greeting();
+							flowThread.gotoState(state131, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 453, 28)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -2426,23 +2398,68 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 464, 59));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 452, 59));
 			}
-			// Line: 467
+			// Line: 455
 			try {
-				count = getCount(1193249391) + 1;
+				count = getCount(1288672625) + 1;
 				if (event.triggers("sense.user.silence")) {
-					incrCount(1193249391);
+					incrCount(1288672625);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						iristk.situated.SystemAgentFlow.say state134 = agent.new say();
-						StringCreator string135 = new StringCreator();
-						string135.append("Sorry, I didn't hear anything.");
-						state134.setText(string135.toString());
-						if (!flowThread.callState(state134, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 467, 38)))) {
+						iristk.situated.SystemAgentFlow.say state132 = agent.new say();
+						StringCreator string133 = new StringCreator();
+						string133.append("Sorry, I didn't hear anything.");
+						state132.setText(string133.toString());
+						if (!flowThread.callState(state132, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 455, 38)))) {
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
+						// Line: 457
+						flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 457, 14)));
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					if (eventResult != EVENT_IGNORED) return eventResult;
+				}
+			} catch (Exception e) {
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 455, 38));
+			}
+			// Line: 459
+			try {
+				count = getCount(1284702835) + 1;
+				if (event.triggers("sense.user.leave")) {
+					if (system.isAttending(event)) {
+						incrCount(1284702835);
+						eventResult = EVENT_CONSUMED;
+						EXECUTION: {
+							iristk.situated.SystemAgentFlow.say state134 = agent.new say();
+							StringCreator string135 = new StringCreator();
+							string135.append("Goodbye");
+							state134.setText(string135.toString());
+							if (!flowThread.callState(state134, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 459, 69)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 465
+							Idle state136 = new Idle();
+							flowThread.gotoState(state136, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 465, 25)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+						}
+						if (eventResult != EVENT_IGNORED) return eventResult;
+					}
+				}
+			} catch (Exception e) {
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 459, 69));
+			}
+			// Line: 468
+			try {
+				count = getCount(705751991) + 1;
+				if (event.triggers("repeat")) {
+					incrCount(705751991);
+					eventResult = EVENT_CONSUMED;
+					EXECUTION: {
 						// Line: 469
 						flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 469, 14)));
 						eventResult = EVENT_ABORTED;
@@ -2451,52 +2468,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 467, 38));
-			}
-			// Line: 471
-			try {
-				count = getCount(1358290764) + 1;
-				if (event.triggers("sense.user.leave")) {
-					if (system.isAttending(event)) {
-						incrCount(1358290764);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							iristk.situated.SystemAgentFlow.say state136 = agent.new say();
-							StringCreator string137 = new StringCreator();
-							string137.append("Goodbye");
-							state136.setText(string137.toString());
-							if (!flowThread.callState(state136, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 471, 69)))) {
-								eventResult = EVENT_ABORTED;
-								break EXECUTION;
-							}
-							// Line: 477
-							Idle state138 = new Idle();
-							flowThread.gotoState(state138, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 477, 25)));
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
-					}
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 471, 69));
-			}
-			// Line: 480
-			try {
-				count = getCount(1223027725) + 1;
-				if (event.triggers("repeat")) {
-					incrCount(1223027725);
-					eventResult = EVENT_CONSUMED;
-					EXECUTION: {
-						// Line: 481
-						flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 481, 14)));
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					if (eventResult != EVENT_IGNORED) return eventResult;
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 480, 26));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 468, 26));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -2522,22 +2494,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 493
+			// Line: 481
 			try {
 				EXECUTION: {
-					int count = getCount(2090277769) + 1;
-					incrCount(2090277769);
-					iristk.situated.SystemAgentFlow.prompt state139 = agent.new prompt();
-					StringCreator string140 = new StringCreator();
-					string140.append("请问有什么可以帮到您的？");
-					state139.setText(string140.toString());
-					if (!flowThread.callState(state139, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 493, 12)))) {
+					int count = getCount(701095174) + 1;
+					incrCount(701095174);
+					iristk.situated.SystemAgentFlow.prompt state137 = agent.new prompt();
+					StringCreator string138 = new StringCreator();
+					string138.append("请问有什么可以帮到您的？");
+					state137.setText(string138.toString());
+					if (!flowThread.callState(state137, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 481, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 493, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 481, 12));
 			}
 		}
 
@@ -2545,134 +2517,134 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 501
+			// Line: 489
 			try {
-				count = getCount(469042578) + 1;
+				count = getCount(69850843) + 1;
 				if (event.triggers("sense.user.speak")) {
-					incrCount(469042578);
+					incrCount(69850843);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						// Line: 502
+						// Line: 490
 						String s = event.get("text").toString();
-						// Line: 503
+						// Line: 491
 						int value2=mandarin.attraction(s);
-						// Line: 504
+						// Line: 492
 						int value3=mandarin.nature(s);
-						// Line: 505
+						// Line: 493
 						int value4=mandarin.history(s);
-						// Line: 506
+						// Line: 494
 						int value5=mandarin.popular(s);
-						// Line: 507
+						// Line: 495
 						int value6 = mandarin.transportation(s);
-						// Line: 508
+						// Line: 496
 						int value7 = mandarin.room(s);
-						// Line: 509
+						// Line: 497
 						int value8 = mandarin.weather(s);
-						// Line: 510
+						// Line: 498
 						int value9 = mandarin.morningcall(s);
-						// Line: 511
+						// Line: 499
 						int value10 = mandarin.no(s);
-						// Line: 513
-						if (value2==2) {
-							// Line: 514
-							QueryAttr_CN state141 = new QueryAttr_CN();
-							flowThread.gotoState(state141, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 514, 35)));
+						// Line: 501
+						if (value3==3) {
+							// Line: 502
+							Nature_CN state139 = new Nature_CN();
+							flowThread.gotoState(state139, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 502, 32)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 515
-						} else if (value3==3) {
-							// Line: 516
-							Nature_CN state142 = new Nature_CN();
-							flowThread.gotoState(state142, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 516, 32)));
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-							// Line: 517
+							// Line: 503
 						} else if (value4==4) {
-							// Line: 518
-							History_CN state143 = new History_CN();
-							flowThread.gotoState(state143, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 518, 33)));
+							// Line: 504
+							History_CN state140 = new History_CN();
+							flowThread.gotoState(state140, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 504, 33)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 519
+							// Line: 505
 						} else if (value5==5) {
-							// Line: 520
-							Popular_CN state144 = new Popular_CN();
-							flowThread.gotoState(state144, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 520, 33)));
+							// Line: 506
+							Popular_CN state141 = new Popular_CN();
+							flowThread.gotoState(state141, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 506, 33)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 521
+							// Line: 507
+						} else if (value2==2) {
+							// Line: 508
+							QueryAttr_CN state142 = new QueryAttr_CN();
+							flowThread.gotoState(state142, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 508, 35)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 509
 						} else if (value6==2) {
-							// Line: 522
+							// Line: 510
 							String attrname = mandarin.attrname(s);
-							// Line: 523
+							// Line: 511
 							if (!attrname.equals("a")) {
-								iristk.situated.SystemAgentFlow.say state145 = agent.new say();
-								state145.setText(info.transdetail_CN(info.readtrans(),attrname));
-								if (!flowThread.callState(state145, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 523, 38)))) {
+								iristk.situated.SystemAgentFlow.say state143 = agent.new say();
+								state143.setText(info.transdetail_CN(info.readtrans(),attrname));
+								if (!flowThread.callState(state143, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 511, 38)))) {
 									eventResult = EVENT_ABORTED;
 									break EXECUTION;
 								}
-								// Line: 525
-								CheckAgain_CN state146 = new CheckAgain_CN();
-								flowThread.gotoState(state146, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 525, 37)));
+								// Line: 513
+								CheckAgain_CN state144 = new CheckAgain_CN();
+								flowThread.gotoState(state144, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 513, 37)));
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
-								// Line: 526
+								// Line: 514
 							} else {
-								// Line: 527
-								QueryTrans_CN state147 = new QueryTrans_CN();
-								flowThread.gotoState(state147, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 527, 37)));
+								// Line: 515
+								QueryTrans_CN state145 = new QueryTrans_CN();
+								flowThread.gotoState(state145, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 515, 37)));
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 529
+							// Line: 517
 						} else if (value7==2) {
-							// Line: 530
-							QueryRoom_CN state148 = new QueryRoom_CN();
-							flowThread.gotoState(state148, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 530, 35)));
+							// Line: 518
+							QueryRoom_CN state146 = new QueryRoom_CN();
+							flowThread.gotoState(state146, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 518, 35)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 531
+							// Line: 519
 						} else if (value8==2) {
-							// Line: 532
-							QueryWeather_CN state149 = new QueryWeather_CN();
-							flowThread.gotoState(state149, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 532, 38)));
+							// Line: 520
+							QueryWeather_CN state147 = new QueryWeather_CN();
+							flowThread.gotoState(state147, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 520, 38)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 533
+							// Line: 521
 						} else if (value9==2) {
-							// Line: 534
-							MorningCall_CN state150 = new MorningCall_CN();
-							flowThread.gotoState(state150, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 534, 37)));
+							// Line: 522
+							MorningCall_CN state148 = new MorningCall_CN();
+							flowThread.gotoState(state148, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 522, 37)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 535
+							// Line: 523
 						} else if (value10==88) {
-							iristk.situated.SystemAgentFlow.say state151 = agent.new say();
-							StringCreator string152 = new StringCreator();
-							string152.append("好的");
-							state151.setText(string152.toString());
-							if (!flowThread.callState(state151, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 513, 25)))) {
+							iristk.situated.SystemAgentFlow.say state149 = agent.new say();
+							StringCreator string150 = new StringCreator();
+							string150.append("好的");
+							state149.setText(string150.toString());
+							if (!flowThread.callState(state149, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 501, 25)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 537
-							Goodbye_CN state153 = new Goodbye_CN();
-							flowThread.gotoState(state153, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 537, 31)));
+							// Line: 525
+							Goodbye_CN state151 = new Goodbye_CN();
+							flowThread.gotoState(state151, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 525, 31)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 538
+							// Line: 526
 						} else {
-							iristk.situated.SystemAgentFlow.say state154 = agent.new say();
-							StringCreator string155 = new StringCreator();
-							string155.append("抱歉，我没有理解您说的话。");
-							state154.setText(string155.toString());
-							if (!flowThread.callState(state154, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 513, 25)))) {
+							iristk.situated.SystemAgentFlow.say state152 = agent.new say();
+							StringCreator string153 = new StringCreator();
+							string153.append("抱歉，我没有理解您说的话。");
+							state152.setText(string153.toString());
+							if (!flowThread.callState(state152, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 501, 25)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 540
-							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 540, 15)));
+							// Line: 528
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 528, 15)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -2680,7 +2652,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 501, 36));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 489, 36));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -2706,42 +2678,42 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 595
+			// Line: 535
 			try {
 				EXECUTION: {
-					int count = getCount(1383235283) + 1;
-					incrCount(1383235283);
+					int count = getCount(343631014) + 1;
+					incrCount(343631014);
+					iristk.situated.SystemAgentFlow.say state154 = agent.new say();
+					StringCreator string155 = new StringCreator();
+					string155.append("再见。");
+					state154.setText(string155.toString());
+					if (!flowThread.callState(state154, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 535, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					iristk.situated.SystemAgentFlow.say state156 = agent.new say();
 					StringCreator string157 = new StringCreator();
-					string157.append("再见。");
+					string157.append("请离开感应区域");
 					state156.setText(string157.toString());
-					if (!flowThread.callState(state156, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 595, 12)))) {
+					if (!flowThread.callState(state156, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 535, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state158 = agent.new say();
-					StringCreator string159 = new StringCreator();
-					string159.append("请离开感应区域");
-					state158.setText(string159.toString());
-					if (!flowThread.callState(state158, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 595, 12)))) {
+					// Line: 538
+					iristk.flow.DialogFlow.wait waitState158 = new iristk.flow.DialogFlow.wait();
+					waitState158.setMsec(2000);
+					if (!flowThread.callState(waitState158, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 538, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 598
-					iristk.flow.DialogFlow.wait waitState160 = new iristk.flow.DialogFlow.wait();
-					waitState160.setMsec(2000);
-					if (!flowThread.callState(waitState160, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 598, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 599
-					Idle state161 = new Idle();
-					flowThread.gotoState(state161, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 599, 24)));
+					// Line: 539
+					Idle state159 = new Idle();
+					flowThread.gotoState(state159, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 539, 24)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 595, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 535, 12));
 			}
 		}
 
@@ -2773,22 +2745,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 606
+			// Line: 546
 			try {
 				EXECUTION: {
-					int count = getCount(910304655) + 1;
-					incrCount(910304655);
-					iristk.situated.SystemAgentFlow.prompt state162 = agent.new prompt();
-					StringCreator string163 = new StringCreator();
-					string163.append("您想参观哪种景点？自然景点，历史景点还是热门景点？");
-					state162.setText(string163.toString());
-					if (!flowThread.callState(state162, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 606, 16)))) {
+					int count = getCount(1467815318) + 1;
+					incrCount(1467815318);
+					iristk.situated.SystemAgentFlow.prompt state160 = agent.new prompt();
+					StringCreator string161 = new StringCreator();
+					string161.append("您想参观哪种景点？自然景点，历史景点还是热门景点？");
+					state160.setText(string161.toString());
+					if (!flowThread.callState(state160, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 546, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 606, 16));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 546, 16));
 			}
 		}
 
@@ -2796,58 +2768,62 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 611
+			// Line: 551
 			try {
-				count = getCount(1469751670) + 1;
+				count = getCount(172072745) + 1;
 				if (event.triggers("sense.user.speak**")) {
-					incrCount(1469751670);
+					incrCount(172072745);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						// Line: 612
+						// Line: 552
 						String s = event.get("text").toString();
-						// Line: 614
+						// Line: 554
 						int value3=mandarin.nature(s);
-						// Line: 615
+						// Line: 555
 						int value4=mandarin.history(s);
-						// Line: 616
+						// Line: 556
 						int value5=mandarin.popular(s);
-						// Line: 617
+						// Line: 557
 						if (value3==3) {
-							// Line: 618
-							Nature_CN state164 = new Nature_CN();
-							flowThread.gotoState(state164, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 618, 32)));
+							// Line: 558
+							Nature_CN state162 = new Nature_CN();
+							flowThread.gotoState(state162, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 558, 32)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 619
+							// Line: 559
 						} else if (value4==4) {
-							// Line: 620
-							History_CN state165 = new History_CN();
-							flowThread.gotoState(state165, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 620, 33)));
+							// Line: 560
+							History_CN state163 = new History_CN();
+							flowThread.gotoState(state163, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 560, 33)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 621
+							// Line: 561
 						} else if (value5==5) {
-							// Line: 622
-							Popular_CN state166 = new Popular_CN();
-							flowThread.gotoState(state166, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 622, 33)));
+							// Line: 562
+							Popular_CN state164 = new Popular_CN();
+							flowThread.gotoState(state164, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 562, 33)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 623
+							// Line: 563
 						} else {
-							iristk.situated.SystemAgentFlow.say state167 = agent.new say();
-							StringCreator string168 = new StringCreator();
-							string168.append("抱歉，我没有理解您说的话。");
-							state167.setText(string168.toString());
-							if (!flowThread.callState(state167, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 617, 25)))) {
+							iristk.situated.SystemAgentFlow.say state165 = agent.new say();
+							StringCreator string166 = new StringCreator();
+							string166.append("抱歉，我没有理解您说的话。");
+							state165.setText(string166.toString());
+							if (!flowThread.callState(state165, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 557, 25)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
+							// Line: 565
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 565, 15)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
 						}
 					}
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 611, 38));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 551, 38));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -2873,25 +2849,25 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 630
+			// Line: 571
 			try {
 				EXECUTION: {
-					int count = getCount(1726295245) + 1;
-					incrCount(1726295245);
-					iristk.situated.SystemAgentFlow.say state169 = agent.new say();
-					state169.setText(info.recommend_CN(info.readattr(),"Natural"));
-					if (!flowThread.callState(state169, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 630, 16)))) {
+					int count = getCount(1161387961) + 1;
+					incrCount(1161387961);
+					iristk.situated.SystemAgentFlow.say state167 = agent.new say();
+					state167.setText(info.recommend_CN(info.readattr(),"Natural"));
+					if (!flowThread.callState(state167, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 571, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 632
-					Attrdetial_CN state170 = new Attrdetial_CN();
-					flowThread.gotoState(state170, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 632, 37)));
+					// Line: 573
+					Attrdetial_CN state168 = new Attrdetial_CN();
+					flowThread.gotoState(state168, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 573, 37)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 630, 16));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 571, 16));
 			}
 		}
 
@@ -2923,25 +2899,25 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 637
+			// Line: 578
 			try {
 				EXECUTION: {
-					int count = getCount(2129193388) + 1;
-					incrCount(2129193388);
-					iristk.situated.SystemAgentFlow.say state171 = agent.new say();
-					state171.setText(info.recommend_CN(info.readattr(),"Historical"));
-					if (!flowThread.callState(state171, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 637, 16)))) {
+					int count = getCount(1184655500) + 1;
+					incrCount(1184655500);
+					iristk.situated.SystemAgentFlow.say state169 = agent.new say();
+					state169.setText(info.recommend_CN(info.readattr(),"Historical"));
+					if (!flowThread.callState(state169, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 578, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 639
-					Attrdetial_CN state172 = new Attrdetial_CN();
-					flowThread.gotoState(state172, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 639, 37)));
+					// Line: 580
+					Attrdetial_CN state170 = new Attrdetial_CN();
+					flowThread.gotoState(state170, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 580, 37)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 637, 16));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 578, 16));
 			}
 		}
 
@@ -2973,25 +2949,25 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 644
+			// Line: 585
 			try {
 				EXECUTION: {
-					int count = getCount(1337738067) + 1;
-					incrCount(1337738067);
-					iristk.situated.SystemAgentFlow.say state173 = agent.new say();
-					state173.setText(info.popular_CN(info.readattr()));
-					if (!flowThread.callState(state173, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 644, 16)))) {
+					int count = getCount(136077699) + 1;
+					incrCount(136077699);
+					iristk.situated.SystemAgentFlow.say state171 = agent.new say();
+					state171.setText(info.popular_CN(info.readattr()));
+					if (!flowThread.callState(state171, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 585, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 646
-					Attrdetial_CN state174 = new Attrdetial_CN();
-					flowThread.gotoState(state174, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 646, 37)));
+					// Line: 587
+					Attrdetial_CN state172 = new Attrdetial_CN();
+					flowThread.gotoState(state172, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 587, 37)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 644, 16));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 585, 16));
 			}
 		}
 
@@ -3023,22 +2999,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 651
+			// Line: 592
 			try {
 				EXECUTION: {
-					int count = getCount(1705424885) + 1;
-					incrCount(1705424885);
-					iristk.situated.SystemAgentFlow.prompt state175 = agent.new prompt();
-					StringCreator string176 = new StringCreator();
-					string176.append("如果您想了解某个景点的详情，请说出该景点的名字。");
-					state175.setText(string176.toString());
-					if (!flowThread.callState(state175, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 651, 16)))) {
+					int count = getCount(433276939) + 1;
+					incrCount(433276939);
+					iristk.situated.SystemAgentFlow.prompt state173 = agent.new prompt();
+					StringCreator string174 = new StringCreator();
+					string174.append("如果您想了解某个景点的详情，请说出该景点的名字。");
+					state173.setText(string174.toString());
+					if (!flowThread.callState(state173, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 592, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 651, 16));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 592, 16));
 			}
 		}
 
@@ -3046,53 +3022,162 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 654
+			// Line: 595
 			try {
-				count = getCount(1210963657) + 1;
+				count = getCount(1915237067) + 1;
 				if (event.triggers("sense.user.speak**")) {
-					if (event.has("sem:attrname")) {
-						incrCount(1210963657);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 655
-							String s = event.get("text").toString();
-							iristk.situated.SystemAgentFlow.say state177 = agent.new say();
-							state177.setText(info.detail_CN(info.readattr(),event.get("sem:attrname")));
-							if (!flowThread.callState(state177, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 654, 69)))) {
+					incrCount(1915237067);
+					eventResult = EVENT_CONSUMED;
+					EXECUTION: {
+						// Line: 596
+						String s = event.get("text").toString();
+						// Line: 597
+						String attrname = mandarin.attrname(s); attrnamepassstring = attrname;
+						// Line: 598
+						if (!attrname.equals("a")) {
+							iristk.situated.SystemAgentFlow.say state175 = agent.new say();
+							state175.setText(info.detail_CN(info.readattr(),attrname));
+							if (!flowThread.callState(state175, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 598, 41)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 657
-							CheckAgain_CN state178 = new CheckAgain_CN();
-							flowThread.gotoState(state178, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 657, 37)));
+							// Line: 600
+							Attrtrans_CN state176 = new Attrtrans_CN();
+							flowThread.gotoState(state176, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 600, 35)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 601
+						} else {
+							iristk.situated.SystemAgentFlow.say state177 = agent.new say();
+							StringCreator string178 = new StringCreator();
+							string178.append("抱歉，我没有理解您说的话。");
+							state177.setText(string178.toString());
+							if (!flowThread.callState(state177, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 598, 41)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 603
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 603, 15)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
 					}
+					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 654, 69));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 595, 42));
 			}
-			// Line: 659
+			eventResult = super.onFlowEvent(event);
+			if (eventResult != EVENT_IGNORED) return eventResult;
+			eventResult = callerHandlers(event);
+			if (eventResult != EVENT_IGNORED) return eventResult;
+			return EVENT_IGNORED;
+		}
+
+	}
+
+
+	private class Attrtrans_CN extends Dialog {
+
+		final State currentState = this;
+
+
+		@Override
+		public void setFlowThread(FlowRunner.FlowThread flowThread) {
+			super.setFlowThread(flowThread);
+		}
+
+		@Override
+		public void onentry() throws Exception {
+			int eventResult;
+			Event event = new Event("state.enter");
+			// Line: 609
 			try {
-				count = getCount(1379135409) + 1;
-				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:no")) {
-						incrCount(1379135409);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 660
-							CheckAgain_CN state179 = new CheckAgain_CN();
-							flowThread.gotoState(state179, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 660, 39)));
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
+				EXECUTION: {
+					int count = getCount(1469036946) + 1;
+					incrCount(1469036946);
+					iristk.situated.SystemAgentFlow.say state179 = agent.new say();
+					StringCreator string180 = new StringCreator();
+					string180.append("您想知道怎么去那里吗?");
+					state179.setText(string180.toString());
+					if (!flowThread.callState(state179, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 609, 16)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.listen state181 = agent.new listen();
+					if (!flowThread.callState(state181, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 609, 16)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 659, 61));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 609, 16));
+			}
+		}
+
+		@Override
+		public int onFlowEvent(Event event) throws Exception {
+			int eventResult;
+			int count;
+			// Line: 613
+			try {
+				count = getCount(445031848) + 1;
+				if (event.triggers("sense.user.speak")) {
+					incrCount(445031848);
+					eventResult = EVENT_CONSUMED;
+					EXECUTION: {
+						// Line: 614
+						String s = event.get("text").toString();
+						// Line: 615
+						int value = mandarin.yesno(s);
+						// Line: 616
+						if (value==66) {
+							iristk.situated.SystemAgentFlow.say state182 = agent.new say();
+							state182.setText(info.transdetail_CN(info.readtrans(),attrnamepassstring));
+							if (!flowThread.callState(state182, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 616, 29)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 618
+							CheckAgain_CN state183 = new CheckAgain_CN();
+							flowThread.gotoState(state183, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 618, 40)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 619
+						} else if (value==88) {
+							iristk.situated.SystemAgentFlow.say state184 = agent.new say();
+							StringCreator string185 = new StringCreator();
+							string185.append("好的");
+							state184.setText(string185.toString());
+							if (!flowThread.callState(state184, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 616, 29)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 621
+							CheckAgain_CN state186 = new CheckAgain_CN();
+							flowThread.gotoState(state186, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 621, 40)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 622
+						} else {
+							iristk.situated.SystemAgentFlow.say state187 = agent.new say();
+							StringCreator string188 = new StringCreator();
+							string188.append("抱歉，我没有理解您说的话。");
+							state187.setText(string188.toString());
+							if (!flowThread.callState(state187, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 616, 29)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 624
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 624, 15)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+						}
+					}
+					if (eventResult != EVENT_IGNORED) return eventResult;
+				}
+			} catch (Exception e) {
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 613, 40));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -3118,22 +3203,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 666
+			// Line: 631
 			try {
 				EXECUTION: {
-					int count = getCount(2043955300) + 1;
-					incrCount(2043955300);
-					iristk.situated.SystemAgentFlow.prompt state180 = agent.new prompt();
-					StringCreator string181 = new StringCreator();
-					string181.append("您打算去哪里？");
-					state180.setText(string181.toString());
-					if (!flowThread.callState(state180, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 666, 12)))) {
+					int count = getCount(1254102106) + 1;
+					incrCount(1254102106);
+					iristk.situated.SystemAgentFlow.prompt state189 = agent.new prompt();
+					StringCreator string190 = new StringCreator();
+					string190.append("您打算去哪里？");
+					state189.setText(string190.toString());
+					if (!flowThread.callState(state189, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 631, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 666, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 631, 12));
 			}
 		}
 
@@ -3141,33 +3226,50 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 669
+			// Line: 634
 			try {
-				count = getCount(878145160) + 1;
+				count = getCount(2105787061) + 1;
 				if (event.triggers("sense.user.speak")) {
-					incrCount(878145160);
+					incrCount(2105787061);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						// Line: 670
+						// Line: 635
 						String s = event.get("text").toString();
-						// Line: 671
+						// Line: 636
 						String attrname = mandarin.attrname(s);
-						iristk.situated.SystemAgentFlow.say state182 = agent.new say();
-						state182.setText(info.transdetail_CN(info.readtrans(),attrname));
-						if (!flowThread.callState(state182, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 669, 36)))) {
+						// Line: 637
+						if (!attrname.equals("a")) {
+							iristk.situated.SystemAgentFlow.say state191 = agent.new say();
+							state191.setText(info.transdetail_CN(info.readtrans(),attrname));
+							if (!flowThread.callState(state191, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 637, 37)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 639
+							CheckAgain_CN state192 = new CheckAgain_CN();
+							flowThread.gotoState(state192, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 639, 36)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 640
+						} else {
+							iristk.situated.SystemAgentFlow.say state193 = agent.new say();
+							StringCreator string194 = new StringCreator();
+							string194.append("抱歉，我没有理解您说的话。");
+							state193.setText(string194.toString());
+							if (!flowThread.callState(state193, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 637, 37)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 642
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 642, 15)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						// Line: 673
-						CheckAgain_CN state183 = new CheckAgain_CN();
-						flowThread.gotoState(state183, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 673, 33)));
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
 					}
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 669, 36));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 634, 36));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -3193,22 +3295,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 679
+			// Line: 649
 			try {
 				EXECUTION: {
-					int count = getCount(419621915) + 1;
-					incrCount(419621915);
-					iristk.situated.SystemAgentFlow.prompt state184 = agent.new prompt();
-					StringCreator string185 = new StringCreator();
-					string185.append("您在找哪个房间？");
-					state184.setText(string185.toString());
-					if (!flowThread.callState(state184, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 679, 16)))) {
+					int count = getCount(1537593713) + 1;
+					incrCount(1537593713);
+					iristk.situated.SystemAgentFlow.prompt state195 = agent.new prompt();
+					StringCreator string196 = new StringCreator();
+					string196.append("您在找哪个房间？");
+					state195.setText(string196.toString());
+					if (!flowThread.callState(state195, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 649, 16)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 679, 16));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 649, 16));
 			}
 		}
 
@@ -3216,68 +3318,40 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 682
+			// Line: 652
 			try {
-				count = getCount(2034553082) + 1;
+				count = getCount(1558822524) + 1;
 				if (event.triggers("sense.user.speak**")) {
-					if (event.has("sem:otherroom")) {
-						incrCount(2034553082);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							iristk.situated.SystemAgentFlow.say state186 = agent.new say();
-							StringCreator string187 = new StringCreator();
-							string187.append("它在一楼。");
-							state186.setText(string187.toString());
-							if (!flowThread.callState(state186, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 682, 70)))) {
-								eventResult = EVENT_ABORTED;
-								break EXECUTION;
-							}
-							// Line: 684
-							CheckAgain_CN state188 = new CheckAgain_CN();
-							flowThread.gotoState(state188, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 684, 37)));
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
-					}
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 682, 70));
-			}
-			// Line: 686
-			try {
-				count = getCount(372724199) + 1;
-				if (event.triggers("sense.user.speak**")) {
-					incrCount(372724199);
+					incrCount(1558822524);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						// Line: 687
+						// Line: 653
 						String ss = event.get("text").toString();
-						// Line: 688
+						// Line: 654
 						if (eq("Sorry",info.findroom_CN(ss))) {
-							iristk.situated.SystemAgentFlow.say state189 = agent.new say();
-							StringCreator string190 = new StringCreator();
-							string190.append("抱歉，我没有理解您说的话。");
-							state189.setText(string190.toString());
-							if (!flowThread.callState(state189, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 688, 52)))) {
+							iristk.situated.SystemAgentFlow.say state197 = agent.new say();
+							StringCreator string198 = new StringCreator();
+							string198.append("抱歉，我没有理解您说的话。");
+							state197.setText(string198.toString());
+							if (!flowThread.callState(state197, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 654, 52)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 690
-							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 690, 19)));
+							// Line: 656
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 656, 19)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 691
+							// Line: 657
 						} else {
-							iristk.situated.SystemAgentFlow.say state191 = agent.new say();
-							state191.setText(info.findroom_CN(ss));
-							if (!flowThread.callState(state191, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 688, 52)))) {
+							iristk.situated.SystemAgentFlow.say state199 = agent.new say();
+							state199.setText(info.findroom_CN(ss));
+							if (!flowThread.callState(state199, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 654, 52)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 693
-							CheckAgain_CN state192 = new CheckAgain_CN();
-							flowThread.gotoState(state192, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 693, 38)));
+							// Line: 659
+							CheckAgain_CN state200 = new CheckAgain_CN();
+							flowThread.gotoState(state200, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 659, 38)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -3285,7 +3359,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 686, 42));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 652, 42));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -3311,25 +3385,25 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 700
+			// Line: 666
 			try {
 				EXECUTION: {
-					int count = getCount(571461518) + 1;
-					incrCount(571461518);
-					iristk.situated.SystemAgentFlow.say state193 = agent.new say();
-					state193.setText(weather.getweather_CN());
-					if (!flowThread.callState(state193, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 700, 12)))) {
+					int count = getCount(948143013) + 1;
+					incrCount(948143013);
+					iristk.situated.SystemAgentFlow.say state201 = agent.new say();
+					state201.setText(weather.getweather_CN());
+					if (!flowThread.callState(state201, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 666, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 702
-					CheckAgain_CN state194 = new CheckAgain_CN();
-					flowThread.gotoState(state194, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 702, 33)));
+					// Line: 668
+					CheckAgain_CN state202 = new CheckAgain_CN();
+					flowThread.gotoState(state202, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 668, 33)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 700, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 666, 12));
 			}
 		}
 
@@ -3361,24 +3435,24 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 707
+			// Line: 673
 			try {
 				EXECUTION: {
-					int count = getCount(1797715879) + 1;
-					incrCount(1797715879);
-					// Line: 708
+					int count = getCount(1034861337) + 1;
+					incrCount(1034861337);
+					// Line: 674
 					call.remove("date");call.remove("hour");call.remove("minute");call.remove("apm");call.remove("room");
-					iristk.situated.SystemAgentFlow.prompt state195 = agent.new prompt();
-					StringCreator string196 = new StringCreator();
-					string196.append("您需要几点叫您？");
-					state195.setText(string196.toString());
-					if (!flowThread.callState(state195, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 707, 12)))) {
+					iristk.situated.SystemAgentFlow.prompt state203 = agent.new prompt();
+					StringCreator string204 = new StringCreator();
+					string204.append("您需要几点叫您？");
+					state203.setText(string204.toString());
+					if (!flowThread.callState(state203, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 673, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 707, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 673, 12));
 			}
 		}
 
@@ -3386,191 +3460,138 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 712
+			// Line: 677
 			try {
-				count = getCount(2346594) + 1;
+				count = getCount(1966858904) + 1;
 				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:clock") || event.has("sem:number")) {
-						incrCount(2346594);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 713
+					incrCount(1966858904);
+					eventResult = EVENT_CONSUMED;
+					EXECUTION: {
+						// Line: 678
+						String s = event.get("text").toString();
+						// Line: 679
+						int hour = mandarin.number(s);
+						// Line: 680
+						int value2 = mandarin.clock(s);
+						// Line: 681
+						int value3 = mandarin.half(s);
+						// Line: 682
+						String apm = mandarin.apm(s);
+						// Line: 683
+						String date = mandarin.calldate(s);
+						// Line: 686
+						if (100 > hour && value2==2) {
+							// Line: 687
 							call.putIfNotNull("minute", 0);
-							// Line: 714
-							Object temp=event.get("sem:number"); String temps=temp.toString(); int num=Integer.parseInt(temps);
-							// Line: 715
-							if ( num > 24 ) {
-								iristk.situated.SystemAgentFlow.say state197 = agent.new say();
-								StringCreator string198 = new StringCreator();
-								string198.append("对不起这是无效的时间。");
-								state197.setText(string198.toString());
-								if (!flowThread.callState(state197, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 715, 29)))) {
+							// Line: 688
+							if ( hour > 24 ) {
+								iristk.situated.SystemAgentFlow.say state205 = agent.new say();
+								StringCreator string206 = new StringCreator();
+								string206.append("对不起这是无效的时间。");
+								state205.setText(string206.toString());
+								if (!flowThread.callState(state205, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 688, 31)))) {
 									eventResult = EVENT_ABORTED;
 									break EXECUTION;
 								}
-								// Line: 717
-							} else if (num > 12) {
-								// Line: 718
-								call.putIfNotNull("hour", event.get("sem:number"));Object apm="pm";call.putIfNotNull("apm", apm);
-								// Line: 720
+								// Line: 690
+								flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 690, 16)));
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+								// Line: 691
+							} else if (hour > 12) {
+								// Line: 692
+								call.putIfNotNull("hour", hour);call.putIfNotNull("apm", "a.m.");
+								// Line: 693
 							} else {
-								// Line: 721
-								call.putIfNotNull("hour", event.get("sem:number"));
-								// Line: 722
-								if (event.has("sem:apm")) {
-									// Line: 723
-									call.putIfNotNull("apm", event.get("sem:apm"));
+								// Line: 694
+								call.putIfNotNull("hour", hour);
+								// Line: 695
+								if (!apm.equals("b")) {
+									// Line: 696
+									call.putIfNotNull("apm", apm);
 								}
 							}
-							// Line: 726
-							if (event.has("sem:date")) {
-								// Line: 727
-								call.putIfNotNull("date", event.get("sem:date"));
+							// Line: 699
+							if (!date.equals("c")) {
+								// Line: 700
+								call.putIfNotNull("date", date);
 							}
-							// Line: 729
-							checkcall_CN state199 = new checkcall_CN();
-							flowThread.gotoState(state199, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 729, 32)));
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
-					}
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 712, 81));
-			}
-			// Line: 732
-			try {
-				count = getCount(844492896) + 1;
-				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:half") && event.has("sem:number")) {
-						incrCount(844492896);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 733
-							Object temp=event.get("sem:number"); String temps=temp.toString(); int num=Integer.parseInt(temps);
-							// Line: 734
-							call.putIfNotNull("minute", 30);
-							// Line: 735
-							if (event.has("sem:past")) {
-								// Line: 736
-								if ( num > 23 ) {
-									iristk.situated.SystemAgentFlow.say state200 = agent.new say();
-									StringCreator string201 = new StringCreator();
-									string201.append("对不起这是无效的时间。");
-									state200.setText(string201.toString());
-									if (!flowThread.callState(state200, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 736, 30)))) {
-										eventResult = EVENT_ABORTED;
-										break EXECUTION;
-									}
-									// Line: 738
-								} else if (num > 11) {
-									// Line: 739
-									call.putIfNotNull("hour", event.get("sem:number"));call.putIfNotNull("apm", "pm");
-									// Line: 740
-								} else {
-									// Line: 741
-									call.putIfNotNull("hour", event.get("sem:number"));
-									// Line: 742
-									if (event.has("sem:apm")) {
-										// Line: 743
-										call.putIfNotNull("amp", event.get("sem:apm"));
-									}
-								}
-								// Line: 746
-								if (event.has("sem:date")) {
-									// Line: 747
-									call.putIfNotNull("date", event.get("sem:date"));
-								}
-								// Line: 749
-								checkcall_CN state202 = new checkcall_CN();
-								flowThread.gotoState(state202, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 749, 33)));
-								eventResult = EVENT_ABORTED;
-								break EXECUTION;
-							}
-							// Line: 752
-							if (event.has("sem:to")) {
-								// Line: 753
-								if ( num > 24 ) {
-									iristk.situated.SystemAgentFlow.say state203 = agent.new say();
-									StringCreator string204 = new StringCreator();
-									string204.append("对不起这是无效的时间。");
-									state203.setText(string204.toString());
-									if (!flowThread.callState(state203, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 753, 30)))) {
-										eventResult = EVENT_ABORTED;
-										break EXECUTION;
-									}
-									// Line: 755
-								} else if (num > 12) {
-									// Line: 756
-									call.putIfNotNull("hour", event.get("sem:number"));call.putIfNotNull("apm", "pm");
-									// Line: 757
-								} else {
-									// Line: 758
-									call.putIfNotNull("hour", event.get("sem:number"));
-									// Line: 759
-									if (event.has("sem:apm")) {
-										// Line: 760
-										call.putIfNotNull("amp", event.get("sem:apm"));
-									}
-								}
-								// Line: 763
-								if (event.has("sem:date")) {
-									// Line: 764
-									call.putIfNotNull("date", event.get("sem:date"));
-								}
-								// Line: 766
-								checkcall_CN state205 = new checkcall_CN();
-								flowThread.gotoState(state205, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 766, 33)));
-								eventResult = EVENT_ABORTED;
-								break EXECUTION;
-							}
-						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
-					}
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 732, 81));
-			}
-			// Line: 770
-			try {
-				count = getCount(986550348) + 1;
-				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:no")) {
-						incrCount(986550348);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 771
-							CheckAgain_CN state206 = new CheckAgain_CN();
-							flowThread.gotoState(state206, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 771, 33)));
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
-					}
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 770, 57));
-			}
-			// Line: 774
-			try {
-				count = getCount(946432040) + 1;
-				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:number")) {
-						incrCount(946432040);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 775
+							// Line: 702
 							checkcall_CN state207 = new checkcall_CN();
-							flowThread.gotoState(state207, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 775, 32)));
+							flowThread.gotoState(state207, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 702, 33)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
+						// Line: 705
+						if (100 > hour && value3==2) {
+							// Line: 706
+							call.putIfNotNull("minute", 30);
+							// Line: 707
+							if ( hour > 23 ) {
+								iristk.situated.SystemAgentFlow.say state208 = agent.new say();
+								StringCreator string209 = new StringCreator();
+								string209.append("对不起这是无效的时间。");
+								state208.setText(string209.toString());
+								if (!flowThread.callState(state208, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 707, 31)))) {
+									eventResult = EVENT_ABORTED;
+									break EXECUTION;
+								}
+								// Line: 709
+								flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 709, 16)));
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+								// Line: 710
+							} else if (hour > 12) {
+								// Line: 711
+								call.putIfNotNull("hour", hour);call.putIfNotNull("apm", "a.m.");
+								// Line: 712
+							} else {
+								// Line: 713
+								call.putIfNotNull("hour", hour);
+								// Line: 714
+								if (!apm.equals("b")) {
+									// Line: 715
+									call.putIfNotNull("apm", apm);
+								}
+							}
+							// Line: 718
+							if (!date.equals("c")) {
+								// Line: 719
+								call.putIfNotNull("date", date);
+							}
+							// Line: 721
+							checkcall_CN state210 = new checkcall_CN();
+							flowThread.gotoState(state210, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 721, 33)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+						}
+						// Line: 724
+						if (hour != 111) {
+							// Line: 725
+							checkcall_CN state211 = new checkcall_CN();
+							flowThread.gotoState(state211, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 725, 33)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 726
+						} else {
+							iristk.situated.SystemAgentFlow.say state212 = agent.new say();
+							StringCreator string213 = new StringCreator();
+							string213.append("抱歉，我没有理解您说的话。");
+							state212.setText(string213.toString());
+							if (!flowThread.callState(state212, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 724, 27)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 728
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 728, 19)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+						}
 					}
+					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 774, 61));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 677, 36));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -3596,50 +3617,50 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 781
+			// Line: 734
 			try {
 				EXECUTION: {
-					int count = getCount(1959787625) + 1;
-					incrCount(1959787625);
-					// Line: 782
+					int count = getCount(1138507954) + 1;
+					incrCount(1138507954);
+					// Line: 735
 					if (!call.has("hour")) {
-						// Line: 783
-						askhour_CN state208 = new askhour_CN();
-						flowThread.gotoState(state208, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 783, 31)));
+						// Line: 736
+						askhour_CN state214 = new askhour_CN();
+						flowThread.gotoState(state214, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 736, 31)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
-						// Line: 784
+						// Line: 737
 					} else if (!call.has("minute")) {
-						// Line: 785
-						askminute_CN state209 = new askminute_CN();
-						flowThread.gotoState(state209, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 785, 33)));
+						// Line: 738
+						askminute_CN state215 = new askminute_CN();
+						flowThread.gotoState(state215, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 738, 33)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
-						// Line: 786
+						// Line: 739
 					} else if (!call.has("apm")) {
-						// Line: 787
-						askapm_CN state210 = new askapm_CN();
-						flowThread.gotoState(state210, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 787, 30)));
+						// Line: 740
+						askapm_CN state216 = new askapm_CN();
+						flowThread.gotoState(state216, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 740, 30)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
-						// Line: 788
+						// Line: 741
 					} else if (!call.has("date")) {
-						// Line: 789
-						askdate_CN state211 = new askdate_CN();
-						flowThread.gotoState(state211, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 789, 31)));
+						// Line: 742
+						askdate_CN state217 = new askdate_CN();
+						flowThread.gotoState(state217, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 742, 31)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
-						// Line: 790
+						// Line: 743
 					} else {
-						// Line: 791
-						calldone_CN state212 = new calldone_CN();
-						flowThread.gotoState(state212, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 791, 32)));
+						// Line: 744
+						calldone_CN state218 = new calldone_CN();
+						flowThread.gotoState(state218, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 744, 32)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 781, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 734, 12));
 			}
 		}
 
@@ -3671,22 +3692,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 797
+			// Line: 750
 			try {
 				EXECUTION: {
-					int count = getCount(1007260470) + 1;
-					incrCount(1007260470);
-					iristk.situated.SystemAgentFlow.prompt state213 = agent.new prompt();
-					StringCreator string214 = new StringCreator();
-					string214.append("请设置小时数。");
-					state213.setText(string214.toString());
-					if (!flowThread.callState(state213, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 797, 12)))) {
+					int count = getCount(924188019) + 1;
+					incrCount(924188019);
+					iristk.situated.SystemAgentFlow.prompt state219 = agent.new prompt();
+					StringCreator string220 = new StringCreator();
+					string220.append("请设置小时数。");
+					state219.setText(string220.toString());
+					if (!flowThread.callState(state219, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 750, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 797, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 750, 12));
 			}
 		}
 
@@ -3694,46 +3715,70 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 800
+			// Line: 753
 			try {
-				count = getCount(1451152187) + 1;
+				count = getCount(2060511023) + 1;
 				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:number")) {
-						incrCount(1451152187);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 801
-							String tempstring = (event.get("sem:number")).toString(); int num=Integer.valueOf(tempstring);
-							// Line: 802
-							if ( num > 24 ) {
-								iristk.situated.SystemAgentFlow.say state215 = agent.new say();
-								StringCreator string216 = new StringCreator();
-								string216.append("对不起这是无效的时间。");
-								state215.setText(string216.toString());
-								if (!flowThread.callState(state215, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 802, 29)))) {
-									eventResult = EVENT_ABORTED;
-									break EXECUTION;
-								}
-								// Line: 804
-							} else if ( num > 11 ) {
-								// Line: 805
-								call.putIfNotNull("hour", event.get("sem:number")); call.putIfNotNull("apm", "pm");
-								// Line: 806
-							} else {
-								// Line: 807
-								call.putIfNotNull("hour", event.get("sem:number"));
+					incrCount(2060511023);
+					eventResult = EVENT_CONSUMED;
+					EXECUTION: {
+						// Line: 754
+						String s = event.get("text").toString();
+						// Line: 755
+						int hour = mandarin.number(s);
+						// Line: 756
+						if (hour == 111) {
+							iristk.situated.SystemAgentFlow.say state221 = agent.new say();
+							StringCreator string222 = new StringCreator();
+							string222.append("抱歉，我没有理解您说的话。");
+							state221.setText(string222.toString());
+							if (!flowThread.callState(state221, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 756, 29)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
 							}
-							// Line: 809
-							checkcall_CN state217 = new checkcall_CN();
-							flowThread.gotoState(state217, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 809, 32)));
+							// Line: 758
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 758, 15)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
+						// Line: 760
+						if ( hour > 24 ) {
+							iristk.situated.SystemAgentFlow.say state223 = agent.new say();
+							StringCreator string224 = new StringCreator();
+							string224.append("对不起这是无效的时间。");
+							state223.setText(string224.toString());
+							if (!flowThread.callState(state223, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 760, 30)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 762
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 762, 15)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 763
+						} else if ( hour > 12 ) {
+							// Line: 764
+							call.putIfNotNull("hour", hour); call.putIfNotNull("apm", "a.m.");
+							// Line: 765
+							checkcall_CN state225 = new checkcall_CN();
+							flowThread.gotoState(state225, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 765, 33)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 766
+						} else {
+							// Line: 767
+							call.putIfNotNull("hour", hour);
+							// Line: 768
+							checkcall_CN state226 = new checkcall_CN();
+							flowThread.gotoState(state226, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 768, 33)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+						}
 					}
+					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 800, 61));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 753, 36));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -3759,22 +3804,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 814
+			// Line: 775
 			try {
 				EXECUTION: {
-					int count = getCount(1652919960) + 1;
-					incrCount(1652919960);
-					iristk.situated.SystemAgentFlow.prompt state218 = agent.new prompt();
-					StringCreator string219 = new StringCreator();
-					string219.append("请设置分钟数。");
-					state218.setText(string219.toString());
-					if (!flowThread.callState(state218, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 814, 12)))) {
+					int count = getCount(637648478) + 1;
+					incrCount(637648478);
+					iristk.situated.SystemAgentFlow.prompt state227 = agent.new prompt();
+					StringCreator string228 = new StringCreator();
+					string228.append("请设置分钟数。");
+					state227.setText(string228.toString());
+					if (!flowThread.callState(state227, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 775, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 814, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 775, 12));
 			}
 		}
 
@@ -3782,27 +3827,60 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 817
+			// Line: 778
 			try {
-				count = getCount(384801485) + 1;
+				count = getCount(1058906172) + 1;
 				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:number")) {
-						incrCount(384801485);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 818
-							call.putIfNotNull("minute", event.get("sem:number"));
-							// Line: 819
-							checkcall_CN state220 = new checkcall_CN();
-							flowThread.gotoState(state220, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 819, 32)));
+					incrCount(1058906172);
+					eventResult = EVENT_CONSUMED;
+					EXECUTION: {
+						// Line: 779
+						String s = event.get("text").toString();
+						// Line: 780
+						int min = mandarin.number(s);
+						// Line: 781
+						if (min == 111) {
+							iristk.situated.SystemAgentFlow.say state229 = agent.new say();
+							StringCreator string230 = new StringCreator();
+							string230.append("抱歉，我没有理解您说的话。");
+							state229.setText(string230.toString());
+							if (!flowThread.callState(state229, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 781, 26)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 783
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 783, 15)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 784
+						} else if (min==99) {
+							iristk.situated.SystemAgentFlow.say state231 = agent.new say();
+							StringCreator string232 = new StringCreator();
+							string232.append("对不起这是无效的时间。");
+							state231.setText(string232.toString());
+							if (!flowThread.callState(state231, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 781, 26)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 786
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 786, 15)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 787
+						} else {
+							// Line: 788
+							call.putIfNotNull("minute", min);
+							// Line: 789
+							checkcall_CN state233 = new checkcall_CN();
+							flowThread.gotoState(state233, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 789, 33)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
 					}
+					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 817, 61));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 778, 36));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -3828,22 +3906,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 824
+			// Line: 795
 			try {
 				EXECUTION: {
-					int count = getCount(1954949533) + 1;
-					incrCount(1954949533);
-					iristk.situated.SystemAgentFlow.prompt state221 = agent.new prompt();
-					StringCreator string222 = new StringCreator();
-					string222.append("请问是上午还是下午?");
-					state221.setText(string222.toString());
-					if (!flowThread.callState(state221, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 824, 12)))) {
+					int count = getCount(1463743499) + 1;
+					incrCount(1463743499);
+					iristk.situated.SystemAgentFlow.prompt state234 = agent.new prompt();
+					StringCreator string235 = new StringCreator();
+					string235.append("请问是上午还是下午?");
+					state234.setText(string235.toString());
+					if (!flowThread.callState(state234, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 795, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 824, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 795, 12));
 			}
 		}
 
@@ -3851,27 +3929,46 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 827
+			// Line: 798
 			try {
-				count = getCount(1885384506) + 1;
+				count = getCount(309461326) + 1;
 				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:apm")) {
-						incrCount(1885384506);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 828
-							call.putIfNotNull("apm", event.get("sem:apm"));
-							// Line: 829
-							checkcall_CN state223 = new checkcall_CN();
-							flowThread.gotoState(state223, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 829, 32)));
+					incrCount(309461326);
+					eventResult = EVENT_CONSUMED;
+					EXECUTION: {
+						// Line: 799
+						String s = event.get("text").toString();
+						// Line: 800
+						String apm = mandarin.apm(s);
+						// Line: 801
+						if (apm.equals("b")) {
+							iristk.situated.SystemAgentFlow.say state236 = agent.new say();
+							StringCreator string237 = new StringCreator();
+							string237.append("抱歉，我没有理解您说的话。");
+							state236.setText(string237.toString());
+							if (!flowThread.callState(state236, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 801, 31)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 803
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 803, 15)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 804
+						} else {
+							// Line: 805
+							call.putIfNotNull("apm", apm);
+							// Line: 806
+							checkcall_CN state238 = new checkcall_CN();
+							flowThread.gotoState(state238, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 806, 33)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
 					}
+					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 827, 58));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 798, 36));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -3897,22 +3994,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 834
+			// Line: 812
 			try {
 				EXECUTION: {
-					int count = getCount(1931556461) + 1;
-					incrCount(1931556461);
-					iristk.situated.SystemAgentFlow.prompt state224 = agent.new prompt();
-					StringCreator string225 = new StringCreator();
-					string225.append("请问是今天还是明天？");
-					state224.setText(string225.toString());
-					if (!flowThread.callState(state224, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 834, 12)))) {
+					int count = getCount(238043176) + 1;
+					incrCount(238043176);
+					iristk.situated.SystemAgentFlow.prompt state239 = agent.new prompt();
+					StringCreator string240 = new StringCreator();
+					string240.append("请问是今天还是明天？");
+					state239.setText(string240.toString());
+					if (!flowThread.callState(state239, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 812, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 834, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 812, 12));
 			}
 		}
 
@@ -3920,27 +4017,46 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 837
+			// Line: 815
 			try {
-				count = getCount(1753578922) + 1;
+				count = getCount(954211785) + 1;
 				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:date")) {
-						incrCount(1753578922);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 838
-							call.putIfNotNull("date", event.get("sem:date"));
-							// Line: 839
-							checkcall_CN state226 = new checkcall_CN();
-							flowThread.gotoState(state226, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 839, 32)));
+					incrCount(954211785);
+					eventResult = EVENT_CONSUMED;
+					EXECUTION: {
+						// Line: 816
+						String s = event.get("text").toString();
+						// Line: 817
+						String date = mandarin.calldate(s);
+						// Line: 818
+						if (date.equals("c")) {
+							iristk.situated.SystemAgentFlow.say state241 = agent.new say();
+							StringCreator string242 = new StringCreator();
+							string242.append("抱歉，我没有理解您说的话。");
+							state241.setText(string242.toString());
+							if (!flowThread.callState(state241, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 818, 32)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 820
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 820, 15)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 821
+						} else {
+							// Line: 822
+							call.putIfNotNull("date", date);
+							// Line: 823
+							checkcall_CN state243 = new checkcall_CN();
+							flowThread.gotoState(state243, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 823, 33)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
 					}
+					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 837, 59));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 815, 37));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -3966,23 +4082,23 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 844
+			// Line: 829
 			try {
 				EXECUTION: {
-					int count = getCount(1827488869) + 1;
-					incrCount(1827488869);
-					// Line: 845
+					int count = getCount(1407703235) + 1;
+					incrCount(1407703235);
+					// Line: 830
 					String datestring=(call.get("date")).toString(); String hourstring=(call.get("hour")).toString();
 					String minutestring=(call.get("minute")).toString(); String apmstring=(call.get("apm")).toString();
-					iristk.situated.SystemAgentFlow.prompt state227 = agent.new prompt();
-					state227.setText(info.timeconfirm_CN(datestring, hourstring, minutestring, apmstring));
-					if (!flowThread.callState(state227, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 844, 12)))) {
+					iristk.situated.SystemAgentFlow.prompt state244 = agent.new prompt();
+					state244.setText(info.timeconfirm_CN(datestring, hourstring, minutestring, apmstring));
+					if (!flowThread.callState(state244, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 829, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 844, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 829, 12));
 			}
 		}
 
@@ -3990,47 +4106,53 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 849
+			// Line: 834
 			try {
-				count = getCount(884970577) + 1;
+				count = getCount(1006265013) + 1;
 				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:yes")) {
-						incrCount(884970577);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 850
-							callroom_CN state228 = new callroom_CN();
-							flowThread.gotoState(state228, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 850, 31)));
+					incrCount(1006265013);
+					eventResult = EVENT_CONSUMED;
+					EXECUTION: {
+						// Line: 835
+						String s = event.get("text").toString();
+						// Line: 836
+						int value = mandarin.yesno(s);
+						// Line: 837
+						if (value==66) {
+							// Line: 838
+							callroom_CN state245 = new callroom_CN();
+							flowThread.gotoState(state245, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 838, 32)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
-					}
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 849, 58));
-			}
-			// Line: 852
-			try {
-				count = getCount(764282729) + 1;
-				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:no")) {
-						incrCount(764282729);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 853
+							// Line: 839
+						} else if (value==88) {
+							// Line: 840
 							call.remove("date");call.remove("hour");call.remove("minute");call.remove("apm");
-							// Line: 854
-							MorningCall_CN state229 = new MorningCall_CN();
-							flowThread.gotoState(state229, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 854, 34)));
+							// Line: 841
+							MorningCall_CN state246 = new MorningCall_CN();
+							flowThread.gotoState(state246, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 841, 35)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 842
+						} else {
+							iristk.situated.SystemAgentFlow.say state247 = agent.new say();
+							StringCreator string248 = new StringCreator();
+							string248.append("抱歉，我没有理解您说的话。");
+							state247.setText(string248.toString());
+							if (!flowThread.callState(state247, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 837, 29)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 844
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 844, 15)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
 					}
+					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 852, 57));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 834, 36));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -4056,22 +4178,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 859
+			// Line: 851
 			try {
 				EXECUTION: {
-					int count = getCount(18798850) + 1;
-					incrCount(18798850);
-					iristk.situated.SystemAgentFlow.prompt state230 = agent.new prompt();
-					StringCreator string231 = new StringCreator();
-					string231.append("请问您的房间号是多少？");
-					state230.setText(string231.toString());
-					if (!flowThread.callState(state230, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 859, 12)))) {
+					int count = getCount(1488150447) + 1;
+					incrCount(1488150447);
+					iristk.situated.SystemAgentFlow.prompt state249 = agent.new prompt();
+					StringCreator string250 = new StringCreator();
+					string250.append("请问您的房间号是多少？");
+					state249.setText(string250.toString());
+					if (!flowThread.callState(state249, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 851, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 859, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 851, 12));
 			}
 		}
 
@@ -4079,42 +4201,42 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 862
+			// Line: 854
 			try {
-				count = getCount(1468214410) + 1;
+				count = getCount(1783305789) + 1;
 				if (event.triggers("sense.user.speak")) {
-					incrCount(1468214410);
+					incrCount(1783305789);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						// Line: 863
+						// Line: 855
 						String sss = event.get("text").toString();
-						// Line: 864
+						// Line: 856
 						if (eq("Sorry",info.callroom_CN(sss))) {
-							iristk.situated.SystemAgentFlow.say state232 = agent.new say();
-							StringCreator string233 = new StringCreator();
-							string233.append("抱歉，我没有理解您说的话。");
-							state232.setText(string233.toString());
-							if (!flowThread.callState(state232, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 864, 49)))) {
+							iristk.situated.SystemAgentFlow.say state251 = agent.new say();
+							StringCreator string252 = new StringCreator();
+							string252.append("抱歉，我没有理解您说的话。");
+							state251.setText(string252.toString());
+							if (!flowThread.callState(state251, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 856, 49)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 866
-							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 866, 15)));
+							// Line: 858
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 858, 15)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-							// Line: 867
+							// Line: 859
 						} else {
-							iristk.situated.SystemAgentFlow.say state234 = agent.new say();
-							state234.setText(info.callroom_CN(sss));
-							if (!flowThread.callState(state234, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 864, 49)))) {
+							iristk.situated.SystemAgentFlow.say state253 = agent.new say();
+							state253.setText(info.callroom_CN(sss));
+							if (!flowThread.callState(state253, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 856, 49)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 869
+							// Line: 861
 							call.putIfNotNull("room", info.getcallroomnum(sss));
-							// Line: 870
-							roomconfirm_CN state235 = new roomconfirm_CN();
-							flowThread.gotoState(state235, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 870, 35)));
+							// Line: 862
+							roomconfirm_CN state254 = new roomconfirm_CN();
+							flowThread.gotoState(state254, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 862, 35)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -4122,7 +4244,7 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 862, 36));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 854, 36));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -4148,19 +4270,19 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 876
+			// Line: 868
 			try {
 				EXECUTION: {
-					int count = getCount(747381895) + 1;
-					incrCount(747381895);
-					iristk.situated.SystemAgentFlow.listen state236 = agent.new listen();
-					if (!flowThread.callState(state236, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 876, 12)))) {
+					int count = getCount(162295599) + 1;
+					incrCount(162295599);
+					iristk.situated.SystemAgentFlow.listen state255 = agent.new listen();
+					if (!flowThread.callState(state255, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 868, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 876, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 868, 12));
 			}
 		}
 
@@ -4168,53 +4290,59 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 879
+			// Line: 871
 			try {
-				count = getCount(1852288703) + 1;
+				count = getCount(1818910787) + 1;
 				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:no")) {
-						incrCount(1852288703);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 880
-							call.remove("room");
-							// Line: 881
-							callroom_CN state237 = new callroom_CN();
-							flowThread.gotoState(state237, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 881, 31)));
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
-					}
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 879, 57));
-			}
-			// Line: 883
-			try {
-				count = getCount(1297217693) + 1;
-				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:yes")) {
-						incrCount(1297217693);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 884
+					incrCount(1818910787);
+					eventResult = EVENT_CONSUMED;
+					EXECUTION: {
+						// Line: 872
+						String s = event.get("text").toString();
+						// Line: 873
+						int value = mandarin.yesno(s);
+						// Line: 874
+						if (value==66) {
+							// Line: 875
 							String datestring=(call.get("date")).toString(); String hourstring=(call.get("hour")).toString();
 							String minutestring=(call.get("minute")).toString(); String apmstring=(call.get("apm")).toString();
 							String roomstring=(call.get("room")).toString();
-							// Line: 887
+							// Line: 878
 							info.addcsv(datestring, hourstring, minutestring, apmstring, roomstring);
-							// Line: 888
-							CheckAgain_CN state238 = new CheckAgain_CN();
-							flowThread.gotoState(state238, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 888, 33)));
+							// Line: 879
+							CheckAgain_CN state256 = new CheckAgain_CN();
+							flowThread.gotoState(state256, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 879, 34)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 880
+						} else if (value==88) {
+							// Line: 881
+							call.remove("room");
+							// Line: 882
+							callroom_CN state257 = new callroom_CN();
+							flowThread.gotoState(state257, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 882, 32)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 883
+						} else {
+							iristk.situated.SystemAgentFlow.say state258 = agent.new say();
+							StringCreator string259 = new StringCreator();
+							string259.append("抱歉，我没有理解您说的话。");
+							state258.setText(string259.toString());
+							if (!flowThread.callState(state258, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 874, 29)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 885
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 885, 15)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
 					}
+					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 883, 58));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 871, 36));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -4240,22 +4368,22 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 897
+			// Line: 895
 			try {
 				EXECUTION: {
-					int count = getCount(762961671) + 1;
-					incrCount(762961671);
-					iristk.situated.SystemAgentFlow.prompt state239 = agent.new prompt();
-					StringCreator string240 = new StringCreator();
-					string240.append("您还需要其他帮助吗？");
-					state239.setText(string240.toString());
-					if (!flowThread.callState(state239, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 897, 12)))) {
+					int count = getCount(585814796) + 1;
+					incrCount(585814796);
+					iristk.situated.SystemAgentFlow.prompt state260 = agent.new prompt();
+					StringCreator string261 = new StringCreator();
+					string261.append("您还需要其他帮助吗？");
+					state260.setText(string261.toString());
+					if (!flowThread.callState(state260, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 895, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 897, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 895, 12));
 			}
 		}
 
@@ -4263,61 +4391,67 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 900
+			// Line: 898
 			try {
-				count = getCount(316774027) + 1;
+				count = getCount(218140514) + 1;
 				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:yes")) {
-						incrCount(316774027);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							iristk.situated.SystemAgentFlow.say state241 = agent.new say();
-							StringCreator string242 = new StringCreator();
-							string242.append("好的");
-							state241.setText(string242.toString());
-							if (!flowThread.callState(state241, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 900, 58)))) {
+					incrCount(218140514);
+					eventResult = EVENT_CONSUMED;
+					EXECUTION: {
+						// Line: 899
+						String s = event.get("text").toString();
+						// Line: 900
+						int value = mandarin.yesno(s);
+						// Line: 901
+						if (value==66) {
+							iristk.situated.SystemAgentFlow.say state262 = agent.new say();
+							StringCreator string263 = new StringCreator();
+							string263.append("好的");
+							state262.setText(string263.toString());
+							if (!flowThread.callState(state262, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 901, 29)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 902
-							Start_CN state243 = new Start_CN();
-							flowThread.gotoState(state243, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 902, 28)));
+							// Line: 903
+							Start_CN state264 = new Start_CN();
+							flowThread.gotoState(state264, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 903, 33)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
-						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
-					}
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 900, 58));
-			}
-			// Line: 904
-			try {
-				count = getCount(1813051345) + 1;
-				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:no")) {
-						incrCount(1813051345);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							iristk.situated.SystemAgentFlow.say state244 = agent.new say();
-							StringCreator string245 = new StringCreator();
-							string245.append("好的");
-							state244.setText(string245.toString());
-							if (!flowThread.callState(state244, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 904, 57)))) {
+							// Line: 904
+						} else if (value==88) {
+							iristk.situated.SystemAgentFlow.say state265 = agent.new say();
+							StringCreator string266 = new StringCreator();
+							string266.append("好的");
+							state265.setText(string266.toString());
+							if (!flowThread.callState(state265, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 901, 29)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 906
-							Goodbye_CN state246 = new Goodbye_CN();
-							flowThread.gotoState(state246, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 906, 30)));
+							Goodbye_CN state267 = new Goodbye_CN();
+							flowThread.gotoState(state267, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 906, 35)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+							// Line: 907
+						} else {
+							iristk.situated.SystemAgentFlow.say state268 = agent.new say();
+							StringCreator string269 = new StringCreator();
+							string269.append("抱歉，我没有理解您说的话。");
+							state268.setText(string269.toString());
+							if (!flowThread.callState(state268, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 901, 29)))) {
+								eventResult = EVENT_ABORTED;
+								break EXECUTION;
+							}
+							// Line: 909
+							flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 909, 15)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
 					}
+					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 904, 57));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 898, 36));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -4349,17 +4483,17 @@ public class MyhotelFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 911
+			// Line: 915
 			try {
-				count = getCount(1128621710) + 1;
+				count = getCount(1952270955) + 1;
 				if (event.triggers("sense.user.speech.start")) {
 					if (system.isAttending(event) && eq(event.get("speakers"), 1)) {
-						incrCount(1128621710);
+						incrCount(1952270955);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							iristk.situated.SystemAgentFlow.gesture state247 = agent.new gesture();
-							state247.setName("smile");
-							if (!flowThread.callState(state247, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 911, 102)))) {
+							iristk.situated.SystemAgentFlow.gesture state270 = agent.new gesture();
+							state270.setName("smile");
+							if (!flowThread.callState(state270, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 915, 102)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
@@ -4368,82 +4502,57 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 911, 102));
-			}
-			// Line: 914
-			try {
-				count = getCount(679522120) + 1;
-				if (event.triggers("sense.user.speak")) {
-					incrCount(679522120);
-					eventResult = EVENT_CONSUMED;
-					EXECUTION: {
-						iristk.situated.SystemAgentFlow.say state248 = agent.new say();
-						StringCreator string249 = new StringCreator();
-						string249.append("抱歉，我没有理解您说的话。");
-						state248.setText(string249.toString());
-						if (!flowThread.callState(state248, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 914, 36)))) {
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-						}
-						// Line: 916
-						flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 916, 14)));
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					if (eventResult != EVENT_IGNORED) return eventResult;
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 914, 36));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 915, 102));
 			}
 			// Line: 918
 			try {
-				count = getCount(1784438864) + 1;
-				if (event.triggers("sense.user.speak.side")) {
-					incrCount(1784438864);
+				count = getCount(999676709) + 1;
+				if (event.triggers("sense.user.speak")) {
+					incrCount(999676709);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						iristk.situated.SystemAgentFlow.attendOther state250 = agent.new attendOther();
-						state250.setMode("eyes");
-						if (!flowThread.callState(state250, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 918, 41)))) {
+						iristk.situated.SystemAgentFlow.say state271 = agent.new say();
+						StringCreator string272 = new StringCreator();
+						string272.append("抱歉，我没有理解您说的话。");
+						state271.setText(string272.toString());
+						if (!flowThread.callState(state271, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 918, 36)))) {
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
-						iristk.situated.SystemAgentFlow.say state251 = agent.new say();
-						StringCreator string252 = new StringCreator();
-						string252.append("对不起，我现在没有问您。");
-						state251.setText(string252.toString());
-						if (!flowThread.callState(state251, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 918, 41)))) {
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-						}
-						iristk.situated.SystemAgentFlow.attendOther state253 = agent.new attendOther();
-						state253.setMode("eyes");
-						if (!flowThread.callState(state253, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 918, 41)))) {
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-						}
-						// Line: 922
-						flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 922, 14)));
+						// Line: 920
+						flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 920, 14)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 918, 41));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 918, 36));
 			}
-			// Line: 924
+			// Line: 922
 			try {
-				count = getCount(798101372) + 1;
-				if (event.triggers("sense.user.speak.multi")) {
-					incrCount(798101372);
+				count = getCount(74767529) + 1;
+				if (event.triggers("sense.user.speak.side")) {
+					incrCount(74767529);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						iristk.situated.SystemAgentFlow.say state254 = agent.new say();
-						StringCreator string255 = new StringCreator();
-						string255.append("请不要同时说话。");
-						state254.setText(string255.toString());
-						if (!flowThread.callState(state254, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 924, 42)))) {
+						iristk.situated.SystemAgentFlow.attendOther state273 = agent.new attendOther();
+						state273.setMode("eyes");
+						if (!flowThread.callState(state273, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 922, 41)))) {
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+						}
+						iristk.situated.SystemAgentFlow.say state274 = agent.new say();
+						StringCreator string275 = new StringCreator();
+						string275.append("对不起，我现在没有问您。");
+						state274.setText(string275.toString());
+						if (!flowThread.callState(state274, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 922, 41)))) {
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+						}
+						iristk.situated.SystemAgentFlow.attendOther state276 = agent.new attendOther();
+						state276.setMode("eyes");
+						if (!flowThread.callState(state276, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 922, 41)))) {
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -4455,20 +4564,20 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 924, 42));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 922, 41));
 			}
 			// Line: 928
 			try {
-				count = getCount(1892694432) + 1;
-				if (event.triggers("sense.user.silence")) {
-					incrCount(1892694432);
+				count = getCount(255687876) + 1;
+				if (event.triggers("sense.user.speak.multi")) {
+					incrCount(255687876);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						iristk.situated.SystemAgentFlow.say state256 = agent.new say();
-						StringCreator string257 = new StringCreator();
-						string257.append("抱歉，我没有听到任何话。");
-						state256.setText(string257.toString());
-						if (!flowThread.callState(state256, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 928, 38)))) {
+						iristk.situated.SystemAgentFlow.say state277 = agent.new say();
+						StringCreator string278 = new StringCreator();
+						string278.append("请不要同时说话。");
+						state277.setText(string278.toString());
+						if (!flowThread.callState(state277, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 928, 42)))) {
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -4480,41 +4589,66 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 928, 38));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 928, 42));
 			}
 			// Line: 932
 			try {
-				count = getCount(1706928613) + 1;
+				count = getCount(1872158653) + 1;
+				if (event.triggers("sense.user.silence")) {
+					incrCount(1872158653);
+					eventResult = EVENT_CONSUMED;
+					EXECUTION: {
+						iristk.situated.SystemAgentFlow.say state279 = agent.new say();
+						StringCreator string280 = new StringCreator();
+						string280.append("抱歉，我没有听到任何话。");
+						state279.setText(string280.toString());
+						if (!flowThread.callState(state279, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 932, 38)))) {
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+						}
+						// Line: 934
+						flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 934, 14)));
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					if (eventResult != EVENT_IGNORED) return eventResult;
+				}
+			} catch (Exception e) {
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 932, 38));
+			}
+			// Line: 936
+			try {
+				count = getCount(930318800) + 1;
 				if (event.triggers("sense.user.leave")) {
 					if (system.isAttending(event)) {
-						incrCount(1706928613);
+						incrCount(930318800);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							iristk.situated.SystemAgentFlow.say state258 = agent.new say();
-							StringCreator string259 = new StringCreator();
-							string259.append("再见。");
-							state258.setText(string259.toString());
-							if (!flowThread.callState(state258, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 932, 69)))) {
+							iristk.situated.SystemAgentFlow.say state281 = agent.new say();
+							StringCreator string282 = new StringCreator();
+							string282.append("再见。");
+							state281.setText(string282.toString());
+							if (!flowThread.callState(state281, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 936, 69)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 934
+							// Line: 938
 							if (system.hasUsers()) {
-								iristk.situated.SystemAgentFlow.attendRandom state260 = agent.new attendRandom();
-								if (!flowThread.callState(state260, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 934, 33)))) {
+								iristk.situated.SystemAgentFlow.attendRandom state283 = agent.new attendRandom();
+								if (!flowThread.callState(state283, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 938, 33)))) {
 									eventResult = EVENT_ABORTED;
 									break EXECUTION;
 								}
-								// Line: 936
-								Start_CN state261 = new Start_CN();
-								flowThread.gotoState(state261, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 936, 30)));
+								// Line: 940
+								Start_CN state284 = new Start_CN();
+								flowThread.gotoState(state284, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 940, 30)));
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
-								// Line: 937
+								// Line: 941
 							} else {
-								// Line: 938
-								Idle state262 = new Idle();
-								flowThread.gotoState(state262, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 938, 25)));
+								// Line: 942
+								Idle state285 = new Idle();
+								flowThread.gotoState(state285, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 942, 25)));
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
@@ -4523,24 +4657,24 @@ public class MyhotelFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 932, 69));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 936, 69));
 			}
-			// Line: 941
+			// Line: 945
 			try {
-				count = getCount(165108659) + 1;
+				count = getCount(659547186) + 1;
 				if (event.triggers("repeat")) {
-					incrCount(165108659);
+					incrCount(659547186);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						// Line: 942
-						flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 942, 14)));
+						// Line: 946
+						flowThread.reentryState(this, new FlowEventInfo(currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 946, 14)));
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					if (eventResult != EVENT_IGNORED) return eventResult;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 941, 26));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("E:\\furhatsdk\\app\\Myhotel\\src\\iristk\\app\\myhotel\\MyhotelFlow.xml"), 945, 26));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;

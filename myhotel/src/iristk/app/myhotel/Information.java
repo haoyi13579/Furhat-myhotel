@@ -60,7 +60,7 @@ public class Information {
 	public String recommend_CN (ArrayList<String> info, String type) {
 		
 		ArrayList<String> attr = new ArrayList<String>();
-		String s= "You can visit";
+		String s= "您可以参观";
 		for(int i=0;i<info.size();i++){
 			if(info.get(i).equals(type)) {
 				attr.add(info.get(i+2));
@@ -72,7 +72,7 @@ public class Information {
 				s=s+" "+attr.get(j)+",";
 			}
 			else {
-				s= s+" and "+attr.get(j)+".";
+				s= s+" 和 "+attr.get(j)+".";
 			}
 			
 		}
@@ -95,9 +95,9 @@ public class Information {
 	
 	}
 	
-	public String detail_CN(ArrayList<String> info, Object name) {
+	public String detail_CN(ArrayList<String> info, String namestring) {
 		
-		String namestring = name.toString();
+//		String namestring = name.toString();
 		String det = null;
 		for(int i=0;i<info.size();i++){
 			if(info.get(i).equals(namestring)) {
@@ -256,6 +256,8 @@ public class Information {
 		String num = "";
 		int room;
 		String s = null;
+		String[] otherroom = {"餐厅","健身","锻炼","吃饭","食堂"};
+		int index;
 		
 		for(int i=0;i<text.length();i++) {
 			if(text.charAt(i)>=48 && text.charAt(i)<=57) {
@@ -264,8 +266,20 @@ public class Information {
 			}			
 		}
 		
+		
+		
 		if(num == ""){
-			s="Sorry";
+			
+			for(int i=0;i<otherroom.length;i++) {
+				index= text.indexOf(otherroom[i]);
+				if(index != -1) {
+					s="它在一楼。";
+					break;
+				} 
+			}
+			
+			if(!s.equals("它在一楼。")) {s="Sorry";}
+			
 		}else{
 			room = Integer.parseInt(num);
 			if(room>=199 && room<300) {
@@ -297,13 +311,19 @@ public class Information {
 			}else {
 				s= "Your morning call is "+date+" "+hourint+" "+minint+", is it correct?";
 			}
-		}else {
+		}else if(hourint<13) {
 			if(minint == 0) {
 				s="Your morning call is "+date+ " "+hourint+" o'clock, a.m., is it correct?";
 			}else{
 				s= "Your morning call is "+date+" "+hourint+" "+minint+", a.m., is it correct?";
 			}			
 
+		}else {
+			if(minint ==0) {
+				s="Your morning call is "+date+ " "+hourint+" o'clock, is it correct?";
+			}else {
+				s= "Your morning call is "+date+" "+hourint+" "+minint+", is it correct?";
+			}
 		}
 						
 		return s;
@@ -325,17 +345,23 @@ public class Information {
 		if(apm.equals("p.m.")) {
 			hourint = hourint+12;
 			if(minint ==0) {
-				s="您希望的叫醒时间是 "+datestring+ " "+hourint+"点整对吗？";
+				s="您希望的叫醒时间是 "+datestring+"下午 "+hourint+"点整对吗？";
 			}else {
-				s= "您希望的叫醒时间是 "+datestring+" "+hourint+"点"+minint+"分对吗？";
+				s="您希望的叫醒时间是 "+datestring+"下午 "+hourint+"点"+minint+"分对吗？";
 			}
-		}else {
+		}else if(hourint<13){
 			if(minint == 0) {
 				s="您希望的叫醒时间是"+datestring+ "上午 "+hourint+"点整对吗？";
 			}else{
 				s= "您希望的叫醒时间是"+datestring+"上午 "+hourint+"点"+minint+"分对吗？";
 			}			
 
+		}else {
+			if(minint == 0) {
+				s="您希望的叫醒时间是"+datestring+ "下午 "+hourint+"点整对吗？";
+			}else{
+				s= "您希望的叫醒时间是"+datestring+"下午 "+hourint+"点"+minint+"分对吗？";
+			}	
 		}
 						
 		return s;
@@ -598,7 +624,7 @@ public class Information {
 		time = hour+":"+minstring;
 		
 		
-		String file = "E:/furhat_skills/morningcall.csv";
+		String file = "E:/furhatsdk/app/Myhotel/morningcall.csv";
 
 		BufferedWriter output=new BufferedWriter(new FileWriter(file,true));
 		output.write(datestring+","+time+","+ room);

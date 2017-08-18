@@ -52,7 +52,7 @@ public class Mandarin {
 	
 	public int history(String text) {
 		
-		String[] sarray= {"历史","人文","文化","博物馆"};
+		String[] sarray= {"历史","人文","文化"};
 		int index;
 		int returnint = 0;
 		
@@ -211,22 +211,166 @@ public class Mandarin {
 	}
 	
 	
-	
-	
-	
-	public int yes(String text) {
+	public int number(String text) {
+		String[] number = new String[60];
+		String num="";
+		int temp;
+		int index;
+		int returnint=111;
+		for(int i=0;i<60;i++) {
+			number[i] = String.valueOf(i);
+		}
 		
-		String[] sarray= {"对","是","没错","需要","可以","有"};
+		for(int i=0;i<text.length();i++) {
+			if(text.charAt(i)>=48 && text.charAt(i)<=57) {
+
+				num=num+text.charAt(i);
+			}			
+		}
+		
+		
+		if(num.equals("")) {
+			returnint = 111;
+		}else {
+			temp = Integer.parseInt(num);
+			if(temp>59) { 
+				returnint = 99; 
+			} else {
+				returnint = temp;
+			}
+		}
+		
+		
+//		for(int j=0;j<number.length;j++) {
+//			index = text.indexOf(number[j]);
+//			if(index != -1) {
+//				returnint = j;
+//			}
+//		}
+		
+		return returnint;		
+	}
+	
+	public int clock(String text) {
+		
+		String[] sarray= {"点整"};
 		int index;
 		int returnint = 0;
 		
 		for(int i=0;i<sarray.length;i++) {
 			index= text.indexOf(sarray[i]);
 			if(index != -1) {
-				returnint = 66;
+				returnint = 2;
 				break;
 			} 
 		}		
+		return returnint;		
+	}
+	
+	public int half(String text) {
+		
+		String[] sarray= {"点半"};
+		int index;
+		int returnint = 0;
+		
+		for(int i=0;i<sarray.length;i++) {
+			index= text.indexOf(sarray[i]);
+			if(index != -1) {
+				returnint = 2;
+				break;
+			} 
+		}		
+		return returnint;		
+	}
+	
+	public String apm(String text) {
+		
+		String[] morningarray= {"早上","上午"};
+		String[] eveningarray= {"下午","晚上","傍晚"};
+		int index;
+		int index2;
+		String returnstring = "b";
+		
+		for(int i=0;i<morningarray.length;i++) {
+			index= text.indexOf(morningarray[i]);
+			if(index != -1) {
+				returnstring = "a.m.";
+				break;
+			} 
+		}
+		
+		for(int i=0;i<eveningarray.length;i++) {
+			index2= text.indexOf(eveningarray[i]);
+			if(index2 != -1) {
+				returnstring = "p.m.";
+				break;
+			} 
+		}
+		
+		return returnstring;
+	}
+	
+	public String calldate(String text) {
+		
+		String[] tomorrow= {"明天"};
+		String[] today= {"今天"};
+		int index;
+		int index2;
+		String returnstring = "c";
+		
+		for(int i=0;i<tomorrow.length;i++) {
+			index= text.indexOf(tomorrow[i]);
+			if(index != -1) {
+				returnstring = "tomorrow";
+				break;
+			} 
+		}
+		
+		for(int i=0;i<today.length;i++) {
+			index2= text.indexOf(today[i]);
+			if(index2 != -1) {
+				returnstring = "today";
+				break;
+			} 
+		}
+		
+		return returnstring;
+	}
+	
+	
+	
+	
+	
+	
+	
+	public int yesno(String text) {
+		
+		String[] yesarray= {"对","是","没错","需要","可以","有","想"};
+		String[] noarray= {"不对","不是","错了","不需要","不可以","错的","没有","不想","不"};
+		int index;
+		int index2;
+		int returnint = 0;
+		
+		for(int i=0;i<yesarray.length;i++) {
+			index= text.indexOf(yesarray[i]);
+			if(index != -1) {
+				returnint = 66;
+				break;
+			} 
+		}
+		
+		for(int i=0;i<noarray.length;i++) {
+			index2= text.indexOf(noarray[i]);
+			if(index2 != -1) {
+				returnint = 88;
+				break;
+			} 
+		}
+		
+		if(returnint==88) {	returnint = 88; }
+		
+		if(returnint==66) { returnint = 66; }
+		
 		return returnint;		
 	}
 	
