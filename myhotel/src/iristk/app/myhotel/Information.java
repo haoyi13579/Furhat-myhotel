@@ -200,10 +200,10 @@ public class Information {
 		
 	}
 	
-	public String transdetail_CN(ArrayList<String> info, Object name) {
+	public String transdetail_CN(ArrayList<String> info, String namestring) {
 		
 		String s = null;
-		String namestring = name.toString();
+//		String namestring = name.toString();
 		
 		for(int i=0; i<info.size();i++) {
 			if(info.get(i).equals(namestring)) {

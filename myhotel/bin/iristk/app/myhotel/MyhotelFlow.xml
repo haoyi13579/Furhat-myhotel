@@ -498,13 +498,19 @@
 						room location query
 			</agent:say>  -->
 		</onentry>
-		<onevent name="sense.user.speak**">
+		<onevent name="sense.user.speak">
 			<exec>String s = event.get("text").toString()</exec>
-			<exec>int value=mandarin.attraction(s)</exec>
+			<exec>int value2=mandarin.attraction(s)</exec>
 			<exec>int value3=mandarin.nature(s)</exec>
 			<exec>int value4=mandarin.history(s)</exec>
 			<exec>int value5=mandarin.popular(s)</exec>
-			<if cond="value==2">
+			<exec>int value6 = mandarin.transportation(s)</exec>
+			<exec>int value7 = mandarin.room(s)</exec> 
+			<exec>int value8 = mandarin.weather(s)</exec>
+			<exec>int value9 = mandarin.morningcall(s)</exec> 
+			<exec>int value10 = mandarin.no(s)</exec>
+			
+			<if cond="value2==2">
 				<goto state = "QueryAttr_CN"/>
 			<elseif cond="value3==3"/>
 				<goto state = "Nature_CN"/>
@@ -512,36 +518,75 @@
 				<goto state = "History_CN"/>
 			<elseif cond="value5==5"/>
 				<goto state = "Popular_CN"/>
+			<elseif cond="value6==2"/>
+				<exec>String attrname = mandarin.attrname(s)</exec>
+				<if cond="!attrname.equals('a')">
+					<agent:say text="info.transdetail_CN(info.readtrans(),attrname)"/>
+					<goto state = "CheckAgain_CN"/>
+				<else/>
+					<goto state = "QueryTrans_CN"/>
+				</if>
+			<elseif cond="value7==2"/>
+				<goto state = "QueryRoom_CN"/>
+			<elseif cond="value8==2"/>
+				<goto state = "QueryWeather_CN"/>
+			<elseif cond="value9==2"/>
+				<goto state = "MorningCall_CN"/>
+			<elseif cond="value10==88"/>
+				<agent:say>好的</agent:say>
+				<goto state="Goodbye_CN"/>
 			<else/>
 				<agent:say>抱歉，我没有理解您说的话。</agent:say>
+				<reentry/>								
 			</if>
 		</onevent>
-		
-		<onevent name="sense.user.speak**" cond="event?:sem:transportation">
-			<if cond="event?:sem:attra">
-				<agent:say text="info.transdetail_CN(info.readtrans(),event:sem:attra)"/>
-				<goto state = "CheckAgain_CN"/>
-			<else/>
-				<goto state = "QueryTrans_CN"/>
+<!--  		
+		<onevent name="sense.user.speak**">
+			<exec>String s = event.get("text").toString(); int value=mandarin.transportation(s)</exec>
+			<exec>String attrname = mandarin.attrname(s)</exec>
+			<if cond="value==2">
+				<if cond="!attrname.equals('a')">
+					<agent:say text="info.transdetail_CN(info.readtrans(),attrname)"/>
+					<goto state = "CheckAgain_CN"/>
+				<else/>
+					<goto state = "QueryTrans_CN"/>
+				</if>
 			</if>			
 		</onevent>
 		
-		<onevent name="sense.user.speak**" cond="event?:sem:rooms">
-			<goto state = "QueryRoom_CN"/>
+		<onevent name="sense.user.speak**">
+			<exec>String s = event.get("text").toString(); int value=mandarin.room(s)</exec>
+			<if cond="value==2">
+				<goto state = "QueryRoom_CN"/>
+			</if>		
 		</onevent>
 		
-		<onevent name="sense.user.speak" cond="event?:sem:weather">
-			<goto state = "QueryWeather_CN"/>		
+		<onevent name="sense.user.speak">
+			<exec>String s = event.get("text").toString(); int value=mandarin.weather(s)</exec>
+			<if cond="value==2">
+				<goto state = "QueryWeather_CN"/>
+			</if>					
 		</onevent>
 		
-		<onevent name="sense.user.speak" cond="event?:sem:call">
-			<goto state = "MorningCall_CN"/>
+		<onevent name="sense.user.speak">
+			<exec>String s = event.get("text").toString(); int value=mandarin.morningcall(s)</exec>
+			<if cond="value==2">
+				<goto state = "MorningCall_CN"/>
+			</if>	
 		</onevent>
 			
-		<onevent name="sense.user.speak**" cond="event?:sem:no">
-			<agent:say>好的</agent:say>
-			<goto state="Goodbye_CN"/>
+		<onevent name="sense.user.speak**">
+			<exec>String s = event.get("text").toString(); int value=mandarin.morningcall(s)</exec>
+			<if cond="value==2">
+				<agent:say>好的</agent:say>
+				<goto state="Goodbye_CN"/>
+			</if>	
 		</onevent>
+		
+		<onevent name="sense.user.speak">
+			<agent:say>抱歉，我没有理解您说的话。</agent:say>
+			<reentry/>
+		</onevent>  -->
 
 	</state>
 
@@ -552,7 +597,7 @@
 			<agent:say>请离开感应区域</agent:say>
 			<wait msec="2000"/>
 			<goto state="Idle"/>
-		</onentry>
+		</onentry> 
 	</state>
 	
 
@@ -563,18 +608,22 @@
      			您想参观哪种景点？自然景点，历史景点还是热门景点？
      		</agent:prompt>
      	</onentry>
-     	<onevent name="sense.user.speak**" cond="event?:sem:natural">
-     		<goto state = "Nature_CN"/>
-     	</onevent>
-     	<onevent name="sense.user.speak**" cond="event?:sem:historical">
-     		<goto state = "History_CN"/>
-     	</onevent>
-     	<onevent name="sense.user.speak" cond="event?:sem:popular">
-     		<goto state = "Popular_CN"/>
-     	</onevent>
-     	<onevent name="sense.user.speak" cond="event?:sem:no">
-     		<goto state = "CheckAgain_CN"/>
-     	</onevent>
+		<onevent name="sense.user.speak**">
+			<exec>String s = event.get("text").toString()</exec>
+
+			<exec>int value3=mandarin.nature(s)</exec>
+			<exec>int value4=mandarin.history(s)</exec>
+			<exec>int value5=mandarin.popular(s)</exec>
+			<if cond="value3==3">
+				<goto state = "Nature_CN"/>
+			<elseif cond="value4==4"/>
+				<goto state = "History_CN"/>
+			<elseif cond="value5==5"/>
+				<goto state = "Popular_CN"/>
+			<else/>
+				<agent:say>抱歉，我没有理解您说的话。</agent:say>
+			</if>
+		</onevent>
      </state>
      
      <state id="Nature_CN">
@@ -603,7 +652,7 @@
      		<agent:prompt>如果您想了解某个景点的详情，请说出该景点的名字。</agent:prompt>
      	</onentry>
      	<onevent name="sense.user.speak**" cond="event?:sem:attrname">
-     		<exec>String s = event.get("text").toString()</exec>
+     		<exec>String s = event.get("text").toString()</exec>    		
        		<agent:say text="info.detail_CN(info.readattr(),event:sem:attrname)"/>
      		<goto state="CheckAgain_CN"/>
      	</onevent>
@@ -617,8 +666,10 @@
 		<onentry>
 			<agent:prompt>您打算去哪里？</agent:prompt>
 		</onentry>
-		<onevent name="sense.user.speak" cond="event?:sem:attrname">
-			<agent:say text="info.transdetail_CN(info.readtrans(),event:sem:attrname)"/>
+		<onevent name="sense.user.speak">
+			<exec>String s = event.get("text").toString()</exec>
+			<exec>String attrname = mandarin.attrname(s)</exec>
+			<agent:say text="info.transdetail_CN(info.readtrans(),attrname)"/>
 			<goto state="CheckAgain_CN"/>
 		</onevent>
 	</state>
