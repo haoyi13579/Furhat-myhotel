@@ -69,11 +69,11 @@
 		</item>
 		<item>
 			<one-of>
-				<item>Glasgow Cathedral</item>
+				<item>Pollok Country Park</item>
 				<item>Country Park</item>
 				<item>Country</item>
 			</one-of>
-			<tag>out.attrname="Glasgow Cathedral"</tag>
+			<tag>out.attrname="Pollok Country Park"</tag>
 		</item>
 		<item>
 			<one-of>
@@ -334,6 +334,14 @@
   		<item>nothing</item>
   	</one-of>
   	<tag>out.no=1</tag>
+  </rule>
+  
+  <rule id="exit" scope="public">
+  	<one-of>
+  		<item>exit</item>
+  		<item>restart</item>
+  	</one-of>
+  	<tag>out.exit=1</tag>
   </rule>
   
 </grammar>

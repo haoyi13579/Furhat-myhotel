@@ -98,7 +98,8 @@ public class MyhotelSkill extends Skill  {
 		} 
 		Information information = new Information();
 		Weather weather = new Weather();
-		flow = new MyhotelFlow(handler.getSystemAgentFlow(), information, weather);
+		Mandarin mandarin = new Mandarin();
+		flow = new MyhotelFlow(handler.getSystemAgentFlow(), information, weather,mandarin);
 		
 	}
 

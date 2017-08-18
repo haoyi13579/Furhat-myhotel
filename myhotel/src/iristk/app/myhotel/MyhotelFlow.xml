@@ -8,13 +8,15 @@
 	
 	<param name="info" type="Information"/>
 	<param name="weather" type="Weather"/>
+	<param name="mandarin" type="Mandarin"/>
 	
-  <var name="call" type="Record" value="new Record()"/>
+  	<var name="call" type="Record" value="new Record()"/>
 	
 	<var name="system" type="iristk.situated.SystemAgent" value="agent.getSystemAgent()"/> 
 	 
 	<var name="number" type="Integer"/>
 	<var name="lang" type="String" value="'en'"/>
+	<var name="attrnamepass" type="Object"/>
 	
 	
 	
@@ -39,18 +41,24 @@
 			<agent:prompt>Hi there, Do you want me to speak English or Chinese?</agent:prompt>
 			<goto state="Start"/>
 		</onentry>
-		<onevent name="sense.user.speak" cond="event?:sem:chinese">
-			<exec>lang = "zh"</exec>
-			 <send event="action.context.default" p:context="'Chinese'" />
-			 	<send event="action.voice" p:name="'HuiHui'"/>
-				<goto state="Start_CN"/>  
-		</onevent>
 		<onevent name="sense.user.speak" cond="event?:sem:english">
 			<exec>lang = "en"</exec>
 			<send event="action.context.default" p:context="'English'" />
 			 	<send event="action.voice" p:name="'David'"/>
 				<goto state="Start"/>  
 		</onevent>  
+		<onevent name="sense.user.speak">
+			<exec>String s = event.get("text").toString(); int value=mandarin.language(s)</exec>
+			<if cond="value==2">
+				<exec>lang = "zh"</exec>
+				<send event="action.context.default" p:context="'Chinese'" />
+				<send event="action.voice" p:name="'HuiHui'"/>
+				<goto state="Start_CN"/> 
+			<else/>
+				<agent:say>Sorry, I didn't get that.</agent:say> 
+				<reentry/>	
+			</if>		
+		</onevent>
 	</state>	
 		
 	<state id="Start" extends="Dialog">
@@ -76,8 +84,8 @@
 		</onevent>
 		
 		<onevent name="sense.user.speak**" cond="event?:sem:transportation">
-			<if cond="event?:sem:attra">
-				<agent:say text="info.transdetail(info.readtrans(),event:sem:attra)"/>
+			<if cond="event?:sem:attrname">
+				<agent:say text="info.transdetail(info.readtrans(),event:sem:attrname)"/>
 				<goto state = "CheckAgain"/>
 			<else/>
 				<goto state = "QueryTrans"/>
@@ -163,13 +171,26 @@
      		<agent:prompt>If you want more details for attractions,please say the name.</agent:prompt>
      	</onentry>
      	<onevent name="sense.user.speak**" cond="event?:sem:attrname">
-     		<exec>String s = event.get("text").toString()</exec>
+     		<exec>attrnamepass=event.get("sem:attrname")</exec>
        		<agent:say text="info.detail(info.readattr(),event:sem:attrname)"/>
-     		<goto state="CheckAgain"/>
+       		<wait msec="800"/>
+       		<goto state="Attrtrans"/>	
+     	</onevent>
+  	
+     </state>
+     
+     <state id="Attrtrans" extends="Dialog">
+     	<onentry>
+     		<agent:say>Do you want to know how to get there?</agent:say>
+     		<agent:listen/>     	
+     	</onentry>
+     	<onevent name="sense.user.speak" cond="event?:sem:yes">
+     		<agent:say text="info.transdetail(info.readtrans(),attrnamepass)"/>
+     		<goto state = "CheckAgain"/>
      	</onevent>
      	<onevent name="sense.user.speak" cond="event?:sem:no">
      		<goto state = "CheckAgain"/>
-     	</onevent>
+     	</onevent> 
      </state>
      
      
@@ -178,7 +199,6 @@
 			<agent:prompt>Where do you want to go?</agent:prompt>
 		</onentry>
 		<onevent name="sense.user.speak**" cond="event?:sem:attrname">
-			<agent:say text="event:sem:attrname"/>
 			<agent:say text="info.transdetail(info.readtrans(),event:sem:attrname)"/>
 			<goto state="CheckAgain"/>
 		</onevent>
@@ -441,15 +461,8 @@
 			<agent:say>Sorry, I didn't get that.</agent:say>
 			<reentry/>
 		</onevent>
-		<onevent name="sense.user.speak.side">
-			<agent:attendOther mode="'eyes'" />
-			<agent:say>I didn't ask you.</agent:say>
-			<agent:attendOther mode="'eyes'" />
-			<reentry/>
-		</onevent>
-		<onevent name="sense.user.speak.multi">
-			<agent:say>Don't speak at the same time.</agent:say>
-			<reentry/>
+		<onevent name="sense.user.speak" cond="event?:sem:exit">
+			<goto state="Greeting"/>
 		</onevent>
 		<onevent name="sense.user.silence">
 			<agent:say>Sorry, I didn't hear anything.</agent:say>
@@ -485,16 +498,22 @@
 						room location query
 			</agent:say>  -->
 		</onentry>
-		<onevent name="sense.user.speak**" cond="event?:sem:attractions">
-			<!-- <exec>questions.adjoin(asRecord(event:sem:questions))</exec> -->
-			<if cond="event?:sem:natural">
+		<onevent name="sense.user.speak**">
+			<exec>String s = event.get("text").toString()</exec>
+			<exec>int value=mandarin.attraction(s)</exec>
+			<exec>int value3=mandarin.nature(s)</exec>
+			<exec>int value4=mandarin.history(s)</exec>
+			<exec>int value5=mandarin.popular(s)</exec>
+			<if cond="value==2">
+				<goto state = "QueryAttr_CN"/>
+			<elseif cond="value3==3"/>
 				<goto state = "Nature_CN"/>
-			<elseif cond="event?:sem:historical"/>
+			<elseif cond="value4==4"/>
 				<goto state = "History_CN"/>
-			<elseif cond="event?:sem:popular"/>
+			<elseif cond="value5==5"/>
 				<goto state = "Popular_CN"/>
 			<else/>
-				<goto state = "QueryAttr_CN"/>
+				<agent:say>抱歉，我没有理解您说的话。</agent:say>
 			</if>
 		</onevent>
 		
